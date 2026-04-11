@@ -417,7 +417,9 @@
 #define ITEM_MAGMA_EMBLEM 375
 #define ITEM_OLD_SEA_MAP 376
 
-#define ITEMS_COUNT 377
+#define ITEM_GEN6_EXP 377
+
+#define ITEMS_COUNT 378
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
 // Its icon is defined at ITEMS_COUNT as the "return to field" arrow
@@ -476,7 +478,14 @@
 #define ITEM_B_USE_MEDICINE 1
 #define ITEM_B_USE_OTHER    2
 
-// Check if the item is one that can be used on a Pokémon.
-#define ITEM_HAS_EFFECT(item) ((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX)
+// Check if the item is one that can be used on a Pokemon.
+#define ITEM_HAS_EFFECT(item) (((item) >= ITEM_POTION && (item) <= MAX_BERRY_INDEX) || \
+                               (item) == ITEM_DRAGON_SCALE || \
+                               (item) == ITEM_KINGS_ROCK || \
+                               (item) == ITEM_DEEP_SEA_SCALE || \
+                               (item) == ITEM_DEEP_SEA_TOOTH || \
+                               (item) == ITEM_METAL_COAT || \
+                               (item) == ITEM_UP_GRADE || \
+                               (item) == ITEM_BLUE_SCARF)
 
 #endif  // GUARD_CONSTANTS_ITEMS_H

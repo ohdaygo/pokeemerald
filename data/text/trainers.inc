@@ -197,18 +197,8 @@ Route103_Text_MiguelRematchPostBattle:
 	.string "The more I spend time with it,\n"
 	.string "the more adorable my POKéMON becomes.$"
 
-Route103_Text_PeteIntro:
-	.string "This sort of distance…\n"
-	.string "You should just swim it!$"
-
-Route103_Text_PeteDefeated:
-	.string "Oh, that's good going!$"
-
-Route103_Text_PetePostBattle:
-	.string "Oh, I understand where you're coming\n"
-	.string "from now.\p"
-	.string "If I had a POKéMON that trusty,\n"
-	.string "I'd want to SURF on it, too!$"
+Route102_Text_Wally102Defeated:
+	.string "Wow, {PLAYER}{KUN}…$"
 
 Route103_Text_IsabelleIntro:
 	.string "Watch where you're going!\n"

@@ -736,7 +736,7 @@
 #define TRAINER_TABITHA_MAGMA_HIDEOUT       732
 #define TRAINER_DARCY                       733
 #define TRAINER_MAXIE_MOSSDEEP              734
-#define TRAINER_PETE                        735
+#define TRAINER_WALLY102                    735 // Was Pete R103
 #define TRAINER_ISABELLE                    736
 #define TRAINER_ANDRES_1                    737
 #define TRAINER_JOSUE                       738

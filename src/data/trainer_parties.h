@@ -9837,11 +9837,12 @@ static const struct TrainerMonNoItemDefaultMoves sParty_MaxieMossdeep[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Pete[] = {
+static const struct TrainerMonNoItemCustomMoves sParty_Wally102[] = {
     {
     .iv = 0,
-    .lvl = 15,
-    .species = SPECIES_TENTACOOL,
+    .lvl = 5,
+    .species = SPECIES_RALTS,
+    .moves = {MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE}
     }
 };
 
