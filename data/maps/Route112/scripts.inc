@@ -44,6 +44,69 @@ Route112_EventScript_MagmaGrunts::
 	releaseall
 	end
 
+Route112_EventScript_MagmaGruntsNorth::
+	lockall
+	delay 40
+	applymovement LOCALID_ROUTE112_GRUNT_3, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	delay 20
+	msgbox Route112_Text_LeaderGoingToAwakenThing, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROUTE112_GRUNT_3, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	delay 40
+	applymovement LOCALID_ROUTE112_GRUNT_4, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	delay 20
+	msgbox Route112_Text_YeahWeNeedMeteorite, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROUTE112_GRUNT_4, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	delay 40
+	applymovement LOCALID_ROUTE112_GRUNT_3, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	delay 20
+	msgbox Route112_Text_OhThatsWhyCrewWentToFallarbor, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROUTE112_GRUNT_3, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	delay 40
+	applymovement LOCALID_ROUTE112_GRUNT_4, Common_Movement_WalkInPlaceFasterUp
+	waitmovement 0
+	delay 20
+	msgbox Route112_Text_CantLetAnyonePassUntilTheyreBack, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROUTE112_GRUNT_4, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	releaseall
+	end
+
+Route112_EventScript_RockSlideTutor::
+	lock
+	faceplayer
+	msgbox Route112_Text_RockSlideTeach, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route112_EventScript_RockSlideDeclined
+	msgbox Route112_Text_RockSlideWhichMon, MSGBOX_DEFAULT
+	setvar VAR_0x8005, TUTOR_MOVE_ROCK_SLIDE
+	call MoveTutor_EventScript_OpenPartyMenu
+	goto_if_eq VAR_RESULT, 0, Route112_EventScript_RockSlideDeclined
+	goto Route112_EventScript_RockSlideTaught
+	end
+
+Route112_EventScript_RockSlideDeclined::
+	msgbox Route112_Text_RockSlideDeclined, MSGBOX_DEFAULT
+	release
+	end
+
+Route112_EventScript_RockSlideTaught::
+	msgbox Route112_Text_RockSlideTaught, MSGBOX_DEFAULT
+	release
+	end
+
+Route112_EventScript_FireyPathSign::
+	msgbox Route112_Text_FireyPathSign, MSGBOX_SIGN
+	end
+
 Route112_EventScript_MtChimneyCableCarSign::
 	msgbox Route112_Text_MtChimneyCableCarSign, MSGBOX_SIGN
 	end
@@ -54,10 +117,6 @@ Route112_EventScript_MtChimneySign::
 
 Route112_EventScript_RouteSignLavaridge::
 	msgbox Route112_Text_RouteSignLavaridge, MSGBOX_SIGN
-	end
-
-Route112_EventScript_Hiker::
-	msgbox Route112_Text_NotEasyToGetBackToLavaridge, MSGBOX_NPC
 	end
 
 Route112_EventScript_Brice::
@@ -122,11 +181,6 @@ Route112_Text_CantLetAnyonePassUntilTheyreBack:
 	.string "You got it. And until they come back,\n"
 	.string "we're not to let anyone pass, right.$"
 
-Route112_Text_NotEasyToGetBackToLavaridge:
-	.string "Eh, I'd like to get to MAUVILLE, but if\n"
-	.string "I went down these ledges, it'd be no\l"
-	.string "easy matter to get back to LAVARIDGE.$"
-
 Route112_Text_MtChimneyCableCarSign:
 	.string "MT. CHIMNEY CABLE CAR\n"
 	.string "“A short walk {UP_ARROW} way!”$"
@@ -140,3 +194,26 @@ Route112_Text_RouteSignLavaridge:
 	.string "ROUTE 112\n"
 	.string "{LEFT_ARROW} LAVARIDGE TOWN$"
 
+Route112_Text_FireyPathSign:
+	.string "FIREY PATH$"
+
+Route112_Text_RockSlideTeach:
+	.string "When you're up on a rocky mountain\n"
+	.string "like this, rockslides are a threat.\p"
+	.string "Can you imagine?\n"
+	.string "Boulders tumbling down on you?\p"
+	.string "That'd be, like, waaaaaaaaaaah!\n"
+	.string "Total terror!\p"
+	.string "You don't seem to be scared.\n"
+	.string "Want to try using ROCK SLIDE?$"
+
+Route112_Text_RockSlideDeclined:
+	.string "Oh, so you are scared after all.$"
+
+Route112_Text_RockSlideWhichMon:
+	.string "Which POKéMON should I teach\n"
+	.string "ROCK SLIDE?$"
+
+Route112_Text_RockSlideTaught:
+	.string "It might be scary to use it on this\n"
+	.string "cliffside…$"

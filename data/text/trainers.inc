@@ -2875,20 +2875,8 @@ Route119_Text_HideoPostBattle:
 	.string "There is no deep, hidden meaning\n"
 	.string "to that.$"
 
-Route119_Text_ChrisIntro:
-	.string "You spoke to me…\n"
-	.string "So you want to challenge me!\p"
-	.string "Sure! I'll try out the POKéMON I caught\n"
-	.string "while SURFING!$"
-
-Route119_Text_ChrisDefeat:
-	.string "I don't have a clue about what it\n"
-	.string "takes to win.$"
-
-Route119_Text_ChrisPostBattle:
-	.string "Go for a SURF on my POKéMON…\p"
-	.string "Then fish off its back…\p"
-	.string "It's an indescribably luxuriant moment!$"
+LilycoveCity_CoveLilyMotel_2F_Text_DaygoDefeat:
+	.string "Good work!$"
 
 Route119_Text_FabianIntro:
 	.string "Hit me with a power chord!\n"

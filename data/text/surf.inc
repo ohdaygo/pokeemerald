@@ -1,5 +1,7 @@
 gText_WantToUseSurf::
-	.string "The water is dyed a deep blue…\n"
+	.string "The water is dyed a deep blue…$"
+
+gText_SurfYN::
 	.string "Would you like to SURF?$"
 
 gText_PlayerUsedSurf::
