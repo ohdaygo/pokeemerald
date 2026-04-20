@@ -49,7 +49,6 @@ void InterviewBefore(void);
 void InterviewAfter(void);
 void UpdateTVScreensOnMap(int width, int height);
 void ConvertIntToDecimalString(u8 varIdx, int value);
-void TryPutSmartShopperOnAir(void);
 bool8 ShouldAirFrontierTVShow(void);
 void BravoTrainerPokemonProfile_BeforeInterview2(u8 contestStandingPlace);
 void ContestLiveUpdates_Init(u8 round1Placing);

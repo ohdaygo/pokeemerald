@@ -2545,7 +2545,7 @@
       "id": "LAYOUT_FORTREE_CITY_DECORATION_SHOP",
       "name": "FortreeCity_DecorationShop_Layout",
       "width": 8,
-      "height": 6,
+      "height": 7,
       "primary_tileset": "gTileset_Building",
       "secondary_tileset": "gTileset_GenericBuilding",
       "border_filepath": "data/layouts/FortreeCity_DecorationShop/border.bin",

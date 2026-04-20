@@ -20,14 +20,14 @@ SlateportCity_EventScript_MovePeopleForSternInterview::
 	setobjectxyperm LOCALID_SLATEPORT_CAPT_STERN, 28, 13
 	setobjectxyperm LOCALID_SLATEPORT_OLD_WOMAN, 25, 13
 	setobjectxyperm LOCALID_SLATEPORT_RICH_BOY, 25, 14
-	setobjectxyperm LOCALID_SLATEPORT_COOK, 27, 16
+	setobjectxyperm LOCALID_SLATEPORT_FISHERMAN, 27, 16
 	setobjectxyperm LOCALID_SLATEPORT_GIRL, 28, 16
 	setobjectxyperm LOCALID_SLATEPORT_FAT_MAN, 29, 16
 	setobjectxyperm LOCALID_SLATEPORT_MAN_1, 31, 14
 	setobjectmovementtype LOCALID_SLATEPORT_CAPT_STERN, MOVEMENT_TYPE_FACE_DOWN
 	setobjectmovementtype LOCALID_SLATEPORT_OLD_WOMAN, MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT
 	setobjectmovementtype LOCALID_SLATEPORT_RICH_BOY, MOVEMENT_TYPE_FACE_UP_AND_RIGHT
-	setobjectmovementtype LOCALID_SLATEPORT_COOK, MOVEMENT_TYPE_FACE_UP
+	setobjectmovementtype LOCALID_SLATEPORT_FISHERMAN, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_SLATEPORT_GIRL, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_SLATEPORT_FAT_MAN, MOVEMENT_TYPE_FACE_UP
 	setobjectmovementtype LOCALID_SLATEPORT_MAN_1, MOVEMENT_TYPE_FACE_LEFT
@@ -161,15 +161,55 @@ SlateportCity_EventScript_MonHasEffortRibbon::
 	release
 	end
 
-SlateportCity_EventScript_Cook::
+SlateportCity_EventScript_Fisherman::
 	lock
 	faceplayer
-	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_CookSternInterview
-	msgbox SlateportCity_Text_SeaweedFullOfLife, MSGBOX_DEFAULT
+	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_FishermanSternInterview
+	message SlateportCity_Text_FishedUp
+	waitmessage
+	goto_if_unset FLAG_EXCHANGED_SCANNER, SlateportCity_Mart_EventScript_HS
+	goto_if_set FLAG_EXCHANGED_SCANNER, SlateportCity_Mart_EventScript_HS2
+	end
+
+SlateportCity_Mart_EventScript_HS::
+	pokemart Slateport_Pokemart_HeartScale
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-SlateportCity_EventScript_CookSternInterview::
+	.align 2
+Slateport_Pokemart_HeartScale:
+	.2byte ITEM_HEART_SCALE
+	.2byte ITEM_SHOAL_SALT
+	.2byte ITEM_SHOAL_SHELL
+	.2byte ITEM_RED_SHARD
+	.2byte ITEM_BLUE_SHARD
+	.2byte ITEM_YELLOW_SHARD
+	.2byte ITEM_GREEN_SHARD
+	pokemartlistend
+
+SlateportCity_Mart_EventScript_HS2::
+	pokemart Slateport_Pokemart_HeartScale2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Slateport_Pokemart_HeartScale2:
+	.2byte ITEM_HEART_SCALE
+	.2byte ITEM_SHOAL_SALT
+	.2byte ITEM_SHOAL_SHELL
+	.2byte ITEM_RED_SHARD
+	.2byte ITEM_BLUE_SHARD
+	.2byte ITEM_YELLOW_SHARD
+	.2byte ITEM_GREEN_SHARD
+	.2byte ITEM_KINGS_ROCK	
+	.2byte ITEM_DRAGON_SCALE
+	.2byte ITEM_DEEP_SEA_SCALE
+	.2byte ITEM_DEEP_SEA_TOOTH
+	pokemartlistend
+
+SlateportCity_EventScript_FishermanSternInterview::
 	msgbox SlateportCity_Text_CaptainComeBackWithBigFish, MSGBOX_DEFAULT
 	release
 	end
@@ -191,18 +231,43 @@ SlateportCity_EventScript_Girl::
 	lock
 	faceplayer
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_GirlSternInterview
-	goto_if_set FLAG_RECEIVED_SECRET_POWER, SlateportCity_EventScript_GirlSecretBase
-	msgbox SlateportCity_Text_SlateportWonderfulPlace, MSGBOX_DEFAULT
+	dotimebasedevents
+	goto_if_set FLAG_HECTOR_POTION, SlateportCity_EventScript_HectorTommorow
+	msgbox SlateportCity_Text_Hector, MSGBOX_DEFAULT
+	goto_if_mon_caught SPECIES_ZUBAT, SlateportCity_EventScript_HectorCaught
+	playse SE_PC_LOGIN
+	waitse
+	playse SE_DEX_SEARCH
+	waitse
+	playse SE_FAILURE
+	waitse
+	msgbox SlateportCity_Text_Hector1, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_HectorCaught::
+	playse SE_PC_LOGIN
+	waitse
+	playse SE_DEX_SEARCH
+	waitse
+	playse SE_SUCCESS
+	waitse
+	playmoncry SPECIES_ZUBAT, CRY_MODE_NORMAL
+	waitmoncry
+	msgbox SlateportCity_Text_Hector2, MSGBOX_DEFAULT
+	setflag FLAG_HECTOR_POTION 
+	giveitem ITEM_CARBOS, 1
+	msgbox SlateportCity_Text_HectorTomorrow, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_HectorTommorow::
+	msgbox SlateportCity_Text_HectorTomorrow, MSGBOX_DEFAULT
 	release
 	end
 
 SlateportCity_EventScript_GirlSternInterview::
 	msgbox SlateportCity_Text_InterviewerSoCool, MSGBOX_DEFAULT
-	release
-	end
-
-SlateportCity_EventScript_GirlSecretBase::
-	msgbox SlateportCity_Text_BuyBricksSoDecorWontGetDirty, MSGBOX_DEFAULT
 	release
 	end
 
@@ -334,8 +399,64 @@ SlateportCity_EventScript_Sailor2::
 	msgbox SlateportCity_Text_SinkOldBoats, MSGBOX_NPC
 	end
 
-SlateportCity_EventScript_PokefanF::
-	msgbox SlateportCity_Text_BuyTooMuch, MSGBOX_NPC
+SlateportCity_EventScript_NameRater::
+	lock
+	faceplayer
+	msgbox SlateportCity_Text_PleasedToRateMonNickname, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SlateportCity_EventScript_ChooseMonToRate
+	goto_if_eq VAR_RESULT, NO, SlateportCity_EventScript_DeclineNameRate
+	end
+
+SlateportCity_EventScript_ChooseMonToRate::
+	msgbox SlateportCity_Text_CritiqueWhichMonNickname, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	waitstate
+	goto_if_ne VAR_0x8004, PARTY_NOTHING_CHOSEN, SlateportCity_EventScript_RateMonNickname
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, SlateportCity_EventScript_DeclineNameRate
+	end
+
+SlateportCity_EventScript_DeclineNameRate::
+	msgbox SlateportCity_Text_DoVisitAgain, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_RateMonNickname::
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_eq VAR_RESULT, SPECIES_EGG, SlateportCity_EventScript_CantRateEgg
+	special BufferMonNickname
+	special IsMonOTIDNotPlayers
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_EventScript_PlayerNotMonsOT
+	specialvar VAR_RESULT, MonOTNameNotPlayer
+	special BufferMonNickname
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_EventScript_PlayerNotMonsOT
+	msgbox SlateportCity_Text_FineNameSuggestBetterOne, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, SlateportCity_EventScript_ChangeNickname
+	goto_if_eq VAR_RESULT, NO, SlateportCity_EventScript_DeclineNameRate
+	end
+
+SlateportCity_EventScript_CantRateEgg::
+	msgbox SlateportCity_Text_ThatIsMerelyAnEgg, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_PlayerNotMonsOT::
+	msgbox SlateportCity_Text_MagnificentName, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_ChangeNickname::
+	msgbox SlateportCity_Text_WhatShallNewNameBe, MSGBOX_DEFAULT
+	call Common_EventScript_NameReceivedPartyMon
+	specialvar VAR_RESULT, TryPutNameRaterShowOnTheAir
+	special BufferMonNickname
+	goto_if_eq VAR_RESULT, TRUE, SlateportCity_EventScript_NewNameDifferent
+	msgbox SlateportCity_Text_NameNoDifferentYetSuperior, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_NewNameDifferent::
+	msgbox SlateportCity_Text_MonShallBeKnownAsName, MSGBOX_DEFAULT
+	release
 	end
 
 SlateportCity_EventScript_Man2::
@@ -474,21 +595,24 @@ SlateportCity_EventScript_AquaGrunt11::
 	release
 	end
 
-SlateportCity_EventScript_DollClerk::
+SlateportCity_EventScript_Berries::
 	lock
 	faceplayer
-	message gText_HowMayIServeYou
+	message SlateportCity_Text_Berry
 	waitmessage
-	pokemartdecoration SlateportCity_PokemartDecor_Dolls
+	pokemart SlateportCity_Pokemart_Berries
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-SlateportCity_PokemartDecor_Dolls:
-	.2byte DECOR_AZURILL_DOLL
-	.2byte DECOR_MARILL_DOLL
-	.2byte DECOR_SKITTY_DOLL
+SlateportCity_Pokemart_Berries:
+	.2byte ITEM_POMEG_BERRY
+	.2byte ITEM_KELPSY_BERRY
+	.2byte ITEM_QUALOT_BERRY
+	.2byte ITEM_HONDEW_BERRY
+	.2byte ITEM_GREPA_BERRY
+	.2byte ITEM_TAMATO_BERRY
 	pokemartlistend
 
 SlateportCity_EventScript_ComeBackWithSecretPower::
@@ -496,38 +620,78 @@ SlateportCity_EventScript_ComeBackWithSecretPower::
 	release
 	end
 
-SlateportCity_EventScript_DecorClerk::
+SlateportCity_EventScript_RC::
 	lock
 	faceplayer
-	goto_if_unset FLAG_RECEIVED_SECRET_POWER, SlateportCity_EventScript_ComeBackWithSecretPower
 	message gText_HowMayIServeYou
 	waitmessage
-	pokemartdecoration SlateportCity_PokemartDecor
+	goto_if_unset FLAG_SYS_GAME_CLEAR, SlateportCity_Mart_EventScript_PokemartBasic
+	goto_if_set FLAG_SYS_GAME_CLEAR, SlateportCity_Mart_EventScript_PokemartExpanded
+	end
+
+SlateportCity_Mart_EventScript_PokemartBasic::
+	pokemart SlateportCity_PokemartRC
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-SlateportCity_PokemartDecor:
-	.2byte DECOR_RED_BRICK
-	.2byte DECOR_BLUE_BRICK
-	.2byte DECOR_YELLOW_BRICK
-	.2byte DECOR_RED_BALLOON
-	.2byte DECOR_BLUE_BALLOON
-	.2byte DECOR_YELLOW_BALLOON
-	.2byte DECOR_C_LOW_NOTE_MAT
-	.2byte DECOR_D_NOTE_MAT
-	.2byte DECOR_E_NOTE_MAT
-	.2byte DECOR_F_NOTE_MAT
-	.2byte DECOR_G_NOTE_MAT
-	.2byte DECOR_A_NOTE_MAT
-	.2byte DECOR_B_NOTE_MAT
-	.2byte DECOR_C_HIGH_NOTE_MAT
+SlateportCity_PokemartRC:
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_BLACK_GLASSES
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_DRAGON_FANG
+	.2byte ITEM_HARD_STONE
+	.2byte ITEM_MAGNET
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_NEVER_MELT_ICE
+	.2byte ITEM_POISON_BARB
+	.2byte ITEM_SHARP_BEAK
+	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_SOFT_SAND
+	.2byte ITEM_SPELL_TAG
+	.2byte ITEM_TWISTED_SPOON
+	pokemartlistend
+
+SlateportCity_Mart_EventScript_PokemartExpanded::
+	pokemart SlateportCity_PokemartRC2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_PokemartRC2:
+	.2byte ITEM_MASTER_BALL
+	.2byte ITEM_RARE_CANDY
+	.2byte ITEM_LUXURY_BALL
+	.2byte ITEM_BLACK_BELT
+	.2byte ITEM_BLACK_GLASSES
+	.2byte ITEM_CHARCOAL
+	.2byte ITEM_DRAGON_FANG
+	.2byte ITEM_HARD_STONE
+	.2byte ITEM_MAGNET
+	.2byte ITEM_METAL_COAT
+	.2byte ITEM_MIRACLE_SEED
+	.2byte ITEM_MYSTIC_WATER
+	.2byte ITEM_NEVER_MELT_ICE
+	.2byte ITEM_POISON_BARB
+	.2byte ITEM_SHARP_BEAK
+	.2byte ITEM_SILK_SCARF
+	.2byte ITEM_SILVER_POWDER
+	.2byte ITEM_SOFT_SAND
+	.2byte ITEM_SPELL_TAG
+	.2byte ITEM_TWISTED_SPOON
 	pokemartlistend
 
 SlateportCity_EventScript_PowerTMClerk::
 	lock
 	faceplayer
+	goto_if_unset FLAG_RECEIVED_SECRET_POWER, SlateportCity_EventScript_ComeBackWithSecretPower
 	message gText_HowMayIServeYou
 	waitmessage
 	pokemart SlateportCity_Pokemart_PowerTMs
@@ -539,6 +703,7 @@ SlateportCity_EventScript_PowerTMClerk::
 SlateportCity_Pokemart_PowerTMs:
 	.2byte ITEM_TM_HIDDEN_POWER
 	.2byte ITEM_TM_SECRET_POWER
+	.2byte ITEM_TM_RETURN
 	pokemartlistend
 
 @ Scene with Capt Sterns interview and Team Aqua announcing plans to steal Submarine
@@ -566,7 +731,7 @@ SlateportCity_EventScript_CaptStern::
 	msgbox SlateportCity_Text_OhPlayerWeMadeDiscovery, MSGBOX_DEFAULT
 	playbgm MUS_ENCOUNTER_AQUA, FALSE
 	msgbox SlateportCity_Text_AquaWillAssumeControlOfSubmarine, MSGBOX_DEFAULT
-	applymovement LOCALID_SLATEPORT_COOK, Common_Movement_WalkInPlaceFasterLeft
+	applymovement LOCALID_SLATEPORT_FISHERMAN, Common_Movement_WalkInPlaceFasterLeft
 	applymovement LOCALID_SLATEPORT_FAT_MAN, Common_Movement_WalkInPlaceFasterLeft
 	applymovement LOCALID_SLATEPORT_OLD_WOMAN, SlateportCity_Movement_OldWomanConcern
 	applymovement LOCALID_SLATEPORT_RICH_BOY, Common_Movement_QuestionMark
@@ -919,6 +1084,10 @@ SlateportCity_EventScript_BerryCrushRankingsSign::
 	releaseall
 	end
 
+SlateportCity_Text_Berry:
+	.string "Rare BERRIES! To lower any erroneous\n"
+	.string "EVs!$"
+
 SlateportCity_Text_EnergyGuruSellWhatYouNeed:
 	.string "I'm the ENERGY GURU! I'll go for it and\n"
 	.string "sell you what you need!$"
@@ -954,12 +1123,8 @@ SlateportCity_Text_WonderIfLighthouseStartlesPokemon:
 	.string "I wonder if it doesn't startle POKéMON\n"
 	.string "in the sea.$"
 
-SlateportCity_Text_SeaweedFullOfLife:
-	.string "Ooh, look at this!\p"
-	.string "The seaweed you can get around these\n"
-	.string "parts is fresh and full of life.\p"
-	.string "Why, it looks like it can even rear up\n"
-	.string "and attack!$"
+SlateportCity_Text_FishedUp:
+	.string "Check out these items I fished up!$"
 
 SlateportCity_Text_HowTownIsBornAndGrows:
 	.string "Where the water is clean, the fruits\n"
@@ -968,17 +1133,21 @@ SlateportCity_Text_HowTownIsBornAndGrows:
 	.string "soon starts.\p"
 	.string "That is how a town is born and grows.$"
 
-SlateportCity_Text_SlateportWonderfulPlace:
-	.string "Shopping where you can breathe the\n"
-	.string "scent of the ocean…\p"
-	.string "SLATEPORT is such a wonderful place!$"
+SlateportCity_Text_Hector:
+	.string "Hi there!\p"
+	.string "If you've caught ZUBAT, could you show\n"
+	.string "me your POKéDEX? That's my favorite\l"
+	.string "POKéMON!$"
 
-SlateportCity_Text_BuyBricksSoDecorWontGetDirty:
-	.string "If you put DOLLS or CUSHIONS on\n"
-	.string "the floor, they'll get dirty.\p"
-	.string "I'm going to buy some BRICKS so my\n"
-	.string "DOLLS and CUSHIONS won't get dirty\l"
-	.string "when I leave them out.$"
+SlateportCity_Text_Hector1:
+	.string "Aww, you've never even caught a HECTOR…$"
+
+SlateportCity_Text_Hector2:
+	.string "You caught one!\p"
+	.string "Here, have a HECTOR POTION!$"
+
+SlateportCity_Text_HectorTomorrow:
+	.string "Come back tomorrow!$"
 
 SlateportCity_Text_GoingToCompeteInBattleTent:
 	.string "Wroooar! I'm going to compete in\n"
@@ -1352,3 +1521,51 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+SlateportCity_Text_PleasedToRateMonNickname:
+	.string "Hi, hi! I'm the NAME RATER!\n"
+	.string "I'm the fortune-teller of names!\p"
+	.string "I shall be pleased to rate your\n"
+	.string "POKéMON's nickname.$"
+
+SlateportCity_Text_CritiqueWhichMonNickname:
+	.string "Which POKéMON's nickname should\n"
+	.string "I critique?$"
+
+SlateportCity_Text_FineNameSuggestBetterOne:
+	.string "Hmmm… {STR_VAR_1}, is it? That is\n"
+	.string "quite a fine name you bestowed.\p"
+	.string "But! What say you, if I were to\n"
+	.string "suggest a slightly better name?$"
+
+SlateportCity_Text_WhatShallNewNameBe:
+	.string "Ah, good. Then, what shall the new\n"
+	.string "nickname be?$"
+
+SlateportCity_Text_MonShallBeKnownAsName:
+	.string "Done! From now on, this POKéMON\n"
+	.string "shall be known as {STR_VAR_1}!\p"
+	.string "It is a better name than before!\n"
+	.string "How fortunate for you!$"
+
+SlateportCity_Text_DoVisitAgain:
+	.string "I see.\n"
+	.string "Do come visit again.$"
+
+SlateportCity_Text_NameNoDifferentYetSuperior:
+	.string "Done! From now on, this POKéMON\n"
+	.string "shall be known as {STR_VAR_1}!\p"
+	.string "It looks no different from before,\n"
+	.string "and yet, this is vastly superior!\p"
+	.string "How fortunate for you!$"
+
+SlateportCity_Text_MagnificentName:
+	.string "Hmmm… {STR_VAR_1} it is!\p"
+	.string "This is a magnificent nickname!\n"
+	.string "It is impeccably beyond reproach!\p"
+	.string "You'll do well to cherish your\n"
+	.string "{STR_VAR_1} now and beyond.$"
+
+SlateportCity_Text_ThatIsMerelyAnEgg:
+	.string "Now, now.\n"
+	.string "That is merely an EGG!$"

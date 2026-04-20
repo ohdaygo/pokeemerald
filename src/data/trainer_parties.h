@@ -9380,26 +9380,41 @@ static const struct TrainerMonNoItemDefaultMoves sParty_LisaAndRay[] = {
     }
 };
 
-static const struct TrainerMonNoItemDefaultMoves sParty_Chris[] = {
+static const struct TrainerMonItemCustomMoves sParty_Daygo[] = {
     {
-    .iv = 0,
-    .lvl = 29,
-    .species = SPECIES_MAGIKARP,
+    .iv = 255,
+    .lvl = 60,
+    .species = SPECIES_CACTURNE,
+    .heldItem = ITEM_MIRACLE_SEED,
+    .moves = {MOVE_SPIKES, MOVE_GIGA_DRAIN, MOVE_BODY_SLAM, MOVE_DESTINY_BOND}
     },
     {
-    .iv = 0,
-    .lvl = 20,
-    .species = SPECIES_TENTACOOL,
+    .iv = 255,
+    .lvl = 60,
+    .species = SPECIES_PELIPPER,
+    .heldItem = ITEM_MYSTIC_WATER,
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_SHOCK_WAVE, MOVE_NONE}
     },
     {
-    .iv = 0,
-    .lvl = 26,
-    .species = SPECIES_FEEBAS,
+    .iv = 255,
+    .lvl = 60,
+    .species = SPECIES_MINUN,
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE, MOVE_CHARM, MOVE_ENCORE}
     },
     {
-    .iv = 0,
-    .lvl = 23,
-    .species = SPECIES_CARVANHA,
+    .iv = 255,
+    .lvl = 60,
+    .species = SPECIES_EXPLOUD,
+    .heldItem = ITEM_WHITE_HERB,
+    .moves = {MOVE_OVERHEAT, MOVE_THUNDER_PUNCH, MOVE_ICE_PUNCH, MOVE_HYPER_VOICE}
+    },
+    {
+    .iv = 255,
+    .lvl = 60,
+    .species = SPECIES_GRUMPIG,
+    .heldItem = ITEM_KINGS_ROCK,
+    .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_CALM_MIND, MOVE_EXTRASENSORY}
     }
 };
 

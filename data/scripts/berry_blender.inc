@@ -207,8 +207,10 @@ BerryBlender_Text_DontHavePokeblockCaseLink:
 	.string "The BERRY BLENDER can't be used.$"
 
 BerryBlender_Text_LoveMakingPokeblocks:
-	.string "I love making {POKEBLOCK}S.\p"
-	.string "I always have some BERRIES with me.$"
+	.string "Making {POKEBLOCK}S is a small hobby of\n"
+	.string "mine.\p"
+	.string "I'm just keeping this seat warm for a\n"
+	.string "friend!$"
 
 BerryBlender_Text_MakePokeblocksUsingBerryBlender:
 	.string "If you'd like, we could make some\n"

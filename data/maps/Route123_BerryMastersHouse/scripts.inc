@@ -24,12 +24,38 @@ Route123_BerryMastersHouse_EventScript_BerryMaster::
 	addvar VAR_RESULT, FIRST_BERRY_INDEX
 	giveitem VAR_RESULT
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	message gText_PlayerWhatCanIDoForYou
+	waitmessage
+	pokemart Route123_BerryMastersHouse_Pokemart_BerryShop
 	msgbox Route123_BerryMastersHouse_Text_VisitPrettyPetalFlowerShop, MSGBOX_DEFAULT
 	release
 	end
 
 Route123_BerryMastersHouse_EventScript_ReceivedBerryToday::
+	message gText_PlayerWhatCanIDoForYou
+	waitmessage
+	pokemart Route123_BerryMastersHouse_Pokemart_BerryShop
 	msgbox Route123_BerryMastersHouse_Text_DoneForToday, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+Route123_BerryMastersHouse_Pokemart_BerryShop:
+	.2byte ITEM_RAZZ_BERRY
+	.2byte ITEM_BLUK_BERRY
+	.2byte ITEM_NANAB_BERRY
+	.2byte ITEM_WEPEAR_BERRY
+	.2byte ITEM_PINAP_BERRY
+	.2byte ITEM_CORNN_BERRY
+	.2byte ITEM_MAGOST_BERRY
+	.2byte ITEM_RABUTA_BERRY
+	.2byte ITEM_NOMEL_BERRY
+	.2byte ITEM_SPELON_BERRY
+	.2byte ITEM_PAMTRE_BERRY
+	.2byte ITEM_WATMEL_BERRY
+	.2byte ITEM_DURIN_BERRY
+	.2byte ITEM_BELUE_BERRY
+	.2byte ITEM_NONE
 	release
 	end
 
