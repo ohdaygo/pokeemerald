@@ -9,6 +9,7 @@
 #include "sound.h"
 #include "constants/map_types.h"
 #include "constants/songs.h"
+#include "constants/region_map_sections.h"
 
 // this file's functions
 static void MovePlayerOnMachBike(u8, u16, u16);
@@ -1055,8 +1056,8 @@ void Bike_HandleBumpySlopeJump(void)
 
 bool32 IsRunningDisallowed(u8 metatile)
 {
-    if (!gMapHeader.allowRunning || IsRunningDisallowedByMetatile(metatile) == TRUE)
-        return TRUE;
-    else
+    if (gMapHeader.regionMapSectionId != MAPSEC_SPECIAL_AREA)
         return FALSE;
+    else
+        return TRUE;
 }

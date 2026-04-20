@@ -414,9 +414,77 @@ Route119_EventScript_Hideo::
 	msgbox Route119_Text_HideoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-Route119_EventScript_Chris::
-	trainerbattle_single TRAINER_CHRIS, Route119_Text_ChrisIntro, Route119_Text_ChrisDefeat
-	msgbox Route119_Text_ChrisPostBattle, MSGBOX_AUTOCLOSE
+Route119_EventScript_Feebas::
+	lock
+	faceplayer
+	goto_if_set FLAG_GOT_FEEBAS, Route119_EventScript_FeebasBought
+	goto_if_unset FLAG_GOT_FEEBAS, Route119_EventScript_FeebasHaventBought
+	end
+
+Route119_EventScript_FeebasHaventBought::
+	showmoneybox 0, 0
+	msgbox Route119_Text_Feebas, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, Route119_EventScript_FeebasYes
+	goto_if_eq VAR_RESULT, NO, Route119_EventScript_FeebasNo
+	msgbox Route119_Text_FeebasBought, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+Route119_EventScript_FeebasYes::
+	checkmoney 500
+	goto_if_eq VAR_RESULT, 0, Route119_EventScript_FeebasNo
+	playse SE_SHOP
+	removemoney 500
+	updatemoneybox
+	setflag FLAG_GOT_FEEBAS
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FEEBAS
+	givemon SPECIES_FEEBAS, 25, ITEM_NONE
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route119_EventScript_ReceiveMon
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route119_EventScript_ReceiveMonPC
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox Route119_Text_Name, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route119_EventScript_FeebasNo
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	end
+
+Route119_EventScript_FeebasNo::
+	msgbox Route119_Text_FeebasNo, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+Route119_EventScript_FeebasBought::
+	msgbox Route119_Text_FeebasBought, MSGBOX_DEFAULT
+	release
+	end
+
+Route119_EventScript_ReceiveMon::
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox Route119_Text_Name, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route119_EventScript_FeebasNo
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	release
+	end
+
+Route119_EventScript_ReceiveMonPC::
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox Route119_Text_Name, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route119_EventScript_SendMonToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto Route119_EventScript_SendMonToPC
+	end
+
+Route119_EventScript_SendMonToPC::
+	call Common_EventScript_TransferredToPC
+	msgbox Route119_Text_FeebasBought, MSGBOX_DEFAULT
+	hidemoneybox
+	release
 	end
 
 Route119_EventScript_Fabian::
@@ -608,3 +676,23 @@ Route119_Text_TrainerTipsDecoration:
 	.string "Pick your favorite items and create\n"
 	.string "your very own SECRET BASE exactly the\l"
 	.string "way you want.$"
+
+Route119_Text_Feebas:
+	.string "Hello there!\n"
+	.string "Have I got a deal just for you!\p"
+	.string "I'll let you have a secret POKéMON\n"
+	.string "- a FEEBAS - for just ¥500!\p"
+	.string "So, you'll buy it, am I right?$"
+
+Route119_Text_FeebasNo:
+	.string "No? You say no? I'm only doing this\n"
+	.string "as a favor to you!$"
+
+Route119_Text_FeebasBought:
+	.string "Well, I dont give refunds.\n"
+	.string "You knew what you were getting!$"
+
+Route119_Text_Name:
+	.string "Do you want to give a nickname to\n"
+	.string "this FEEBAS?$"
+

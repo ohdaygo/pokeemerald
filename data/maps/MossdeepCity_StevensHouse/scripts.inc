@@ -5,7 +5,7 @@ MossdeepCity_StevensHouse_MapScripts::
 	.byte 0
 
 MossdeepCity_StevensHouse_OnLoad:
-	call_if_unset FLAG_SYS_GAME_CLEAR, MossdeepCity_StevensHouse_EventScript_HideStevensNote
+	call_if_unset FLAG_DEFEATED_SOOTOPOLIS_GYM, MossdeepCity_StevensHouse_EventScript_HideStevensNote
 	end
 
 MossdeepCity_StevensHouse_EventScript_HideStevensNote::
@@ -204,7 +204,8 @@ MossdeepCity_StevensHouse_Text_LetterFromSteven:
 	.string "the desk.\p"
 	.string "Inside it is a BELDUM, my favorite\n"
 	.string "POKéMON.\p"
-	.string "I'm counting on you.\p"
+	.string "I hope you'll treat it like one of\n"
+	.string "your own.\p"
 	.string "May our paths cross someday.\p"
 	.string "STEVEN STONE$"
 

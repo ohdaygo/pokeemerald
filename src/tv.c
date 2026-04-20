@@ -259,26 +259,17 @@ static const u16 sNumberOneVarsAndThresholds[][2] = {
 
 static const u8 *const sPokeNewsTextGroup_Upcoming[NUM_POKENEWS_TYPES + 1] = {
     [POKENEWS_NONE]        = NULL,
-    [POKENEWS_SLATEPORT]   = gPokeNewsTextSlateport_Upcoming,
-    [POKENEWS_GAME_CORNER] = gPokeNewsTextGameCorner_Upcoming,
-    [POKENEWS_LILYCOVE]    = gPokeNewsTextLilycove_Upcoming,
-    [POKENEWS_BLENDMASTER] = gPokeNewsTextBlendMaster_Upcoming
+    [POKENEWS_GAME_CORNER] = gPokeNewsTextGameCorner_Upcoming
 };
 
 static const u8 *const sPokeNewsTextGroup_Ongoing[NUM_POKENEWS_TYPES + 1] = {
     [POKENEWS_NONE]        = NULL,
-    [POKENEWS_SLATEPORT]   = gPokeNewsTextSlateport_Ongoing,
-    [POKENEWS_GAME_CORNER] = gPokeNewsTextGameCorner_Ongoing,
-    [POKENEWS_LILYCOVE]    = gPokeNewsTextLilycove_Ongoing,
-    [POKENEWS_BLENDMASTER] = gPokeNewsTextBlendMaster_Ongoing
+    [POKENEWS_GAME_CORNER] = gPokeNewsTextGameCorner_Ongoing
 };
 
 static const u8 *const sPokeNewsTextGroup_Ending[NUM_POKENEWS_TYPES + 1] = {
     [POKENEWS_NONE]        = NULL,
-    [POKENEWS_SLATEPORT]   = gPokeNewsTextSlateport_Ending,
-    [POKENEWS_GAME_CORNER] = gPokeNewsTextGameCorner_Ending,
-    [POKENEWS_LILYCOVE]    = gPokeNewsTextLilycove_Ending,
-    [POKENEWS_BLENDMASTER] = gPokeNewsTextBlendMaster_Ending
+    [POKENEWS_GAME_CORNER] = gPokeNewsTextGameCorner_Ending
 };
 
 u8 *const gTVStringVarPtrs[] = {
@@ -1500,39 +1491,6 @@ static void InterviewAfter_BravoTrainerBattleTowerProfile(void)
         show->bravoTrainerTower.opponentLanguage = gSaveBlock2Ptr->frontier.towerInterview.opponentLanguage;
 }
 
-void TryPutSmartShopperOnAir(void)
-{
-    TVShow *show;
-    u8 i;
-
-    if (!(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_TRAINER_HILL_ENTRANCE) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_TRAINER_HILL_ENTRANCE))
-     && !(gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_BATTLE_FRONTIER_MART) && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_BATTLE_FRONTIER_MART))
-     && !rbernoulli(1, 3))
-    {
-        sCurTVShowSlot = FindFirstEmptyRecordMixTVShowSlot(gSaveBlock1Ptr->tvShows);
-        if (sCurTVShowSlot != -1 && IsRecordMixShowAlreadySpawned(TVSHOW_SMART_SHOPPER, FALSE) != TRUE)
-        {
-            SortPurchasesByQuantity();
-            if (gMartPurchaseHistory[0].quantity >= 20)
-            {
-                show = &gSaveBlock1Ptr->tvShows[sCurTVShowSlot];
-                show->smartshopperShow.kind = TVSHOW_SMART_SHOPPER;
-                show->smartshopperShow.active = FALSE; // NOTE: Show is not active until passed via Record Mix.
-                show->smartshopperShow.shopLocation = gMapHeader.regionMapSectionId;
-                for (i = 0; i < SMARTSHOPPER_NUM_ITEMS; i++)
-                {
-                    show->smartshopperShow.itemIds[i] = gMartPurchaseHistory[i].itemId;
-                    show->smartshopperShow.itemAmounts[i] = gMartPurchaseHistory[i].quantity;
-                }
-                show->smartshopperShow.priceReduced = IsPokeNewsActive(POKENEWS_SLATEPORT);
-                StringCopy(show->smartshopperShow.playerName, gSaveBlock2Ptr->playerName);
-                StorePlayerIdInRecordMixShow(show);
-                show->smartshopperShow.language = gGameLanguage;
-            }
-        }
-    }
-}
-
 void PutNameRaterShowOnTheAir(void)
 {
     TVShow *show;
@@ -2679,17 +2637,6 @@ static bool8 ShouldApplyPokeNewsEffect(u8 newsKind)
 {
     switch (newsKind)
     {
-    case POKENEWS_SLATEPORT:
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_SLATEPORT_CITY)
-         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_SLATEPORT_CITY)
-         && gSpecialVar_LastTalked == LOCALID_SLATEPORT_ENERGY_GURU)
-            return TRUE;
-        return FALSE;
-    case POKENEWS_LILYCOVE:
-        if (gSaveBlock1Ptr->location.mapGroup == MAP_GROUP(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ROOFTOP)
-         && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_LILYCOVE_CITY_DEPARTMENT_STORE_ROOFTOP))
-            return TRUE;
-        return FALSE;
     }
     return TRUE;
 }
@@ -3936,8 +3883,6 @@ static void ClearInvalidPokeNews(void)
 
     for (i = 0; i < POKE_NEWS_COUNT; i++)
     {
-        if (gSaveBlock1Ptr->pokeNews[i].kind > POKENEWS_BLENDMASTER)
-            ClearPokeNewsBySlot(i);
     }
     CompactPokeNews();
 }

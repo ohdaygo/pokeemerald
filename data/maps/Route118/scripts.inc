@@ -93,6 +93,10 @@ Route118_EventScript_StevenTrigger::
 	waitmovement 0
 	delay 30
 	msgbox Route118_Text_StevenQuestions, MSGBOX_DEFAULT
+	giveitem ITEM_EON_TICKET
+	setflag FLAG_RECEIVED_EON_TICKET
+	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
+	setvar VAR_DISTRIBUTE_EON_TICKET, 0
 	closemessage
 	call_if_eq VAR_0x8008, 0, Route118_EventScript_StevenExit0
 	call_if_eq VAR_0x8008, 1, Route118_EventScript_StevenExit1
@@ -254,9 +258,14 @@ Route118_Text_StevenQuestions:
 	.string "favorites, that's fine.\p"
 	.string "Perhaps you find it more fun to raise\n"
 	.string "all sorts of POKéMON.\p"
+	.string "Of course, it's not any of my business.\p"
+	.string "The process by which bonds between\n"
+	.string "POKéMON and people manifest in\l"
+	.string "tangible power…\p"
+	.string "How do we explain that?\p"
 	.string "As a TRAINER of POKéMON,\n"
 	.string "what do you think?\p"
-	.string "Of course, it's not any of my business.\p"
+	.string "{PLAYER}{KUN}, you should take this from me.\p"
 	.string "It would be nice if we were to meet\n"
 	.string "again somewhere.$"
 

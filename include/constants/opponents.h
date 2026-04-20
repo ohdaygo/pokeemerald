@@ -694,7 +694,7 @@
 #define TRAINER_LILA_AND_ROY_4              690
 #define TRAINER_LILA_AND_ROY_5              691
 #define TRAINER_LISA_AND_RAY                692
-#define TRAINER_CHRIS                       693
+#define TRAINER_DAYGO                       693 // Was Chris R119
 #define TRAINER_DAWSON                      694
 #define TRAINER_SARAH                       695
 #define TRAINER_DARIAN                      696

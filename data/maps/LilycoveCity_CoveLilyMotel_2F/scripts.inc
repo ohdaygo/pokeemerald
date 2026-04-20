@@ -39,9 +39,43 @@ LilycoveCity_CoveLilyMotel_2F_EventScript_GraphicArtist::
 	msgbox LilycoveCity_CoveLilyMotel_2F_Text_ImTheGraphicArtist, MSGBOX_NPC
 	end
 
-LilycoveCity_CoveLilyMotel_2F_EventScript_FatMan::
-	msgbox LilycoveCity_CoveLilyMotel_2F_Text_GirlsAreCute, MSGBOX_NPC
+LilycoveCity_CoveLilyMotel_2F_EventScript_Daygo::
+	lock
+	faceplayer
+	goto_if_set FLAG_DEFEATED_DAYGO, LilycoveCity_CoveLilyMotel_2F_EventScript_Daygo2
+	msgbox LilycoveCity_CoveLilyMotel_2F_Text_Daygo, MSGBOX_YESNO
+	switch VAR_RESULT
+	case NO, LilycoveCity_CoveLilyMotel_2F_EventScript_No
+	case YES, LilycoveCity_CoveLilyMotel_2F_EventScript_Yes
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Defeated::
+	msgbox LilycoveCity_CoveLilyMotel_2F_Text_Daygo1, MSGBOX_DEFAULT
+	release
 	end
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Yes::
+	trainerbattle_no_intro TRAINER_DAYGO, LilycoveCity_CoveLilyMotel_2F_Text_DaygoDefeat
+	msgbox LilycoveCity_CoveLilyMotel_2F_Text_Daygo1, MSGBOX_DEFAULT
+	setflag FLAG_DEFEATED_DAYGO
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Yes2::
+	trainerbattle_no_intro TRAINER_DAYGO, LilycoveCity_CoveLilyMotel_2F_Text_DaygoDefeat
+	msgbox LilycoveCity_CoveLilyMotel_2F_Text_Daygo1, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_No::
+	msgbox LilycoveCity_CoveLilyMotel_2F_Text_Daygo2, MSGBOX_DEFAULT
+	release
+	end
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Daygo2::
+	msgbox LilycoveCity_CoveLilyMotel_2F_Text_Daygo3, MSGBOX_YESNO
+	switch VAR_RESULT
+	case NO, LilycoveCity_CoveLilyMotel_2F_EventScript_No
+	case YES, LilycoveCity_CoveLilyMotel_2F_EventScript_Yes2
 
 LilycoveCity_CoveLilyMotel_2F_EventScript_Woman::
 	msgbox LilycoveCity_CoveLilyMotel_2F_Text_SeaBreezeTicklesHeart, MSGBOX_NPC
@@ -94,13 +128,23 @@ LilycoveCity_CoveLilyMotel_2F_Text_ImTheGraphicArtist:
 	.string "I'm the GRAPHIC ARTIST! Aren't the\n"
 	.string "POKéMON of HOENN interesting?$"
 
-LilycoveCity_CoveLilyMotel_2F_Text_GirlsAreCute:
-	.string "The girl TUBERS, they're cute, hey?\n"
-	.string "To battle against a cute TUBER…\p"
-	.string "Whoop, it's so awesome!\p"
-	.string "And the TWINS! Aren't they cute?\n"
-	.string "A 2-on-2 battle with TWINS…\p"
-	.string "Whoop, it's unbearably fun!$"
+LilycoveCity_CoveLilyMotel_2F_Text_Daygo:
+	.string "Nice to finally meet, {PLAYER}{KUN}!\n"
+	.string "I'm the creator of this hack, DAYGO.\p"
+	.string "How about one last battle with some\n"
+	.string "all-star POKéMON from my journeys?$"
+
+LilycoveCity_CoveLilyMotel_2F_Text_Daygo1:
+	.string "Come back any time you'd like a rematch,\n"
+	.string "and thanks for playing my hack!$"
+
+LilycoveCity_CoveLilyMotel_2F_Text_Daygo2:
+	.string "No worries, just let me know when you're\n"
+	.string "ready!$"
+
+LilycoveCity_CoveLilyMotel_2F_Text_Daygo3:
+	.string "Hey, {PLAYER}{KUN}!\p"
+	.string "Down for a rematch?$"
 
 LilycoveCity_CoveLilyMotel_2F_Text_SeaBreezeTicklesHeart:
 	.string "The sea breeze tickles my heart.\n"

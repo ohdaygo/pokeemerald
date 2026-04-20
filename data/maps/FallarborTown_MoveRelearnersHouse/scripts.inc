@@ -56,6 +56,25 @@ FallarborTown_MoveRelearnersHouse_EventScript_ComeBackWithHeartScale::
 	releaseall
 	end
 
+FallarborTown_MoveRelearnersHouse_EventScript_Vendor::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart FallarborTown_MoveRelearnersHouse_Pokemart_BerryShop
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+FallarborTown_MoveRelearnersHouse_Pokemart_BerryShop:
+	.2byte ITEM_FIGY_BERRY
+	.2byte ITEM_WIKI_BERRY
+	.2byte ITEM_MAGO_BERRY
+	.2byte ITEM_AGUAV_BERRY
+	.2byte ITEM_IAPAPA_BERRY
+	pokemartlistend
+
 FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor:
 	.string "I'm the MOVE TUTOR.\p"
 	.string "I know all the moves that POKéMON\n"

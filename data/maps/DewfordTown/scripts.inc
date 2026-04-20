@@ -585,46 +585,50 @@ DewfordTown_Movement_BrineyExitBoat:
 	walk_up
 	step_end
 
-DewfordTown_EventScript_TrendyPhraseBoy::
+DewfordTown_EventScript_Vendor::
 	lock
 	faceplayer
-	call Common_EventScript_BufferTrendyPhrase
-	msgbox DewfordTown_Text_XIsTheBiggestHappeningThingRight, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, DewfordTown_EventScript_ConfirmTrendyPhrase
-	goto_if_eq VAR_RESULT, NO, DewfordTown_EventScript_RejectTrendyPhrase
+	message DewfordTown_Text_Vendor
+	waitmessage
+	goto_if_unset FLAG_DEFEATED_PETALBURG_GYM, DewfordTown_Mart_EventScript_PokemartBasic
+	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, DewfordTown_Mart_EventScript_PokemartExpanded
 	end
 
-DewfordTown_EventScript_ConfirmTrendyPhrase::
-	msgbox DewfordTown_Text_YeahDefinitionOfInRightNow, MSGBOX_DEFAULT
+DewfordTown_Mart_EventScript_PokemartBasic::
+	pokemart Dewford_Pokemart_Vendor
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-DewfordTown_EventScript_RejectTrendyPhrase::
-	msgbox DewfordTown_Text_TellMeWhatsNewAndIn, MSGBOX_DEFAULT
-	setvar VAR_0x8004, EASY_CHAT_TYPE_TRENDY_PHRASE
-	call Common_ShowEasyChatScreen
-	lock
-	faceplayer
-	goto_if_eq VAR_RESULT, TRUE, DewfordTown_EventScript_GiveNewTrendyPhrase
-	goto_if_eq VAR_RESULT, FALSE, DewfordTown_EventScript_CancelNewTrendyPhrase
-	end
+	.align 2
+Dewford_Pokemart_Vendor:
+	.2byte ITEM_POKE_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_POTION
+	.2byte ITEM_REPEL
+	.2byte ITEM_ESCAPE_ROPE
+	pokemartlistend
 
-DewfordTown_EventScript_GiveNewTrendyPhrase::
-	incrementgamestat GAME_STAT_STARTED_TRENDS
-	goto_if_eq VAR_0x8004, FALSE, DewfordTown_EventScript_PhraseNotTrendyEnough
-	msgbox DewfordTown_Text_OfCourseIKnowAboutThat, MSGBOX_DEFAULT
+DewfordTown_Mart_EventScript_PokemartExpanded::
+	pokemart Dewford_Pokemart_Vendor2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-DewfordTown_EventScript_CancelNewTrendyPhrase::
-	msgbox DewfordTown_Text_HearOfAnyTrendsComeShareWithMe, MSGBOX_DEFAULT
-	release
-	end
-
-DewfordTown_EventScript_PhraseNotTrendyEnough::
-	msgbox DewfordTown_Text_XHuhIThinkYIsCool, MSGBOX_DEFAULT
-	release
-	end
+	.align 2
+Dewford_Pokemart_Vendor2:
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_REVIVE	
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_ESCAPE_ROPE
+	pokemartlistend
 
 DewfordTown_Text_TinyIslandCommunity:
 	.string "DEWFORD is a tiny island community.\n"
@@ -788,3 +792,8 @@ DewfordTown_Text_YeahDefinitionOfInRightNow:
 	.string "Yeah, absolutely right!\p"
 	.string "“{STR_VAR_1}” is the\n"
 	.string "definition of “in” right now.$"
+
+DewfordTown_Text_Vendor:
+	.string "I represent the POKéMON MART here\n"
+	.string "in DEWFORD TOWN!\p"
+	.string "How may I serve you?$"
