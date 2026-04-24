@@ -250,7 +250,7 @@
 #define FLAG_RECEIVED_STARTER_DOLL           0xE2
 #define FLAG_RECEIVED_GOOD_ROD               0xE3
 #define FLAG_REGI_DOORS_OPENED               0xE4
-#define FLAG_RECEIVED_TM_RETURN              0xE5
+#define FLAG_UNUSED_0x0E5                    0xE5 // Was FLAG_RECEIVED_TM_RETURN
 #define FLAG_RECEIVED_TM_SLUDGE_BOMB         0xE6
 #define FLAG_RECEIVED_TM_ROAR                0xE7
 #define FLAG_RECEIVED_TM_GIGA_DRAIN          0xE8
@@ -453,7 +453,7 @@
 #define FLAG_REGISTERED_NORMAN               (TRAINER_REGISTERED_FLAGS_START + REMATCH_NORMAN)
 #define FLAG_REGISTERED_WINONA               (TRAINER_REGISTERED_FLAGS_START + REMATCH_WINONA)
 #define FLAG_REGISTERED_TATE_AND_LIZA        (TRAINER_REGISTERED_FLAGS_START + REMATCH_TATE_AND_LIZA)
-#define FLAG_REGISTERED_JUAN                 (TRAINER_REGISTERED_FLAGS_START + REMATCH_JUAN)
+#define FLAG_REGISTERED_JUAN                 (TRAINER_REGISTERED_FLAGS_START + REMATCH_JUAN) // Note: FLAG_REMATCH_JUAN is handled by FLAG_ENABLE_JUAN_MATCH_CALL instead.
 #define FLAG_REGISTERED_SIDNEY               (TRAINER_REGISTERED_FLAGS_START + REMATCH_SIDNEY)
 #define FLAG_REGISTERED_PHOEBE               (TRAINER_REGISTERED_FLAGS_START + REMATCH_PHOEBE)
 #define FLAG_REGISTERED_GLACIA               (TRAINER_REGISTERED_FLAGS_START + REMATCH_GLACIA)
@@ -468,16 +468,16 @@
 #define FLAG_SHOWN_EON_TICKET                0x1AE
 #define FLAG_SHOWN_AURORA_TICKET             0x1AF
 #define FLAG_SHOWN_OLD_SEA_MAP               0x1B0
-#define FLAG_MOVE_TUTOR_TAUGHT_SWAGGER       0x1B1
-#define FLAG_MOVE_TUTOR_TAUGHT_ROLLOUT       0x1B2
-#define FLAG_MOVE_TUTOR_TAUGHT_FURY_CUTTER   0x1B3
-#define FLAG_MOVE_TUTOR_TAUGHT_MIMIC         0x1B4
-#define FLAG_MOVE_TUTOR_TAUGHT_METRONOME     0x1B5
-#define FLAG_MOVE_TUTOR_TAUGHT_SLEEP_TALK    0x1B6
-#define FLAG_MOVE_TUTOR_TAUGHT_SUBSTITUTE    0x1B7
-#define FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH  0x1B8
-#define FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE   0x1B9
-#define FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION     0x1BA
+#define FLAG_UNUSED_0x1B1                    0x1B1 // Was FLAG_MOVE_TUTOR_TAUGHT_SWAGGER
+#define FLAG_UNUSED_0x1B2                    0x1B2 // Was FLAG_MOVE_TUTOR_TAUGHT_ROLLOUT
+#define FLAG_UNUSED_0x1B3                    0x1B3 // Was FLAG_MOVE_TUTOR_TAUGHT_FURY_CUTTER
+#define FLAG_UNUSED_0x1B4                    0x1B4 // Was FLAG_MOVE_TUTOR_TAUGHT_MIMIC
+#define FLAG_UNUSED_0x1B5                    0x1B5 // Was FLAG_MOVE_TUTOR_TAUGHT_METRONOME
+#define FLAG_UNUSED_0x1B6                    0x1B6 // Was FLAG_MOVE_TUTOR_TAUGHT_SLEEP_TALK
+#define FLAG_UNUSED_0x1B7                    0x1B7 // Was FLAG_MOVE_TUTOR_TAUGHT_SUBSTITUTE
+#define FLAG_UNUSED_0x1B8                    0x1B8 // Was FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH
+#define FLAG_UNUSED_0x1B9                    0x1B9 // Was FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE
+#define FLAG_UNUSED_0x1BA                    0x1BA // Was FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION
 #define FLAG_DEFEATED_REGIROCK               0x1BB
 #define FLAG_DEFEATED_REGICE                 0x1BC
 #define FLAG_DEFEATED_REGISTEEL              0x1BD
@@ -1228,10 +1228,10 @@
 #define FLAG_DRAGON_FANG                                            0x496 // Was Unused Flag
 #define FLAG_HECTOR_POTION                                          0x497 // Was Unused Flag
 #define FLAG_DEFEATED_DAYGO                                         0x498 // Was Unused Flag
-#define FLAG_RUNNING_SHOES_TOGGLE                                   0x499 // Was Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
+#define FLAG_LIGHT_BALL                                             0x499 // Was Unused Flag
+#define FLAG_ONE_CLAIMED                                            0x49A // Unused Flag
+#define FLAG_STARTERS_CLAIMED                                       0x49B // Unused Flag
+#define FLAG_RECEIVED_JOHTO_STARTERS                                0x49C // Unused Flag
 #define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
 #define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag

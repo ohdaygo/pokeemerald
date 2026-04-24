@@ -203,8 +203,140 @@ Route101_Movement_Unused2:
 	walk_up
 	step_end
 
-Route101_EventScript_Youngster::
-	msgbox Route101_Text_TakeTiredPokemonToPokeCenter, MSGBOX_NPC
+Route101_EventScript_GiftStarter::
+	lock
+	faceplayer
+	goto_if_set FLAG_STARTERS_CLAIMED, Route101_EventScript_GiftStarterNoMore
+	msgbox Route101_Text_GiftStarter, MSGBOX_DEFAULT
+	specialvar VAR_RESULT, GetLeadMonFriendshipScore
+	switch VAR_RESULT
+	case FRIENDSHIP_NONE, Route101_EventScript_GiftStarterNo
+	case FRIENDSHIP_1_TO_49, Route101_EventScript_GiftStarterNo
+	case FRIENDSHIP_50_TO_99, Route101_EventScript_GiftStarterNo
+	case FRIENDSHIP_100_TO_149, Route101_EventScript_GiftStarterNo
+	case FRIENDSHIP_150_TO_199, Route101_EventScript_GiftStarterNo
+	case FRIENDSHIP_200_TO_254, Route101_EventScript_GiftStarterCheck
+	case FRIENDSHIP_MAX, Route101_EventScript_GiftStarterCheck
+	release
+	end
+
+Route101_EventScript_GiftStarterCheck::
+	switch VAR_STARTER_MON
+	case 0, Route101_EventScript_StartedWTreecko
+	case 1, Route101_EventScript_StartedWTorchic
+	case 2, Route101_EventScript_StartedWMudkip
+	end
+
+Route101_EventScript_GiftStarterNo::
+	msgbox Route101_Text_GiftStarterNo, MSGBOX_DEFAULT
+	release
+	end
+
+Route101_EventScript_GiftStarterNoMore::
+	msgbox Route101_Text_GiftStarterNoMore, MSGBOX_DEFAULT
+	release
+	end
+
+Route101_EventScript_StartedWMudkip::
+	goto_if_set FLAG_ONE_CLAIMED, Route101_EventScript_Starter4	
+	setflag FLAG_ONE_CLAIMED
+	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TORCHIC
+	givemon SPECIES_TORCHIC, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route101_EventScript_ReceiveStarter
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route101_EventScript_ReceiveStarterPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+Route101_EventScript_StartedWTreecko::
+	goto_if_set FLAG_ONE_CLAIMED, Route101_EventScript_Starter5	
+	setflag FLAG_ONE_CLAIMED
+	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MUDKIP
+	givemon SPECIES_MUDKIP, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route101_EventScript_ReceiveStarter
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route101_EventScript_ReceiveStarterPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+Route101_EventScript_StartedWTorchic::	
+	goto_if_set FLAG_ONE_CLAIMED, Route101_EventScript_Starter6	
+	setflag FLAG_ONE_CLAIMED
+	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TREECKO
+	givemon SPECIES_TREECKO, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route101_EventScript_ReceiveStarter
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route101_EventScript_ReceiveStarterPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+Route101_EventScript_Starter4::
+	goto_if_unset FLAG_DEFEATED_PETALBURG_GYM, Route101_EventScript_GiftStarterCBL
+	setflag FLAG_STARTERS_CLAIMED
+	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TREECKO
+	givemon SPECIES_TREECKO, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route101_EventScript_ReceiveStarter
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route101_EventScript_ReceiveStarterPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+Route101_EventScript_Starter5::
+	goto_if_unset FLAG_DEFEATED_PETALBURG_GYM, Route101_EventScript_GiftStarterCBL
+	setflag FLAG_STARTERS_CLAIMED
+	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TORCHIC
+	givemon SPECIES_TORCHIC, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route101_EventScript_ReceiveStarter
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route101_EventScript_ReceiveStarterPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+Route101_EventScript_Starter6::
+	goto_if_unset FLAG_DEFEATED_PETALBURG_GYM, Route101_EventScript_GiftStarterCBL
+	setflag FLAG_STARTERS_CLAIMED
+	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MUDKIP
+	givemon SPECIES_MUDKIP, 5
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route101_EventScript_ReceiveStarter
+	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route101_EventScript_ReceiveStarterPC
+	goto Common_EventScript_NoMoreRoomForPokemon
+	end
+
+Route101_EventScript_ReceiveStarter::
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox Route101_Text_NicknameYN, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route101_EventScript_GL
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	release
+	end
+
+Route101_EventScript_ReceiveStarterPC::
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	msgbox Route101_Text_NicknameYN, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route101_EventScript_SendStarterToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto Route101_EventScript_SendStarterToPC
+	end
+
+Route101_EventScript_SendStarterToPC::
+	call Common_EventScript_TransferredToPC
+	msgbox Route101_Text_GL, MSGBOX_DEFAULT
+	release
+	end
+
+Route101_EventScript_GiftStarterCBL::
+	call_if_set FLAG_STARTERS_CLAIMED, Route101_Text_GiftStarterNoMore
+	msgbox Route101_Text_GiftStarterCBL, MSGBOX_DEFAULT
+	release
+	end
+
+Route101_EventScript_GL::
+	msgbox Route101_Text_GL, MSGBOX_DEFAULT
+	release
 	end
 
 Route101_EventScript_Boy::
@@ -281,12 +413,6 @@ Route101_Text_YouSavedMe:
 	.string "This is not the place to chat, so come\n"
 	.string "by my POKéMON LAB later, okay?$"
 
-Route101_Text_TakeTiredPokemonToPokeCenter:
-	.string "If POKéMON get tired, take them to\n"
-	.string "a POKéMON CENTER.\p"
-	.string "There's a POKéMON CENTER in OLDALE\n"
-	.string "TOWN right close by.$"
-
 Route101_Text_WildPokemonInTallGrass:
 	.string "Wild POKéMON will jump out at you in\n"
 	.string "tall grass.\p"
@@ -297,3 +423,39 @@ Route101_Text_RouteSign:
 	.string "ROUTE 101\n"
 	.string "{UP_ARROW} OLDALE TOWN$"
 
+Route101_Text_GiftStarter:
+	.string "Hi!\p"
+	.string "Remember me? I'm PROF. BIRCH'S AIDE!\p"
+	.string "If you're a trustworthy trainer, I'm\n"
+	.string "supposed to give you a PARTNER POKéMON.\p"
+	.string "So, {PLAYER}{KUN}, allow me to check your\n"
+	.string "POKéMON.$"
+
+Route101_Text_GiftStarterYes:
+	.string "Your POKéMON is very comfortable with\n"
+	.string "you! Please take this PARTNER POKéMON\l"
+	.string "on your journey!$"
+
+Route101_Text_GiftStarterNo:
+	.string "Your POKéMON don't seem as\n"
+	.string "enthusiastic to travel with you as\l"
+	.string "we'd prefer.\p"
+	.string "Come back another time.$" 
+
+Route101_Text_GiftStarterNoMore:
+	.string "It seems you have all three HOENN\n"
+	.string "PARTNER POKéMON.\p"
+	.string "Good luck on the rest of your journey!$"
+	
+Route101_Text_GiftStarterCBL:
+	.string "{PLAYER}{KUN}, PROF. BIRCH only\n"
+	.string "authorized I give you one PARTNER\l"
+	.string "POKéMON.\p"
+	.string "Come back later.$"
+
+Route101_Text_GL::
+	.string "Good luck on your journey!$"
+
+Route101_Text_NicknameYN::
+.string "Would you like to give this PARTNER\n"
+.string "POKéMON a nickname?$"

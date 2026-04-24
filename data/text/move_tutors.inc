@@ -235,3 +235,25 @@ MoveTutor_Text_ExplosionTaught:
 	.string "to ignite my own EXPLOSION…\p"
 	.string "Maybe it's because deep down,\n"
 	.string "I would rather stay here…$"
+
+MoveTutor_Text_RockSlideTeach:
+	.string "When you're up on a rocky mountain\n"
+	.string "like this, rockslides are a threat.\p"
+	.string "Can you imagine?\n"
+	.string "Boulders tumbling down on you?\p"
+	.string "That'd be, like, waaaaaaaaaaah!\n"
+	.string "Total terror!\p"
+	.string "You don't seem to be scared.\n"
+	.string "Want to try using ROCK SLIDE?$"
+
+MoveTutor_Text_RockSlideDeclined:
+	.string "Oh, so you are scared after all.$"
+
+MoveTutor_Text_RockSlideWhichMon:
+	.string "Which POKéMON should I teach\n"
+	.string "ROCK SLIDE?$"
+
+MoveTutor_Text_RockSlideTaught:
+	.string "It might be scary to use it on this\n"
+	.string "cliffside…$"
+

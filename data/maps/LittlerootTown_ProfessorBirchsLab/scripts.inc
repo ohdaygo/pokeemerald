@@ -282,8 +282,70 @@ LittlerootTown_ProfessorBirchsLab_EventScript_AideAlreadyMet::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_AideReceivedStarter::
+	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_JohtoStarters
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo, MSGBOX_DEFAULT
 	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_JohtoStarters::
+	goto_if_set FLAG_RECEIVED_JOHTO_STARTERS, LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
+	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA, LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Chikorita
+	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CYNDAQUIL, LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Cyndaquil
+	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TOTODILE, LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Totodile
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_GotAllStarters, MSGBOX_DEFAULT
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Cyndaquil::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Starters, MSGBOX_DEFAULT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHIKORITA
+	givemon SPECIES_CHIKORITA, 5
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call Common_EventScript_TransferredToPC
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TOTODILE
+	givemon SPECIES_TOTODILE, 5
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call Common_EventScript_TransferredToPC
+	setflag FLAG_RECEIVED_JOHTO_STARTERS
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Totodile::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Starters, MSGBOX_DEFAULT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHIKORITA
+	givemon SPECIES_CHIKORITA, 5
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call Common_EventScript_TransferredToPC
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CYNDAQUIL
+	givemon SPECIES_CYNDAQUIL, 5
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call Common_EventScript_TransferredToPC
+	setflag FLAG_RECEIVED_JOHTO_STARTERS
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Chikorita::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_Starters, MSGBOX_DEFAULT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CYNDAQUIL
+	givemon SPECIES_CYNDAQUIL, 5
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call Common_EventScript_TransferredToPC
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TOTODILE
+	givemon SPECIES_TOTODILE, 5
+	playfanfare MUS_OBTAIN_ITEM
+	waitfanfare
+	call Common_EventScript_TransferredToPC
+	setflag FLAG_RECEIVED_JOHTO_STARTERS
+	goto LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_Cyndaquil::
@@ -676,10 +738,19 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork:
 	.string "things than read about them here.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
-	.string "PROF. BIRCH is studying the habitats\n"
-	.string "and distribution of POKéMON.\p"
-	.string "The PROF enjoys {RIVAL}'s help, too.\n"
-	.string "There's a lot of love there.$"
+	.string "PROF. BIRCH has a reward planned for\n"
+	.string "anyone who completes their POKéDEX.\p"
+	.string "Come back to me when you receive it!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_Starters:
+	.string "Congratulations on your achievement!\p"
+	.string "Here, I personally would like you to\n"
+	.string "have these two PARTNER POKéMON as\l"
+	.string "well.\p"
+	.string "I'll have them deposited into your PC.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_GotAllStarters:
+	.string "Congratulations on your achievement!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_LikeYouToHavePokemon:
 	.string "PROF. BIRCH: So, {PLAYER}{KUN}.\p"
@@ -702,12 +773,13 @@ LittlerootTown_ProfessorBirchsLab_Text_WhyNotGiveNicknameToMon:
 
 LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
 	.string "PROF. BIRCH: If you work at POKéMON\n"
-	.string "and gain experience, I think you'll make\l"
-	.string "an extremely good TRAINER.\p"
+	.string "and gain experience, I think you'll\l"
+	.string "make an extremely good TRAINER.\p"
 	.string "My kid, {RIVAL}, is also studying\n"
 	.string "POKéMON while helping me out.\p"
-	.string "{PLAYER}{KUN}, don't you think it might be\n"
-	.string "a good idea to go see {RIVAL}?$"
+	.string "{PLAYER}{KUN}, {RIVAL} is doing some\n"
+	.string "fieldwork on {COLOR GREEN}ROUTE 103{COLOR DARK_GRAY} and would be\l"
+	.string "happy to give you some pointers!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_GetRivalToTeachYou:
 	.string "PROF. BIRCH: Great!\n"
@@ -720,10 +792,9 @@ LittlerootTown_ProfessorBirchsLab_Text_DontBeThatWay:
 	.string "You should go meet my kid.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome:
-	.string "PROF. BIRCH: {RIVAL}?\n"
-	.string "Gone home, I think.\p"
-	.string "Or maybe that kid's scrabbling around\n"
-	.string "in tall grass again somewhere…\p"
+	.string "PROF. BIRCH: {RIVAL}?\p"
+	.string "My kid should be scrabbling around\n"
+	.string "in tall grass on {COLOR GREEN}ROUTE 103{COLOR DARK_GRAY}.\p"
 	.string "If you or your POKéMON get tired,\n"
 	.string "you should get some rest at home.$"
 
