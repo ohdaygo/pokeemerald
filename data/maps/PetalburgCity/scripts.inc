@@ -50,7 +50,6 @@ PetalburgCity_EventScript_WallyTutorial::
 	setvar VAR_PETALBURG_CITY_STATE, 3
 	fadedefaultbgm
 	clearflag FLAG_DONT_TRANSITION_MUSIC
-	special LoadPlayerParty
 	setvar VAR_PETALBURG_GYM_STATE, 1
 	warp MAP_PETALBURG_CITY_GYM, 4, 108
 	waitstate
