@@ -427,7 +427,8 @@ Route101_Text_GiftStarter:
 	.string "Hi!\p"
 	.string "Remember me? I'm PROF. BIRCH'S AIDE!\p"
 	.string "If you're a trustworthy trainer, I'm\n"
-	.string "supposed to give you a PARTNER POKéMON.\p"
+	.string "supposed to give you a PARTNER\l"
+	.string "POKéMON.\p"
 	.string "So, {PLAYER}{KUN}, allow me to check your\n"
 	.string "POKéMON.$"
 
