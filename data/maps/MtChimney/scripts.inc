@@ -431,7 +431,7 @@ MtChimney_EventScript_MachineOff::
 	end
 
 MtChimney_EventScript_MachineOn::
-	msgbox MtChimney_Text_MetoriteFittedOnMachine, MSGBOX_DEFAULT
+	msgbox MtChimney_Text_MeteoriteFittedOnMachine, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -679,6 +679,14 @@ MtChimney_Text_LavaCookiesJust200:
 MtChimney_Text_ThankYouDear:
 	.string "Thank you, dear!$"
 
+MtChimney_Text_YouveNotGotTheMoney:
+	.string "Oh, dear. You can't buy a thing if\n"
+	.string "you've not got the money.$"
+
+MtChimney_Text_OhFineThen:
+	.string "Oh, fine then.$"
+
+MtChimney_Text_MeteoriteFittedOnMachine:
 MtChimney_Text_MetoriteFittedOnMachine:
 	.string "A METEORITE is fitted on a mysterious\n"
 	.string "machine…\p"

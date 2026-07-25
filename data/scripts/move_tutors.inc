@@ -220,7 +220,6 @@ MoveTutor_EventScript_ExplosionTaught::
 
 MoveTutor_EventScript_OpenPartyMenu::
 	special ChooseMonForMoveTutor
-	waitstate
 	lock
 	faceplayer
 	return
