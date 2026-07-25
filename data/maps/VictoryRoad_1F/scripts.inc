@@ -103,9 +103,9 @@ VictoryRoad_1F_EventScript_Albert::
 	msgbox VictoryRoad_1F_Text_AlbertPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-VictoryRoad_1F_EventScript_Hope::
-	trainerbattle_single TRAINER_HOPE, VictoryRoad_1F_Text_HopeIntro, VictoryRoad_1F_Text_HopeDefeat
-	msgbox VictoryRoad_1F_Text_HopePostBattle, MSGBOX_AUTOCLOSE
+VictoryRoad_1F_EventScript_Ashley::
+	trainerbattle_single TRAINER_ASH_VR, VictoryRoad_1F_Text_AshleyIntro, VictoryRoad_1F_Text_AshleyDefeat
+	msgbox VictoryRoad_1F_Text_AshleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 VictoryRoad_1F_EventScript_Quincy::
@@ -180,14 +180,14 @@ VictoryRoad_1F_Text_AlbertPostBattle:
 	.string "That means I lack the qualifications\n"
 	.string "to become the CHAMPION…$"
 
-VictoryRoad_1F_Text_HopeIntro:
+VictoryRoad_1F_Text_AshleyIntro:
 	.string "This seemingly infinite and harsh road\n"
 	.string "lives up to its name of VICTORY.$"
 
-VictoryRoad_1F_Text_HopeDefeat:
+VictoryRoad_1F_Text_AshleyDefeat:
 	.string "Your battle style is fantastic…$"
 
-VictoryRoad_1F_Text_HopePostBattle:
+VictoryRoad_1F_Text_AshleyPostBattle:
 	.string "You seem to have the potential for\n"
 	.string "becoming the CHAMPION.$"
 

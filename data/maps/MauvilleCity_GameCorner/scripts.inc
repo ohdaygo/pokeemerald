@@ -2,15 +2,15 @@ MauvilleCity_GameCorner_MapScripts::
 	.byte 0
 
     @ Game Corner prices
-	.set TM_DOUBLE_TEAM_COINS, 1500
-	.set TM_PSYCHIC_COINS, 3500
-	.set TM_FLAMETHROWER_COINS, 4000
-	.set TM_THUNDERBOLT_COINS, 4000
-	.set TM_ICE_BEAM_COINS, 4000
-	.set DOLL_COINS, 1000
+	.set TM_DOUBLE_TEAM_COINS, 500
+	.set TM_PSYCHIC_COINS, 1500
+	.set TM_FLAMETHROWER_COINS, 1500
+	.set TM_THUNDERBOLT_COINS, 1500
+	.set TM_ICE_BEAM_COINS, 1500
+	.set DOLL_COINS, 500
 
+	.set COINS_PRICE_500, 5000
 	.set COINS_PRICE_50,  1000
-	.set COINS_PRICE_500, 10000
 
 MauvilleCity_GameCorner_EventScript_CoinsClerk::
 	lock
@@ -626,6 +626,46 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase::
 	releaseall
 	end
 
+MauvilleCity_GameCorner_EventScript_EXPShare::
+	lock
+	faceplayer
+	showmoneybox 0, 0
+	msgbox MauvilleCity_GameCorner_Text_EXPShare, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_EXPShareDecline
+	checkmoney 1997
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_Text_EXPShareCantAfford
+	msgbox MauvilleCity_GameCorner_Text_EXPShareBought, MSGBOX_DEFAULT
+	checkitemspace ITEM_EXP_SHARE
+	call_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_RemoveMoney
+	giveitem ITEM_EXP_SHARE
+	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_BagIsFull
+	hidemoneybox
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_BagIsFull::
+	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_RemoveMoney::
+	removemoney 1997
+	updatemoneybox
+	return
+
+MauvilleCity_GameCorner_EventScript_EXPShareDecline::
+	msgbox MauvilleCity_GameCorner_Text_EXPShareDecline MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
+MauvilleCity_GameCorner_EventScript_EXPShareCantAfford::
+	msgbox MauvilleCity_GameCorner_Text_EXPShareCantAfford MSGBOX_DEFAULT
+	hidemoneybox
+	release
+	end
+
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner:
 	.string "This is MAUVILLE GAME CORNER.$"
 
@@ -776,3 +816,20 @@ MauvilleCity_GameCorner_Text_CantPlayWithNoCoinCase:
 	.string "You can't play if you don't have\n"
 	.string "a COIN CASE.$"
 
+MauvilleCity_GameCorner_Text_EXPShare:
+	.string "Hey hey hey! I have a very special deal\n"
+	.string "for you kid!\p"
+	.string "An irresistible EXP. SHARE!\p"
+	.string "Only for the low, low price of ¥1997.\n"
+	.string "An awesome price!\p"
+	.string "After all, you wanna be a big shot!$"
+
+MauvilleCity_GameCorner_Text_EXPShareBought:
+	.string "Then a deal's a deal! Pleasure doing\n"
+	.string "business with you kid!$"	
+
+MauvilleCity_GameCorner_Text_EXPShareDecline:
+	.string "What? You were so close!$"
+
+MauvilleCity_GameCorner_Text_EXPShareCantAfford:
+	.string "What? You don't have enough cash!$"

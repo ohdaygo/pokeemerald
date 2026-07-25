@@ -1,6 +1,8 @@
 #ifndef GUARD_ALLOC_H
 #define GUARD_ALLOC_H
 
+#define malloc Alloc
+#define free Free
 
 #define FREE_AND_SET_NULL(ptr)          \
 {                                       \

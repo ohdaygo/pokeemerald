@@ -378,8 +378,8 @@ OldaleTown_Text_DiscoveredFootprints:
 OldaleTown_Text_FinishedSketchingFootprints:
 	.string "I finished sketching the footprints of\n"
 	.string "a rare POKéMON.\p"
-	.string "But it turns out they were only my\n"
-	.string "own footprints…$"
+	.string "But it turns out I tracked over soil and\n"
+	.string "they were only my own footprints…$"
 
 OldaleTown_Text_MayLetsGoBack:
 	.string "MAY: {PLAYER}{KUN}!\n"

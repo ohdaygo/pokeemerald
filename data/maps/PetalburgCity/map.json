@@ -67,16 +67,16 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
-      "x": 20,
+      "graphics_id": "OBJ_EVENT_GFX_FISHERMAN",
+      "x": 21,
       "y": 10,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_WANDER_UP_AND_DOWN",
+      "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "PetalburgCity_EventScript_Gentleman",
+      "script": "PetalburgCity_EventScript_Fisherman",
       "flag": "0"
     },
     {
@@ -122,7 +122,7 @@
     {
       "local_id": "LOCALID_GYM_BOY",
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
-      "x": 13,
+      "x": 14,
       "y": 15,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",

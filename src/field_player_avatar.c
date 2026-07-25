@@ -1802,6 +1802,11 @@ static bool8 Fishing_InitDots(struct Task *task)
     u32 randVal;
 
     LoadMessageBoxAndFrameGfx(0, TRUE);
+    if (!DoesCurrentMapHaveFishingMons())
+    {
+        task->tStep = FISHING_NO_BITE;
+    }
+    else
     task->tStep++;
     task->tFrameCounter = 0;
     task->tNumDots = 0;
@@ -1823,10 +1828,8 @@ static bool8 Fishing_ShowDots(struct Task *task)
     task->tFrameCounter++;
     if (JOY_NEW(A_BUTTON))
     {
-        task->tStep = FISHING_NO_BITE;
-        if (task->tRoundsPlayed != 0)
-            task->tStep = FISHING_GOT_AWAY;
-        return TRUE;
+        task->tStep = FISHING_GOT_BITE;
+        return FALSE;
     }
     else
     {
@@ -1835,7 +1838,7 @@ static bool8 Fishing_ShowDots(struct Task *task)
             task->tFrameCounter = 0;
             if (task->tNumDots >= task->tDotsRequired)
             {
-                task->tStep++;
+                task->tStep = FISHING_GOT_BITE;
                 if (task->tRoundsPlayed != 0)
                     task->tStep++;
                 task->tRoundsPlayed++;
@@ -1864,16 +1867,6 @@ static bool8 Fishing_CheckForBite(struct Task *task)
     }
     else
     {
-        if (!GetMonData(&gPlayerParty[0], MON_DATA_SANITY_IS_EGG))
-        {
-            u8 ability = GetMonAbility(&gPlayerParty[0]);
-            if (ability == ABILITY_SUCTION_CUPS || ability  == ABILITY_STICKY_HOLD)
-            {
-                if (Random() % 100 > 14)
-                    bite = TRUE;
-            }
-        }
-
         if (!bite)
         {
             if (Random() & 1)
@@ -1900,17 +1893,9 @@ static bool8 Fishing_GotBite(struct Task *task)
 // We have a bite. Now, wait for the player to press A, or the timer to expire.
 static bool8 Fishing_WaitForA(struct Task *task)
 {
-    const s16 reelTimeouts[3] = {
-        [OLD_ROD]   = 36,
-        [GOOD_ROD]  = 33,
-        [SUPER_ROD] = 30
-    };
-
     AlignFishingAnimationFrames();
     task->tFrameCounter++;
-    if (task->tFrameCounter >= reelTimeouts[task->tFishingRod])
-        task->tStep = FISHING_GOT_AWAY;
-    else if (JOY_NEW(A_BUTTON))
+    if (JOY_NEW(A_BUTTON))
         task->tStep++;
     return FALSE;
 }
@@ -1918,27 +1903,8 @@ static bool8 Fishing_WaitForA(struct Task *task)
 // Determine if we're going to play the dot game again
 static bool8 Fishing_CheckMoreDots(struct Task *task)
 {
-    const s16 moreDotsChance[][2] =
-    {
-        [OLD_ROD]   = {0, 0},
-        [GOOD_ROD]  = {40, 10},
-        [SUPER_ROD] = {70, 30}
-    };
-
     AlignFishingAnimationFrames();
     task->tStep++;
-    if (task->tRoundsPlayed < task->tMinRoundsRequired)
-    {
-        task->tStep = FISHING_START_ROUND;
-    }
-    else if (task->tRoundsPlayed < 2)
-    {
-        // probability of having to play another round
-        s16 probability = Random() % 100;
-
-        if (moreDotsChance[task->tFishingRod][task->tRoundsPlayed] > probability)
-            task->tStep = FISHING_START_ROUND;
-    }
     return FALSE;
 }
 

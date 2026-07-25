@@ -775,25 +775,25 @@ struct
         .species = SPECIES_METANG,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 42,
-        .nature = NATURE_BRAVE,
-        .evs = {0, 252, 252, 0, 6, 0},
-        .moves = {MOVE_LIGHT_SCREEN, MOVE_PSYCHIC, MOVE_REFLECT, MOVE_METAL_CLAW}
+        .nature = NATURE_RELAXED,
+        .evs = {252, 0, 60, 0, 196, 0},
+        .moves = {MOVE_METEOR_MASH, MOVE_PSYCHIC, MOVE_ROCK_SLIDE, MOVE_THUNDER_PUNCH}
     },
     {
         .species = SPECIES_SKARMORY,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 43,
-        .nature = NATURE_IMPISH,
-        .evs = {252, 0, 0, 0, 6, 252},
-        .moves = {MOVE_TOXIC, MOVE_AERIAL_ACE, MOVE_PROTECT, MOVE_STEEL_WING}
+        .nature = NATURE_CAREFUL,
+        .evs = {252, 0, 0, 0, 252, 6},
+        .moves = {MOVE_TOXIC, MOVE_DRILL_PECK, MOVE_PROTECT, MOVE_STEEL_WING}
     },
     {
         .species = SPECIES_AGGRON,
         .fixedIV = MAX_PER_STAT_IVS,
         .level = 44,
         .nature = NATURE_ADAMANT,
-        .evs = {0, 252, 0, 0, 252, 6},
-        .moves = {MOVE_THUNDER, MOVE_PROTECT, MOVE_SOLAR_BEAM, MOVE_DRAGON_CLAW}
+        .evs = {140, 252, 0, 0, 0, 118},
+        .moves = {MOVE_ROCK_SLIDE, MOVE_BRICK_BREAK, MOVE_IRON_TAIL, MOVE_DOUBLE_EDGE}
     }
 };
 
@@ -1448,7 +1448,7 @@ u8 GetFrontierOpponentClass(u16 trainerId)
     }
     else if (trainerId == TRAINER_STEVEN_PARTNER)
     {
-        trainerClass = gTrainers[TRAINER_STEVEN].trainerClass;
+        trainerClass = gTrainers[TRAINER_STEVEN_CHAMP].trainerClass;
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -1529,7 +1529,7 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     else if (trainerId == TRAINER_STEVEN_PARTNER)
     {
         for (i = 0; i < PLAYER_NAME_LENGTH; i++)
-            dst[i] = gTrainers[TRAINER_STEVEN].trainerName[i];
+            dst[i] = gTrainers[TRAINER_STEVEN_CHAMP].trainerName[i];
     }
     else if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -2989,7 +2989,7 @@ static void FillPartnerParty(u16 trainerId)
                 SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_HP_EV + j, &sStevenMons[i].evs[j]);
             for (j = 0; j < MAX_MON_MOVES; j++)
                 SetMonMoveSlot(&gPlayerParty[MULTI_PARTY_SIZE + i], sStevenMons[i].moves[j], j);
-            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_NAME, gTrainers[TRAINER_STEVEN].trainerName);
+            SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_NAME, gTrainers[TRAINER_STEVEN_CHAMP].trainerName);
             j = MALE;
             SetMonData(&gPlayerParty[MULTI_PARTY_SIZE + i], MON_DATA_OT_GENDER, &j);
             CalculateMonStats(&gPlayerParty[MULTI_PARTY_SIZE + i]);

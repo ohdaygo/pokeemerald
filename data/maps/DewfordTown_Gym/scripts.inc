@@ -133,6 +133,7 @@ DewfordTown_Gym_EventScript_StopCountingTrainers::
 	return
 
 DewfordTown_Gym_EventScript_Brawly::
+	goto_if_set FLAG_BADGE03_GET, DewfordTown_Gym_EventScript_Brawly3rd
 	trainerbattle_single TRAINER_BRAWLY_1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
@@ -140,6 +141,25 @@ DewfordTown_Gym_EventScript_Brawly::
 	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
 	release
 	end
+
+DewfordTown_Gym_EventScript_Brawly3rd::
+	goto_if_set FLAG_BADGE04_GET, DewfordTown_Gym_EventScript_Brawly4th
+	trainerbattle_single TRAINER_BRAWLY_3RD, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
+	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp2
+	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
+	release
+	end
+
+DewfordTown_Gym_EventScript_Brawly4th::
+	trainerbattle_single TRAINER_BRAWLY_4TH, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
+	specialvar VAR_RESULT, ShouldTryRematchBattle
+	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
+	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp2
+	msgbox DewfordTown_Gym_Text_BrawlyPostBattle, MSGBOX_DEFAULT
+	release
+	end	
 
 DewfordTown_Gym_EventScript_BrawlyDefeated::
 	call DewfordTown_Gym_EventScript_AnimateFlashFullBrightness

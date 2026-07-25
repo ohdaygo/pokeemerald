@@ -37,12 +37,12 @@ RustboroCity_CuttersHouse_Text_ExplainCut:
 	.string "That HIDDEN MACHINE, or HM for\n"
 	.string "short, is CUT.\p"
 	.string "An HM move is one that can be used\n"
-	.string "by POKéMON outside of battle.\p"
-	.string "Any POKéMON that's learned CUT can\n"
-	.string "chop down thin trees if the TRAINER\l"
-	.string "has earned the STONE BADGE.\p"
-	.string "And, unlike a TM, an HM can be used\n"
-	.string "more than once.$"
+	.string "by POKéMON outside of battle even if\l"
+	.string "the POKéMON doesn't know the move!\p"
+	.string "Any POKéMON that can at least learn\n"
+	.string "CUT can chop down thin trees if the\l"
+	.string "TRAINER has earned the STONE BADGE\n"
+	.string "and owns the HM.$"
 
 RustboroCity_CuttersHouse_Text_DadHelpedClearLandOfTrees:
 	.string "When they were expanding the city of\n"

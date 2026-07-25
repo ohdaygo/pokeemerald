@@ -286,10 +286,11 @@ PlayersHouse_2F_Text_HowDoYouLikeYourRoom:
 
 PlayersHouse_2F_Text_Notebook:
 	.string "{PLAYER} flipped open the notebook.\p"
-	.string "ADVENTURE RULE NO. 1\n"
-	.string "Open the MENU with START.\p"
-	.string "ADVENTURE RULE NO. 2\n"
-	.string "Record your progress with SAVE.\p"
+	.string "Welcome to PocketEmerald!\p"
+	.string "A vanilla hack made to streamline and\n"
+	.string "freshen up the experience.\p"
+	.string "Big thanks to the pret team!\p"
+	.string "- daygo\p"
 	.string "The remaining pages are blank…$"
 
 Common_Text_LookCloserAtMap:

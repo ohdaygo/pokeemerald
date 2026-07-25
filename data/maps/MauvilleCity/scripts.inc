@@ -50,6 +50,10 @@ MauvilleCity_EventScript_GameCornerSign::
 	msgbox MauvilleCity_Text_GameCornerSign, MSGBOX_SIGN
 	end
 
+MauvilleCity_EventScript_RockSmashSign::
+	msgbox MauvilleCity_Text_RockSmashSign, MSGBOX_SIGN
+	end
+
 MauvilleCity_EventScript_SchoolKidM::
 	lock
 	faceplayer
@@ -478,7 +482,7 @@ MauvilleCity_Text_UncleYourePushingIt:
 
 MauvilleCity_Text_WallyWeCanBeatAnyone:
 	.string "WALLY: I'm not pushing it.\p"
-	.string "If I combine forces with RALTS,\n"
+	.string "If I combine forces with KIRLIA,\n"
 	.string "we can beat anyone!$"
 
 MauvilleCity_Text_WallyWillYouBattleMe:
@@ -642,6 +646,9 @@ MauvilleCity_Text_BikeShopSign:
 	.string "“Ride in gravel and shake up your\n"
 	.string "soul!”\l"
 	.string "RYDEL'S CYCLES$"
+
+MauvilleCity_Text_RockSmashSign:
+	.string "ROCK SMASH GUY'S HOUSE$"
 
 MauvilleCity_Text_GameCornerSign:
 	.string "“The play spot for all!”\n"

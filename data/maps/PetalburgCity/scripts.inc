@@ -227,8 +227,19 @@ PetalburgCity_EventScript_CitySign::
 	msgbox PetalburgCity_Text_CitySign, MSGBOX_SIGN
 	end
 
-PetalburgCity_EventScript_Gentleman::
-	msgbox PetalburgCity_Text_FullPartyExplanation, MSGBOX_NPC
+PetalburgCity_EventScript_Fisherman::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_OLD_ROD, PetalburgCity_EventScript_Fishing
+	msgbox PetalburgCity_Text_Fisherman, MSGBOX_DEFAULT
+	giveitem ITEM_OLD_ROD
+	setflag FLAG_RECEIVED_OLD_ROD
+	release
+	end
+
+PetalburgCity_EventScript_Fishing::
+	msgbox PetalburgCity_Text_Fishing, MSGBOX_DEFAULT
+	release
 	end
 
 PetalburgCity_EventScript_WallyHouseSign::
@@ -726,11 +737,14 @@ PetalburgCity_Text_WaterReflection:
 	.string "struggling with fear…\p"
 	.string "What do you see reflected in your face?$"
 
-PetalburgCity_Text_FullPartyExplanation:
-	.string "Let's say you have six POKéMON.\n"
-	.string "If you catch another one…\p"
-	.string "It is automatically sent to a STORAGE\n"
-	.string "BOX over a PC connection.$"
+PetalburgCity_Text_Fisherman:
+	.string "You can find all sorts of rare POKéMON\n"
+	.string "with just an OLD ROD!\p"
+	.string "Give it a try!$"
+
+PetalburgCity_Text_Fishing:
+	.string "Whenever you see a body of water don't\n"
+	.string "hesitate to pull out the fishing ROD!$"
 
 PetalburgCity_Text_GymSign:
 	.string "PETALBURG CITY POKéMON GYM\n"

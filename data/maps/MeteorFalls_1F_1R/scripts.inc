@@ -35,6 +35,7 @@ MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene::
 	closemessage
 	applymovement LOCALID_METEOR_FALLS_MAGMA_GRUNT_1, MeteorFalls_1F_1R_Movement_MagmaGruntApproachPlayer
 	waitmovement 0
+	trainerbattle_no_intro TRAINER_TABITHA_METEOR_FALLS, MeteorFalls_1F_1R_Text_TabithaDefeat
 	msgbox MeteorFalls_1F_1R_Text_HoldItRightThereMagma, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterLeft
@@ -87,6 +88,17 @@ MeteorFalls_1F_1R_EventScript_MagmaStealsMeteoriteScene::
 	setflag FLAG_MET_ARCHIE_METEOR_FALLS
 	setflag FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT
 	setvar VAR_METEOR_FALLS_STATE, 1
+	applymovement LOCALID_PLAYER, MeteorFalls_1F_1R_Movement_TalkToCozmo
+	waitmovement 0
+	goto_if_set FLAG_MET_PROF_COZMO, MeteorFalls_1F_1R_EventScript_MetCozmo
+	setflag FLAG_MET_PROF_COZMO
+	msgbox MeteorFalls_1F_1R_Text_MeetProfCozmo, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, YES, MeteorFalls_1F_1R_CozmoWarp
+	goto_if_eq VAR_RESULT, NO, MeteorFalls_1F_1R_EventScript_CozmoNo
+	end
+
+MeteorFalls_1F_1R_EventScript_CozmoNo::
+	msgbox MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney, MSGBOX_DEFAULT
 	releaseall
 	end
 
@@ -217,19 +229,26 @@ MeteorFalls_1F_1R_Movement_PushPlayerOutOfWay:
 	face_right
 	step_end
 
-MeteorFalls_1F_1R_EventScript_ProfCozmo::
+MeteorFalls_1F_1R_EventScript_MetCozmo::
 	lock
 	faceplayer
-	goto_if_set FLAG_MET_PROF_COZMO, MeteorFalls_1F_1R_EventScript_MetCozmo
-	setflag FLAG_MET_PROF_COZMO
-	msgbox MeteorFalls_1F_1R_Text_MeetProfCozmo, MSGBOX_DEFAULT
-	release
-	end
-
-MeteorFalls_1F_1R_EventScript_MetCozmo::
 	msgbox MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney, MSGBOX_DEFAULT
 	release
 	end
+
+MeteorFalls_1F_1R_CozmoWarp::
+	warp MAP_ROUTE112, 23, 12
+	special HealPlayerParty
+	end
+
+MeteorFalls_1F_1R_Movement_TalkToCozmo::
+	walk_right
+	walk_down
+	walk_down
+	walk_left
+	walk_down
+	walk_down
+	step_end
 
 MeteorFalls_1F_1R_Text_WithThisMeteorite:
 	.string "Hehehe!\p"
@@ -301,9 +320,16 @@ MeteorFalls_1F_1R_Text_MeetProfCozmo:
 	.string "I don't understand any of it.\p"
 	.string "But that TEAM MAGMA…\p"
 	.string "What are they going to do with that\n"
-	.string "METEORITE at MT. CHIMNEY?$"
+	.string "{COLOR GREEN}METEORITE{COLOR DARK_GRAY} at {COLOR GREEN}MT. CHIMNEY{COLOR DARK_GRAY}?\p"
+	.string "If you're willing to help, I can take\n"
+	.string "you back to {COLOR GREEN}FIREY PATH{COLOR DARK_GRAY} at least!\p"
+	.string "From there, {COLOR GREEN}follow the cave and up the\n"
+	.string "CABLE CAR{COLOR DARK_GRAY}.$"
 
 MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney:
-	.string "PROF. COZMO: But that TEAM MAGMA…\p"
-	.string "What are they going to do with that\n"
-	.string "METEORITE at MT. CHIMNEY?$"
+	.string "PROF. COZMO: I worry TEAM MAGMA\n"
+	.string "Could be doing something terrible with\l"
+	.string "the {COLOR GREEN}METEORITE{COLOR DARK_GRAY} at {COLOR GREEN}MT. CHIMNEY{COLOR DARK_GRAY}…$"
+
+MeteorFalls_1F_1R_Text_TabithaDefeat:
+	.string "H-how?$"

@@ -6557,17 +6557,6 @@ const struct CompressedSpritePalette *GetMonSpritePalStructFromOtIdPersonality(u
         return &gMonPaletteTable[species];
 }
 
-bool32 IsHMMove2(u16 move)
-{
-    int i = 0;
-    while (sHMMoves[i] != HM_MOVES_END)
-    {
-        if (sHMMoves[i++] == move)
-            return TRUE;
-    }
-    return FALSE;
-}
-
 bool8 IsMonSpriteNotFlipped(u16 species)
 {
     return gSpeciesInfo[species].noFlip;
@@ -6738,7 +6727,7 @@ const u8 *GetTrainerPartnerName(void)
     {
         if (gPartnerTrainerId == TRAINER_STEVEN_PARTNER)
         {
-            return gTrainers[TRAINER_STEVEN].trainerName;
+            return gTrainers[TRAINER_STEVEN_CHAMP].trainerName;
         }
         else
         {

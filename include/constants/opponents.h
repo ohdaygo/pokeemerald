@@ -22,7 +22,7 @@
 #define TRAINER_GRUNT_WEATHER_INST_2         18
 #define TRAINER_GRUNT_WEATHER_INST_3         19
 #define TRAINER_GRUNT_MUSEUM_1               20
-#define TRAINER_GRUNT_MUSEUM_2               21
+#define TRAINER_MATT_MUSEUM                  21 // Was TRAINER_GRUNT_MUSEUM_2
 #define TRAINER_GRUNT_SPACE_CENTER_1         22
 #define TRAINER_GRUNT_MT_PYRE_1              23
 #define TRAINER_GRUNT_MT_PYRE_2              24
@@ -84,7 +84,7 @@
 #define TRAINER_ALBERT                       80
 #define TRAINER_SAMUEL                       81
 #define TRAINER_VITO                         82
-#define TRAINER_OWEN                         83
+#define TRAINER_DAMIAN_VR                    83 // Was TRAINER_OWEN
 #define TRAINER_WILTON_2                     84
 #define TRAINER_WILTON_3                     85
 #define TRAINER_WILTON_4                     86
@@ -97,7 +97,7 @@
 #define TRAINER_KEIRA                        93
 #define TRAINER_BROOKE_1                     94
 #define TRAINER_JENNIFER                     95
-#define TRAINER_HOPE                         96
+#define TRAINER_ASH_VR                       96 // Was TRAINER_HOPE
 #define TRAINER_SHANNON                      97
 #define TRAINER_MICHELLE                     98
 #define TRAINER_CAROLINE                     99
@@ -336,7 +336,7 @@
 #define TRAINER_EDDIE                       332
 #define TRAINER_ALLEN                       333
 #define TRAINER_TIMMY                       334
-#define TRAINER_WALLACE                     335
+#define TRAINER_STEVEN_CHAMP                335 // Was Wallace
 #define TRAINER_ANDREW                      336
 #define TRAINER_IVAN                        337
 #define TRAINER_CLAUDE                      338
@@ -569,7 +569,7 @@
 #define TRAINER_CATHERINE_5                 565
 #define TRAINER_JULIO                       566
 #define TRAINER_GRUNT_SEAFLOOR_CAVERN_5     567
-#define TRAINER_GRUNT_UNUSED                568
+#define TRAINER_TABITHA_METEOR_FALLS        568 // Was GRUNT_UNUSED
 #define TRAINER_GRUNT_MT_PYRE_4             569
 #define TRAINER_GRUNT_JAGGED_PASS           570
 #define TRAINER_MARC                        571
@@ -635,8 +635,8 @@
 #define TRAINER_CLARK                       631
 #define TRAINER_ERIC                        632
 #define TRAINER_LUCAS_2                     633
-#define TRAINER_MIKE_1                      634
-#define TRAINER_MIKE_2                      635
+#define TRAINER_BRAWLY_3RD                  634 // MIKE_1
+#define TRAINER_BRAWLY_4TH                  635 // MIKE_2
 #define TRAINER_TRENT_2                     636
 #define TRAINER_TRENT_3                     637
 #define TRAINER_TRENT_4                     638
@@ -805,7 +805,7 @@
 #define TRAINER_JUAN_5                      801
 #define TRAINER_ANGELO                      802
 #define TRAINER_DARIUS                      803
-#define TRAINER_STEVEN                      804
+#define TRAINER_LEAF_SUPERBOSS              804 // Was Steven (Meteor Falls)
 #define TRAINER_ANABEL                      805
 #define TRAINER_TUCKER                      806
 #define TRAINER_SPENSER                     807

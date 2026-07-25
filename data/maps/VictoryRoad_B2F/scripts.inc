@@ -6,9 +6,9 @@ VictoryRoad_B2F_EventScript_Vito::
 	msgbox VictoryRoad_B2F_Text_VitoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
-VictoryRoad_B2F_EventScript_Owen::
-	trainerbattle_single TRAINER_OWEN, VictoryRoad_B2F_Text_OwenIntro, VictoryRoad_B2F_Text_OwenDefeat
-	msgbox VictoryRoad_B2F_Text_OwenPostBattle, MSGBOX_AUTOCLOSE
+VictoryRoad_B2F_EventScript_Damian::
+	trainerbattle_single TRAINER_DAMIAN_VR, VictoryRoad_B2F_Text_DamianIntro, VictoryRoad_B2F_Text_DamianDefeat
+	msgbox VictoryRoad_B2F_Text_DamianPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 VictoryRoad_B2F_EventScript_Caroline::
@@ -46,14 +46,14 @@ VictoryRoad_B2F_Text_VitoPostBattle:
 	.string "I've lost my confidence…\n"
 	.string "Maybe I'll go home…$"
 
-VictoryRoad_B2F_Text_OwenIntro:
+VictoryRoad_B2F_Text_DamianIntro:
 	.string "I'd heard that there was a tough\n"
 	.string "little kid around. Do they mean you?$"
 
-VictoryRoad_B2F_Text_OwenDefeat:
+VictoryRoad_B2F_Text_DamianDefeat:
 	.string "The little shrimp is tough!$"
 
-VictoryRoad_B2F_Text_OwenPostBattle:
+VictoryRoad_B2F_Text_DamianPostBattle:
 	.string "The rumors I heard, that tough little\n"
 	.string "kid is from PETALBURG CITY.$"
 

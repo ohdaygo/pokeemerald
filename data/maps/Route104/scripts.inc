@@ -61,7 +61,7 @@ Route104_EventScript_RivalTrigger::
 	waitmovement 0
 	delay 20
 	setvar VAR_0x8008, 0
-	call RustboroCity_EventScript_PlayRivalMusic
+	call Route104_EventScript_PlayRivalMusic
 	playse SE_PIN
 	applymovement LOCALID_ROUTE104_RIVAL, Common_Movement_ExclamationMark
 	waitmovement 0
@@ -69,7 +69,6 @@ Route104_EventScript_RivalTrigger::
 	waitmovement 0
 	goto Route104_EventScript_RivalEncounter
 
-@ Unused, shares script with Rustboro encounter instead
 Route104_EventScript_PlayRivalMusic::
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, Route104_EventScript_PlayMayMusic
@@ -92,7 +91,6 @@ Route104_EventScript_RivalEncounter::
 
 Route104_EventScript_MayEncounter::
 	goto_if_set FLAG_DEFEATED_RIVAL_ROUTE_104, Route104_EventScript_MayDefeated
-	goto_if_set FLAG_REGISTER_RIVAL_POKENAV, Route104_EventScript_MayAskToBattle
 	setflag FLAG_REGISTER_RIVAL_POKENAV
 	msgbox Route104_Text_MayWeShouldRegister, MSGBOX_DEFAULT
 	closemessage
@@ -111,11 +109,8 @@ Route104_EventScript_MayEncounter::
 	applymovement LOCALID_ROUTE104_RIVAL, Route104_Movement_RivalApproachPlayer
 	waitmovement 0
 	copyobjectxytoperm LOCALID_ROUTE104_RIVAL
-	msgbox Route104_Text_MayMinesDecentLetsBattle, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route104_EventScript_BattleMay
-	msgbox Route104_Text_MayHaventRaisedPokemon, MSGBOX_DEFAULT
-	call Route104_EventScript_RestoreMusic
-	releaseall
+	msgbox Route104_Text_MayMinesDecentLetsBattle, MSGBOX_DEFAULT
+	call Route104_EventScript_BattleMay
 	end
 
 Route104_Movement_RivalWalkSlowLeft:
@@ -132,15 +127,7 @@ Route104_Movement_PlayerFaceRival:
 	walk_in_place_faster_left
 	step_end
 
-Route104_EventScript_MayAskToBattle::
-	msgbox Route104_Text_MayLetsBattle, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route104_EventScript_BattleMay
-	msgbox Route104_Text_MayHaventRaisedPokemon, MSGBOX_DEFAULT
-	releaseall
-	end
-
 Route104_EventScript_BattleMay::
-	msgbox Route104_Text_MayIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, Route104_EventScript_BattleMayTreecko
 	case 1, Route104_EventScript_BattleMayTorchic
@@ -178,7 +165,6 @@ Route104_EventScript_BattleMayMudkip::
 
 Route104_EventScript_BrendanEncounter::
 	goto_if_set FLAG_DEFEATED_RIVAL_ROUTE_104, Route104_EventScript_BrendanDefeated
-	goto_if_set FLAG_REGISTER_RIVAL_POKENAV, Route104_EventScript_BrendanAskToBattle
 	setflag FLAG_REGISTER_RIVAL_POKENAV
 	msgbox Route104_Text_BrendanWeShouldRegister, MSGBOX_DEFAULT
 	closemessage
@@ -197,22 +183,11 @@ Route104_EventScript_BrendanEncounter::
 	applymovement LOCALID_ROUTE104_RIVAL, Route104_Movement_RivalApproachPlayer
 	waitmovement 0
 	copyobjectxytoperm LOCALID_ROUTE104_RIVAL
-	msgbox Route104_Text_BrendanDoingGreatLetsBattle, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route104_EventScript_BattleBrendan
-	msgbox Route104_Text_BrendanNoConfidence, MSGBOX_DEFAULT
-	call Route104_EventScript_RestoreMusic
-	releaseall
-	end
-
-Route104_EventScript_BrendanAskToBattle::
-	msgbox Route104_Text_BrendanLetsBattle, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, Route104_EventScript_BattleBrendan
-	msgbox Route104_Text_BrendanNoConfidence, MSGBOX_DEFAULT
-	releaseall
+	msgbox Route104_Text_BrendanDoingGreatLetsBattle, MSGBOX_DEFAULT
+	call Route104_EventScript_BattleBrendan
 	end
 
 Route104_EventScript_BattleBrendan::
-	msgbox Route104_Text_BrendanIntro, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
 	case 0, Route104_EventScript_BattleBrendanTreecko
 	case 1, Route104_EventScript_BattleBrendanTorchic
@@ -1033,10 +1008,8 @@ Route104_Text_LikeFillingMouthWithSeedsTakeThis:
 
 Route104_Text_TMsAreOneTimeUse:
 	.string "A word of advice!\p"
-	.string "A TM, TECHNICAL MACHINE, is good only\n"
-	.string "for one-time use.\p"
-	.string "Once you use it, it's gone.\n"
-	.string "Think twice before using it!$"
+	.string "A TM, TECHNICAL MACHINE, can be used as\n"
+	.string "many times as you want!$"
 
 Route104_Text_DontNeedThisTakeIt:
 	.string "This FLOWER SHOP started selling\n"
@@ -1097,20 +1070,6 @@ Route104_Text_MayMinesDecentLetsBattle:
 	.string "So…\l"
 	.string "How about a little battle?$"
 
-Route104_Text_MayHaventRaisedPokemon:
-	.string "MAY: Oh, what's the matter?\p"
-	.string "Haven't you caught or raised your\n"
-	.string "POKéMON very much?\p"
-	.string "That's not very good for a TRAINER!$"
-
-Route104_Text_MayLetsBattle:
-	.string "MAY: So, what do you think?\n"
-	.string "How about a little battle here?$"
-
-Route104_Text_MayIntro:
-	.string "MAY: You just became a TRAINER,\n"
-	.string "{PLAYER}{KUN}. I'm not going to lose!$"
-
 Route104_Text_MayDefeat:
 	.string "Yikes!\n"
 	.string "You're better than I expected!$"
@@ -1142,18 +1101,6 @@ Route104_Text_BrendanDoingGreatLetsBattle:
 	.string "Me, I'm doing great!\p"
 	.string "Want to check out how good I am with\n"
 	.string "a battle?$"
-
-Route104_Text_BrendanNoConfidence:
-	.string "BRENDAN: What's the matter? Don't have\n"
-	.string "any confidence in your POKéMON?$"
-
-Route104_Text_BrendanLetsBattle:
-	.string "BRENDAN: What's up?\n"
-	.string "Want to have a battle with me?$"
-
-Route104_Text_BrendanIntro:
-	.string "BRENDAN: I know you just became\n"
-	.string "a TRAINER, but I won't go easy!$"
 
 Route104_Text_BrendanDefeat:
 	.string "Hmm…\n"

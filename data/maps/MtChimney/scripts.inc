@@ -96,42 +96,17 @@ MtChimney_EventScript_ArchieExitNorth::
 MtChimney_EventScript_LavaCookieLady::
 	lock
 	faceplayer
-	showmoneybox 0, 0
-	msgbox MtChimney_Text_LavaCookiesJust200, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MtChimney_EventScript_DeclineLavaCookie
-	checkmoney 200
-	goto_if_eq VAR_RESULT, FALSE, MtChimney_EventScript_NotEnoughMoney
+	message MtChimney_Text_LavaCookiesJust200
+	waitmessage
+	pokemart MtChimney_LavaCookie_Pokemart
 	msgbox MtChimney_Text_ThankYouDear, MSGBOX_DEFAULT
-	checkitemspace ITEM_LAVA_COOKIE
-	call_if_eq VAR_RESULT, TRUE, MtChimney_EventScript_RemoveMoney
-	giveitem ITEM_LAVA_COOKIE
-	goto_if_eq VAR_RESULT, FALSE, MtChimney_EventScript_BagIsFull
-	hidemoneybox
 	release
 	end
 
-MtChimney_EventScript_BagIsFull::
-	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
-	hidemoneybox
-	release
-	end
-
-MtChimney_EventScript_RemoveMoney::
-	removemoney 200
-	updatemoneybox
-	return
-
-MtChimney_EventScript_DeclineLavaCookie::
-	msgbox MtChimney_Text_OhFineThen, MSGBOX_DEFAULT
-	hidemoneybox
-	release
-	end
-
-MtChimney_EventScript_NotEnoughMoney::
-	msgbox MtChimney_Text_YouveNotGotTheMoney, MSGBOX_DEFAULT
-	hidemoneybox
-	release
-	end
+	.align 2
+MtChimney_LavaCookie_Pokemart:
+	.2byte ITEM_LAVA_COOKIE
+	pokemartlistend
 
 MtChimney_Movement_ArchieApproachPlayerEast:
 	walk_up
@@ -703,13 +678,6 @@ MtChimney_Text_LavaCookiesJust200:
 
 MtChimney_Text_ThankYouDear:
 	.string "Thank you, dear!$"
-
-MtChimney_Text_YouveNotGotTheMoney:
-	.string "Oh, dear. You can't buy a thing if\n"
-	.string "you've not got the money.$"
-
-MtChimney_Text_OhFineThen:
-	.string "Oh, fine then.$"
 
 MtChimney_Text_MetoriteFittedOnMachine:
 	.string "A METEORITE is fitted on a mysterious\n"

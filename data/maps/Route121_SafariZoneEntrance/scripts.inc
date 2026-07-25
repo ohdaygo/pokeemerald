@@ -110,6 +110,15 @@ Route121_SafariZoneEntrance_EventScript_MovePlayerBackFromCounter::
 	releaseall
 	end
 
+Route121_SafariZoneEntrance_EventScript_SafariZoneNoEgg::
+	msgbox Route121_SafariZoneEntrance_Text_NoEggs, MSGBOX_DEFAULT
+	closemessage
+	hidemoneybox
+	applymovement LOCALID_PLAYER, Route121_SafariZoneEntrance_Movement_BackAwayFromCounter
+	waitmovement 0
+	releaseall
+	end
+
 Route121_SafariZoneEntrance_Movement_BackAwayFromCounter:
 	walk_right
 	step_end

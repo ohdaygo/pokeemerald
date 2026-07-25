@@ -55,9 +55,39 @@ VerdanturfTown_FriendshipRatersHouse_EventScript_AdoresYou::
 VerdanturfTown_FriendshipRatersHouse_EventScript_Pikachu::
 	lock
 	faceplayer
-	waitse
+	goto_if_set FLAG_LIGHT_BALL, VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuDone
+	msgbox VerdanturfTown_FriendshipRatersHouse_Text_PikachuChecking, MSGBOX_DEFAULT
+	specialvar VAR_RESULT, GetLeadMonFriendshipScore
+	switch VAR_RESULT
+	case FRIENDSHIP_NONE, VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuUnimpressed
+	case FRIENDSHIP_1_TO_49, VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuUnimpressed
+	case FRIENDSHIP_50_TO_99, VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuUnimpressed
+	case FRIENDSHIP_100_TO_149, VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuUnimpressed
+	case FRIENDSHIP_150_TO_199, VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuReassured
+	case FRIENDSHIP_200_TO_254, VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuReassured
+	case FRIENDSHIP_MAX, VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuReassured
+	release
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuDone::
 	playmoncry SPECIES_PIKACHU, CRY_MODE_NORMAL
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_Pikachu, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuUnimpressed::
+	playmoncry SPECIES_PIKACHU, CRY_MODE_NORMAL
+	msgbox VerdanturfTown_FriendshipRatersHouse_Text_PikachuUnimpressed, MSGBOX_DEFAULT
+	waitmoncry
+	release
+	end
+
+VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuReassured::
+	playmoncry SPECIES_PIKACHU, CRY_MODE_NORMAL
+	msgbox VerdanturfTown_FriendshipRatersHouse_Text_PikachuReassured, MSGBOX_DEFAULT
+	giveitem ITEM_LIGHT_BALL, 1
+	setflag FLAG_LIGHT_BALL
 	waitmoncry
 	release
 	end
@@ -101,4 +131,17 @@ VerdanturfTown_FriendshipRatersHouse_Text_DetestsYou:
 
 VerdanturfTown_FriendshipRatersHouse_Text_Pikachu:
 	.string "PIKACHU: Pika pika!$"
+
+VerdanturfTown_FriendshipRatersHouse_Text_PikachuChecking:
+	.string "PIKACHU: …?\p"
+	.string "PIKACHU is evaluating your POKéMON…$"
+
+VerdanturfTown_FriendshipRatersHouse_Text_PikachuUnimpressed:
+	.string "PIKACHU: Pika…\p"
+	.string "PIKACHU isn't impressed.$"
+
+VerdanturfTown_FriendshipRatersHouse_Text_PikachuReassured:
+	.string "PIKACHU: Pika pii, pika!\p"
+	.string "PIKACHU is reassured by the bond of\n"
+	.string "you and your POKéMON!$"
 

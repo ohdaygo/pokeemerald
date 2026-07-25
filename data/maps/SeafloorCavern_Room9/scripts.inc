@@ -28,7 +28,7 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	msgbox SeafloorCavern_Room9_Text_ArchieYouMustDisappear, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_ARCHIE, SeafloorCavern_Room9_Text_ArchieDefeat
 	msgbox SeafloorCavern_Room9_Text_ArchieWithThisRedOrb, MSGBOX_DEFAULT
-	setweather WEATHER_NONE
+	setweather WEATHER_SHADE
 	doweather
 	special Script_FadeOutMapMusic
 	waitstate
@@ -139,6 +139,7 @@ SeafloorCavern_Room9_EventScript_ArchieAwakenKyogre::
 	setflag FLAG_HIDE_SEAFLOOR_CAVERN_AQUA_GRUNTS
 	setflag FLAG_HIDE_MAP_NAME_POPUP
 	warp MAP_ROUTE128, 38, 22
+	setcaughtmon SPECIES_KYOGRE
 	waitstate
 	releaseall
 	end

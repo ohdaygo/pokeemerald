@@ -907,6 +907,11 @@ u8 GetItemImportance(u16 itemId)
     return gItems[SanitizeItemId(itemId)].importance;
 }
 
+void ItemId_GetHoldEffectParam_Script()
+{
+    VarSet(VAR_RESULT, GetItemHoldEffectParam(VarGet(VAR_0x8004)));
+}
+
 // Unused
 u8 GetItemRegistrability(u16 itemId)
 {

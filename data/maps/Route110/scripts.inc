@@ -27,6 +27,30 @@ Route110_EventScript_BeginCylcingRoadChallenge::
 	setvar VAR_CYCLING_CHALLENGE_STATE, 2
 	return
 
+Route110_EventScript_ClearCyclingRoad::
+	lockall
+	clearflag FLAG_SYS_CYCLING_ROAD
+	setvar VAR_TEMP_1, 0
+	releaseall
+	end
+
+Route110_EventScript_BikeCheck::
+	lockall
+	specialvar VAR_RESULT, GetPlayerAvatarBike
+	goto_if_eq VAR_RESULT, 0, Route110_EventScript_NoBike
+	setflag FLAG_SYS_CYCLING_ROAD
+	setvar VAR_TEMP_1, 1
+	releaseall
+	end
+
+Route110_EventScript_NoBike::
+	msgbox Route110_Text_TooDangerousToWalk, MSGBOX_DEFAULT
+	closemessage
+	applymovement OBJ_EVENT_ID_PLAYER, Route110_Movement_PushPlayerBack
+	waitmovement 0
+	releaseall
+	end
+
 Route110_EventScript_AquaGrunt1::
 	lock
 	faceplayer
@@ -422,8 +446,8 @@ Route110_EventScript_MayBattleMudkip::
 
 Route110_EventScript_MayDefeated::
 	msgbox Route110_Text_MayTakeThis, MSGBOX_DEFAULT
-	call Route110_EventScript_GiveItemfinder
-	msgbox Route110_Text_MayExplainItemfinder, MSGBOX_DEFAULT
+	call Route110_EventScript_GiveGoGoggles
+	msgbox Route110_Text_MayExplainGoGoggles, MSGBOX_DEFAULT
 	goto Route110_EventScript_RivalExit
 	end
 
@@ -452,13 +476,14 @@ Route110_EventScript_BrendanBattleMudkip::
 
 Route110_EventScript_BrendanDefeated::
 	msgbox Route110_Text_BrendanTakeThis, MSGBOX_DEFAULT
-	call Route110_EventScript_GiveItemfinder
-	msgbox Route110_Text_BrendanExplainItemfinder, MSGBOX_DEFAULT
+	call Route110_EventScript_GiveGoGoggles
+	msgbox Route110_Text_BrendanExplainGoGoggles, MSGBOX_DEFAULT
 	goto Route110_EventScript_RivalExit
 	end
 
-Route110_EventScript_GiveItemfinder::
-	giveitem ITEM_ITEMFINDER
+Route110_EventScript_GiveGoGoggles::
+	giveitem ITEM_GO_GOGGLES
+	setflag FLAG_RECEIVED_GO_GOGGLES
 	return
 
 Route110_EventScript_RivalExit::
@@ -522,6 +547,10 @@ Route110_EventScript_MoveRival2::
 Route110_EventScript_MoveRival3::
 	setobjectxyperm LOCALID_ROUTE110_RIVAL_ON_BIKE, 35, 55
 	return
+
+Route110_Movement_PushPlayerBack:
+	walk_down
+	step_end
 
 Route110_Movement_RivalApproachPlayer1:
 	walk_down
@@ -771,10 +800,10 @@ Route110_Text_MayTakeThis:
 	.string "I think you deserve a reward!\n"
 	.string "This is from me!$"
 
-Route110_Text_MayExplainItemfinder:
-	.string "MAY: That's an ITEMFINDER.\p"
-	.string "Try it out. If there is an item that's\n"
-	.string "not visible, it emits a sound.\p"
+Route110_Text_MayExplainGoGoggles:
+	.string "MAY: With those GO-GOGGLES, you'll\n"
+	.string "have no trouble getting through the\l"
+	.string "desert up ahead by ROUTE 111.\p"
 	.string "Okay, {PLAYER}{KUN}, let's meet again!\p"
 	.string "I know it's a little silly coming from\n"
 	.string "me, but I think you should train a lot\l"
@@ -797,12 +826,13 @@ Route110_Text_BrendanTakeThis:
 	.string "Good enough!\n"
 	.string "Here, take this.$"
 
-Route110_Text_BrendanExplainItemfinder:
-	.string "BRENDAN: That's an ITEMFINDER.\p"
-	.string "Use it to root around for items that\n"
-	.string "aren't visible.\p"
-	.string "If it senses something, it emits\n"
-	.string "a sound.\p"
+Route110_Text_BrendanExplainGoGoggles:
+	.string "BRENDAN: Those are the GO-GOGGLES.\p"
+	.string "Keep those with you if you're\n"
+	.string "planning on going into that desert up\l"
+	.string "ahead by ROUTE 111.\p"
+	.string "There should be some POKéMON that\n"
+	.string "are exclusively desert-dwellers.\p"
 	.string "Anyway, I'm off to look for new\n"
 	.string "POKéMON.$"
 
@@ -987,3 +1017,7 @@ Route110_Text_KeepAnEyeOutForRival:
 	.string "Well, I had better get going.\n"
 	.string "See you again, {PLAYER}{KUN}!$"
 
+Route110_Text_TooDangerousToWalk:
+	.string "DAD's advice…\n"
+	.string "{PLAYER}{KUN}, it's too dangerous to\l"
+	.string "walk on CYCLING ROAD without a BICYCLE!$"

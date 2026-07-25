@@ -252,8 +252,12 @@ SlateportCity_EventScript_HectorCaught::
 	waitse
 	playse SE_SUCCESS
 	waitse
+	showmonpic SPECIES_ZUBAT, 10, 3
+	waitse
 	playmoncry SPECIES_ZUBAT, CRY_MODE_NORMAL
 	waitmoncry
+	waitbuttonpress
+	hidemonpic
 	msgbox SlateportCity_Text_Hector2, MSGBOX_DEFAULT
 	setflag FLAG_HECTOR_POTION 
 	giveitem ITEM_CARBOS, 1
@@ -1135,9 +1139,9 @@ SlateportCity_Text_HowTownIsBornAndGrows:
 
 SlateportCity_Text_Hector:
 	.string "Hi there!\p"
-	.string "If you've caught ZUBAT, could you show\n"
-	.string "me your POKéDEX? That's my favorite\l"
-	.string "POKéMON!$"
+	.string "If you've caught a HECTOR, could you\n"
+	.string "show me your POKéDEX? That's my\l"
+	.string "favorite POKéMON!$"
 
 SlateportCity_Text_Hector1:
 	.string "Aww, you've never even caught a HECTOR…$"

@@ -784,12 +784,12 @@ static const u16 sWeightToDamageTable[] =
 static const u16 sPickupItems[] =
 {
     ITEM_POTION,
-    ITEM_ANTIDOTE,
     ITEM_SUPER_POTION,
     ITEM_GREAT_BALL,
     ITEM_REPEL,
     ITEM_ESCAPE_ROPE,
-    ITEM_X_ATTACK,
+    ITEM_RARE_CANDY,
+    ITEM_PP_UP,
     ITEM_FULL_HEAL,
     ITEM_ULTRA_BALL,
     ITEM_HYPER_POTION,
@@ -799,7 +799,7 @@ static const u16 sPickupItems[] =
     ITEM_HP_UP,
     ITEM_FULL_RESTORE,
     ITEM_MAX_REVIVE,
-    ITEM_PP_UP,
+    ITEM_PP_MAX,
     ITEM_MAX_ELIXIR,
 };
 
@@ -3312,7 +3312,7 @@ static void Cmd_getexp(void)
             if (*exp == 0)
                 *exp = 1;
 
-            gExpShareExp = calculatedExp / 2;
+            gExpShareExp = calculatedExp / 3;
             if (gExpShareExp == 0)
                 gExpShareExp = 1;
 
@@ -3381,7 +3381,7 @@ static void Cmd_getexp(void)
                         }
                         else
                         {
-                            gBattleMoveDamage = (gBattleMoveDamage * 150) / 100;
+                            gBattleMoveDamage = (gBattleMoveDamage * 100) / 100;
                             i = STRINGID_ABOOSTED;
                         }
                     }
@@ -5480,13 +5480,6 @@ static void Cmd_yesnoboxlearnmove(void)
             else
             {
                 u16 move = GetMonData(&gPlayerParty[gBattleStruct->expGetterMonId], MON_DATA_MOVE1 + movePosition);
-                if (IsHMMove2(move))
-                {
-                    PrepareStringBattle(STRINGID_HMMOVESCANTBEFORGOTTEN, gActiveBattler);
-                    gBattleScripting.learnMoveState = 6;
-                }
-                else
-                {
                     gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
 
                     PREPARE_MOVE_BUFFER(gBattleTextBuff2, move)
@@ -5506,7 +5499,6 @@ static void Cmd_yesnoboxlearnmove(void)
                         RemoveBattleMonPPBonus(&gBattleMons[2], movePosition);
                         SetBattleMonMoveSlot(&gBattleMons[2], gMoveToLearn, movePosition);
                     }
-                }
             }
         }
         break;
@@ -9960,8 +9952,8 @@ static void Cmd_handleballthrow(void)
                     ballMultiplier = 10;
                 break;
             case ITEM_DIVE_BALL:
-                if (GetCurrentMapType() == MAP_TYPE_UNDERWATER)
-                    ballMultiplier = 35;
+                if (GetCurrentMapType() == MAP_TYPE_UNDERWATER, MAP_TYPE_UNDERGROUND, MAP_TYPE_INDOOR)
+                    ballMultiplier = 30;
                 else
                     ballMultiplier = 10;
                 break;
@@ -9978,10 +9970,9 @@ static void Cmd_handleballthrow(void)
                 }
                 break;
             case ITEM_REPEAT_BALL:
-                if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), FLAG_GET_CAUGHT))
-                    ballMultiplier = 30;
-                else
-                    ballMultiplier = 10;
+                ballMultiplier = gBattleResults.battleTurnCounter - 1;
+                if (ballMultiplier > 50)
+                    ballMultiplier = 50;
                 break;
             case ITEM_TIMER_BALL:
                 ballMultiplier = gBattleResults.battleTurnCounter + 10;
@@ -9990,7 +9981,7 @@ static void Cmd_handleballthrow(void)
                 break;
             case ITEM_LUXURY_BALL:
             case ITEM_PREMIER_BALL:
-                ballMultiplier = 10;
+                ballMultiplier = 15;
                 break;
             }
         }

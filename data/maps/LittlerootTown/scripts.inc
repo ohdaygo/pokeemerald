@@ -892,10 +892,8 @@ LittlerootTown_EventScript_SetReceivedRunningShoes::
 	end
 
 LittlerootTown_EventScript_GiveRunningShoes::
-	msgbox LittlerootTown_Text_WearTheseRunningShoes, MSGBOX_DEFAULT
-	giveitem ITEM_REPEL, 5
+	msgbox LittlerootTown_Text_MomSendOff, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_RUNNING_SHOES
-	msgbox LittlerootTown_Text_ComeHomeIfAnythingHappens, MSGBOX_DEFAULT
 	closemessage
 	delay 30
 	return
@@ -915,20 +913,13 @@ LittlerootTown_Text_OurNewHomeLetsGoInside:
 LittlerootTown_Text_WaitPlayer:
 	.string "MOM: Wait, {PLAYER}!$"
 
-LittlerootTown_Text_WearTheseRunningShoes:
+LittlerootTown_Text_MomSendOff:
 	.string "MOM: {PLAYER}! {PLAYER}! Did you\n"
 	.string "introduce yourself to PROF. BIRCH?\p"
 	.string "Oh! What an adorable POKéMON!\n"
 	.string "You got it from PROF. BIRCH. How nice!\p"
 	.string "You're your father's child, all right.\n"
 	.string "You look good together with POKéMON!\p"
-	.string "Here, Honey! Don't forget the RUNNING\n"
-	.string "SHOES' instructions said you can press\l"
-	.string "the R Button to toggle them!\p"
-	.string "If you're going out on an adventure,\n"
-	.string "take this with you too!$"
-
-LittlerootTown_Text_ComeHomeIfAnythingHappens:
 	.string "… … … … … … … …\n"
 	.string "… … … … … … … …\p"
 	.string "To think that you have your very own\n"

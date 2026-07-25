@@ -2224,32 +2224,30 @@ MatchCall_Text_TateLiza4::
 	.string "LIZA: We could all battle again!$"
 
 MatchCall_Text_Juan1::
-	.string "JUAN: Hmm…\n"
-	.string "{PLAYER}{KUN}… Was it?\p"
+	.string "WALLACE: Hmm…\n"
+	.string "{PLAYER}{KUN}…\p"
 	.string "Our battle together--it brought\n"
-	.string "to me memories of when I first\l"
-	.string "encountered WALLACE.\p"
+	.string "to me memories of my days as a\l"
+	.string "CONTEST MASTER…\p"
 	.string "Perhaps you are a genius who may\n"
-	.string "yet surpass WALLACE!$"
+	.string "yet surpass STEVEN!$"
 
 MatchCall_Text_Juan2::
-	.string "JUAN: Fufu… {PLAYER}{KUN}…\n"
+	.string "WALLACE: Fufu… {PLAYER}{KUN}…\n"
 	.string "You've finally achieved your goal.\p"
-	.string "My eye for appraising talent wasn't\n"
-	.string "mistaken…\p"
 	.string "I wish for another chance to meet\n"
 	.string "you, for you have scaled the peak\l"
 	.string "of power and prestige.$"
 
 MatchCall_Text_Juan3::
-	.string "JUAN: Hoho… {PLAYER}{KUN}…\p"
+	.string "WALLACE: Hoho… {PLAYER}{KUN}…\p"
 	.string "Our SOOTOPOLIS GYM has finally\n"
 	.string "reopened.\p"
 	.string "If you wish to see me, you are\n"
 	.string "welcome to visit anytime.$"
 
 MatchCall_Text_Juan4::
-	.string "JUAN: {PLAYER}{KUN}…\p"
+	.string "WALLACE: {PLAYER}{KUN}…\p"
 	.string "Like the finest music, the battles\n"
 	.string "we wage together strike chords\l"
 	.string "of inspiration in my heart…\p"
@@ -2850,21 +2848,6 @@ MatchCall_Text_UnusedProfBirch:
 	.string "PROF. BIRCH: When one has both\n"
 	.string "the POKéDEX and POKéNAV, studying\l"
 	.string "POKéMON becomes more fun, eh?$"
-
-MatchCall_Text_MrStone1::
-	.string "MR. STONE: Oh? {PLAYER}{KUN}!\p"
-	.string "Since you called me, the POKéNAV\n"
-	.string "must be working properly!\p"
-	.string "Other people will be registered,\n"
-	.string "so try calling them up, too!\p"
-	.string "Good! Good!\n"
-	.string "You seem to be quite happy!\p"
-	.string "Hm…\n"
-	.string "How could I know that?\p"
-	.string "It's because I'm looking down at\n"
-	.string "you from my office window!\p"
-	.string "Wahahaha!\n"
-	.string "See you again!$"
 
 MatchCall_Text_MrStone2::
 	.string "MR. STONE: Oh? {PLAYER}{KUN}!\p"

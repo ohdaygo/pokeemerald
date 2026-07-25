@@ -628,6 +628,24 @@
       "var": "VAR_REGISTER_BIRCH_STATE",
       "var_value": "1",
       "script": "Route110_EventScript_BirchScene4"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 17,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "Route110_EventScript_BikeCheck"
+    },
+    {
+      "type": "trigger",
+      "x": 32,
+      "y": 19,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "Route110_EventScript_ClearCyclingRoad"
     }
   ],
   "bg_events": [

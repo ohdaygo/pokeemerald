@@ -300,10 +300,7 @@ BattleFrontier_Lounge7_Text_LeftTutorIntro:
 	.string "there. I'm actually talented!\p"
 	.string "Let me prove it to you.\n"
 	.string "I can teach your POKéMON special and\l"
-	.string "yet cute moves.\p"
-	.string "But my lessons don't come free.\n"
-	.string "How about paying for the moves I teach\l"
-	.string "with a wee bit of Battle Points?$"
+	.string "yet cute moves.$"
 
 BattleFrontier_Lounge7_Text_LeftTutorWelcomeBack:
 	.string "Buhahaha!\p"
@@ -349,10 +346,7 @@ BattleFrontier_Lounge7_Text_RightTutorIntro:
 	.string "there. I'm actually experienced!\p"
 	.string "I can prove it to you.\n"
 	.string "I can teach your POKéMON hard and\l"
-	.string "yet pretty moves.\p"
-	.string "But my lessons don't come free.\n"
-	.string "How about paying for the moves I teach\l"
-	.string "with a wee bit of Battle Points?$"
+	.string "yet pretty moves.$"
 
 BattleFrontier_Lounge7_Text_RightTutorWelcomeBack:
 	.string "Ihihihi!\p"

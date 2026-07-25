@@ -1199,8 +1199,8 @@
                 "species": "SPECIES_SWABLU"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 17,
+                "max_level": 17,
                 "species": "SPECIES_SEVIPER"
               },
               {
@@ -1210,8 +1210,8 @@
                 "met_game_override": "VERSION_RUBY"
               },
               {
-                "min_level": 18,
-                "max_level": 18,
+                "min_level": 17,
+                "max_level": 17,
                 "species": "SPECIES_SEVIPER"
               },
               {
@@ -1449,8 +1449,8 @@
                 "species": "SPECIES_ILLUMISE"
               },
               {
-                "min_level": 14,
-                "max_level": 14,
+                "min_level": 13,
+                "max_level": 13,
                 "species": "SPECIES_VOLBEAT"
               },
               {

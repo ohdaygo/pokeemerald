@@ -251,18 +251,10 @@ SafariZone_RestHouse_Text_FatMan:
 	.string "I think POKéMON with the same sort of\n"
 	.string "nature are drawn by a certain {POKEBLOCK}.$"
 
-SafariZone_South_Text_AreaOffLimits1:
-	.string "This area is still under construction.\n"
-	.string "It's off-limits, sorry!$"
-
 SafariZone_Southeast_Text_ExpansionIsFinished:
 	.string "The SAFARI ZONE's expansion project\n"
 	.string "is finished now.\p"
 	.string "We hope you will enjoy the new area.$"
-
-SafariZone_South_Text_AreaOffLimits2:
-	.string "This area is still under construction.\n"
-	.string "It's off-limits, sorry!$"
 
 SafariZone_Southeast_Text_LittleGirl:
 	.string "Wow! Whee! I haven't seen any of\n"
@@ -292,3 +284,7 @@ SafariZone_Northeast_Text_Girl:
 	.string "I can't seem to catch anything!\p"
 	.string "I'll end up wasting the admission\n"
 	.string "price if I don't catch something!$"
+
+Route121_SafariZoneEntrance_Text_NoEggs:
+	.string "Sorry, we don't allow EGGS beyond this\n"
+	.string "point.$"

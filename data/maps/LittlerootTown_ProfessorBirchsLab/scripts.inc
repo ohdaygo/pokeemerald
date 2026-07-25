@@ -123,22 +123,10 @@ LittlerootTown_ProfessorBirchsLab_EventScript_NicknameStarter::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GoSeeRival::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, LittlerootTown_ProfessorBirchsLab_EventScript_AgreeToSeeRival
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_DeclineSeeingRival
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_AgreeToSeeRival::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_GetRivalToTeachYou, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival
 	clearflag FLAG_HIDE_ROUTE_101_BOY
 	setvar VAR_BIRCH_LAB_STATE, 3
 	releaseall
-	end
-
-LittlerootTown_ProfessorBirchsLab_EventScript_DeclineSeeingRival::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_DontBeThatWay, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, YES, LittlerootTown_ProfessorBirchsLab_EventScript_AgreeToSeeRival
-	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_DeclineSeeingRival
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GivePokedexEvent::
@@ -779,17 +767,8 @@ LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
 	.string "POKéMON while helping me out.\p"
 	.string "{PLAYER}{KUN}, {RIVAL} is doing some\n"
 	.string "fieldwork on {COLOR GREEN}ROUTE 103{COLOR DARK_GRAY} and would be\l"
-	.string "happy to give you some pointers!$"
-
-LittlerootTown_ProfessorBirchsLab_Text_GetRivalToTeachYou:
-	.string "PROF. BIRCH: Great!\n"
-	.string "{RIVAL} should be happy, too.\p"
-	.string "Get {RIVAL} to teach you what it\n"
-	.string "means to be a TRAINER.$"
-
-LittlerootTown_ProfessorBirchsLab_Text_DontBeThatWay:
-	.string "PROF. BIRCH: Oh, don't be that way.\n"
-	.string "You should go meet my kid.$"
+	.string "happy teach you what it means to be a\l"
+	.string "trainer.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome:
 	.string "PROF. BIRCH: {RIVAL}?\p"
