@@ -19,7 +19,7 @@ https://www.youtube.com/watch?v=_DtMQ8BOAeE
 - Nature Colors
 https://github.com/pret/pokeemerald/wiki/Colored-stats-by-nature-in-summary-screen
 
-- Check EVs/IVs
+- Check EVs/IVs in Summary Screen
 https://github.com/pret/pokeemerald/wiki/Show-IVs-EVs-in-Summary-Screen
 
 - Wrapping Summary Screen
@@ -61,7 +61,7 @@ https://github.com/pret/pokeemerald/wiki/Get-Match-Calls-Only-If-Caller-Wants-a-
 - LGPE Premier Balls
 https://github.com/pret/pokeemerald/wiki/LGPE-Style-Bonus-Premier-Balls
 
-- "Fish Will Now Always Get on Hook"
+- Fish Will Now Always Get on Hook
 https://github.com/pret/pokeemerald/wiki/Fish-Will-Now-Always-Get-on-Hook
 
 - Overworld 1HP Poison Survival
@@ -78,5 +78,16 @@ https://github.com/BuffelSaft/pokeemerald/commit/e83c8a58d605ea81ba757d62a3b69d1
 
 - Breeding Changes
 https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-16#post-10416415 (TMs both Parents)
-https://github.com/LOuroboros/pokeemerald/commit/a4dfbebd8163e0beefa1ed456420838ec555f233 (Modern Everstone, Changes to Incense Breeding, Egg Moves both Parents, Destiny Knot (Macho Brace) Implementation)
+https://github.com/LOuroboros/pokeemerald/commit/a4dfbebd8163e0beefa1ed456420838ec555f233 (Modern Everstone, Changes to Incense Breeding, Egg Moves both Parents, Macho Brace will pass 5 IVs)
 
+- Eggs Releasable
+https://www.pokecommunity.com/threads/pokeemerald-allow-release-egg.536952/
+
+- Increase item bag capacity
+https://github.com/pret/pokeemerald/wiki/Increase-item-bag-capacity
+
+- Increase Text Speed Beyond Fast
+https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-15#post-10400198
+
+- Traded Pokémon do not disobey or gain extra EXP
+https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Pokemon-Disobeying-You
