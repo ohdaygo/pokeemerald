@@ -14,8 +14,8 @@ Route104_EventScript_ItemPPUp::
 	finditem ITEM_PP_UP
 	end
 
-Route104_EventScript_ItemPokeBall::
-	finditem ITEM_POKE_BALL
+Route104_EventScript_ItemNestBall::
+	finditem ITEM_NEST_BALL
 	end
 
 Route104_EventScript_ItemXAccuracy::
@@ -222,8 +222,8 @@ Route121_EventScript_ItemZinc::
 	finditem ITEM_ZINC
 	end
 
-Route123_EventScript_ItemCalcium::
-	finditem ITEM_CALCIUM
+Route123_EventScript_ItemPoisonBarb::
+	finditem ITEM_POISON_BARB
 	end
 
 Route123_EventScript_ItemUltraBall::
@@ -322,8 +322,8 @@ LilycoveCity_EventScript_ItemMaxRepel::
 	finditem ITEM_MAX_REPEL
 	end
 
-MossdeepCity_EventScript_ItemNetBall::
-	finditem ITEM_NET_BALL
+MossdeepCity_EventScript_ItemSharpBeak::
+	finditem ITEM_SHARP_BEAK
 	end
 
 PetalburgWoods_EventScript_ItemXAttack::
@@ -342,8 +342,8 @@ PetalburgWoods_EventScript_ItemParalyzeHeal::
 	finditem ITEM_PARALYZE_HEAL
 	end
 
-RusturfTunnel_EventScript_ItemPokeBall::
-	finditem ITEM_POKE_BALL
+RusturfTunnel_EventScript_ItemDiveBall::
+	finditem ITEM_DIVE_BALL
 	end
 
 RusturfTunnel_EventScript_ItemMaxEther::
@@ -354,8 +354,8 @@ GraniteCave_1F_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
 	end
 
-GraniteCave_B1F_EventScript_ItemPokeBall::
-	finditem ITEM_POKE_BALL
+GraniteCave_B1F_EventScript_ItemDiveBall::
+	finditem ITEM_DIVE_BALL
 	end
 
 GraniteCave_B2F_EventScript_ItemRepel::
@@ -398,8 +398,8 @@ MeteorFalls_B1F_2R_EventScript_ItemTMDragonClaw::
 	finditem ITEM_TM_DRAGON_CLAW
 	end
 
-NewMauville_Inside_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+NewMauville_Inside_EventScript_ItemMetalCoat::
+	finditem ITEM_METAL_COAT
 	end
 
 NewMauville_Inside_EventScript_ItemEscapeRope::
@@ -482,8 +482,8 @@ SafariZone_Southeast_EventScript_ItemBigPearl::
 	finditem ITEM_BIG_PEARL
 	end
 
-MtPyre_2F_EventScript_ItemUltraBall::
-	finditem ITEM_ULTRA_BALL
+MtPyre_2F_EventScript_ItemSpellTag::
+	finditem ITEM_SPELL_TAG
 	end
 
 MtPyre_3F_EventScript_ItemSuperRepel::
@@ -522,8 +522,8 @@ AquaHideout_B1F_EventScript_ItemMaxElixir::
 	finditem ITEM_MAX_ELIXIR
 	end
 
-AquaHideout_B2F_EventScript_ItemNestBall::
-	finditem ITEM_NEST_BALL
+AquaHideout_B2F_EventScript_ItemDiveBall::
+	finditem ITEM_DIVE_BALL
 	end
 
 AquaHideout_B2F_EventScript_ItemMasterBall::

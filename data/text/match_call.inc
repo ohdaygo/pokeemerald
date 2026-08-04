@@ -2223,7 +2223,7 @@ MatchCall_Text_TateLiza_PostRematch::
 	.string "TATE: It would be nice if…\n"
 	.string "LIZA: We could all battle again!$"
 
-MatchCall_Text_Juan1::
+MatchCall_Text_WallaceGym_Preparing::
 	.string "WALLACE: Hmm…\n"
 	.string "{PLAYER}{KUN}…\p"
 	.string "Our battle together--it brought\n"
@@ -2232,21 +2232,21 @@ MatchCall_Text_Juan1::
 	.string "Perhaps you are a genius who may\n"
 	.string "yet surpass STEVEN!$"
 
-MatchCall_Text_Juan2::
+MatchCall_Text_WallaceGym_PreparingPostGame::
 	.string "WALLACE: Fufu… {PLAYER}{KUN}…\n"
 	.string "You've finally achieved your goal.\p"
 	.string "I wish for another chance to meet\n"
 	.string "you, for you have scaled the peak\l"
 	.string "of power and prestige.$"
 
-MatchCall_Text_Juan3::
+MatchCall_Text_WallaceGym_RematchReady::
 	.string "WALLACE: Hoho… {PLAYER}{KUN}…\p"
 	.string "Our SOOTOPOLIS GYM has finally\n"
 	.string "reopened.\p"
 	.string "If you wish to see me, you are\n"
 	.string "welcome to visit anytime.$"
 
-MatchCall_Text_Juan4::
+MatchCall_Text_WallaceGym_PostRematch::
 	.string "WALLACE: {PLAYER}{KUN}…\p"
 	.string "Like the finest music, the battles\n"
 	.string "we wage together strike chords\l"
@@ -2289,20 +2289,6 @@ MatchCall_Text_Drake::
 	.string "battles, there is no substitute for\l"
 	.string "the POKéMON LEAGUE!\p"
 	.string "Don't you agree, {PLAYER}?$"
-
-MatchCall_Text_Wallace::
-	.string "WALLACE: Hello, {PLAYER}{KUN}.\n"
-	.string "Have you met STEVEN?\p"
-	.string "He is…\n"
-	.string "Actually incredibly skilled.\p"
-	.string "However, he's an odd soul who\n"
-	.string "rarely battles.\p"
-	.string "Instead, he would rather look for\n"
-	.string "rare stones.\p"
-	.string "I'm sure he's digging in a cave or\n"
-	.string "a craggy mountain somewhere.\p"
-	.string "But what is a rare stone exactly?\n"
-	.string "All I can think of is a METEORITE…$"
 
 MatchCall_Text_MayRayquazaCall:
 	.string "… … … … … …\n"
@@ -2826,8 +2812,8 @@ MatchCall_Text_Steven7::
 	.string "for entering the HALL OF FAME.\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
-	.string "I hope we can meet again\n"
-	.string "somewhere!$"
+	.string "When it comes down to it, you turned\n"
+	.string "out to be the strongest!$"
 
 MatchCall_Text_BirchRegisterCall:
 	.string "PROF. BIRCH: Oh, {PLAYER}{KUN}!\n"

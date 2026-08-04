@@ -110,8 +110,8 @@ AquaHideout_B2F_Text_MattPostBattle:
 	.string "Our BOSS has already gone on his way to\n"
 	.string "some cave under the sea!\p"
 	.string "If you're going to give chase, you'd\n"
-	.string "better search the big, wide sea beyond\l"
-	.string "LILYCOVE.\p"
+	.string "better {COLOR GREEN}search the big, wide sea beyond\l"
+	.string "LILYCOVE{COLOR DARK_GRAY}.\p"
 	.string "But will you find it then?\n"
 	.string "Hehehe!$"
 
@@ -141,7 +141,7 @@ AquaHideout_B2F_Text_Grunt6Defeat:
 
 AquaHideout_B2F_Text_Grunt6PostBattle:
 	.string "That reminds me… I can't remember\n"
-	.string "where I put the MASTER BALL.\p"
+	.string "where I put the {COLOR GREEN}MASTER BALL{COLOR DARK_GRAY}.\p"
 	.string "If I fail to guard it, our BOSS will\n"
 	.string "chew me out…$"
 

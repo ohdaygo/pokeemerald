@@ -63,16 +63,16 @@ AquaHideout_1F_Text_OurBossIsSnatchingSomething:
 AquaHideout_1F_Text_WhereMightMagmaHideoutBe:
 	.string "What? What?\n"
 	.string "Are you a TEAM MAGMA grunt?\p"
-	.string "I hear that TEAM MAGMA is trying to\n"
+	.string "I hear that {COLOR GREEN}TEAM MAGMA{COLOR DARK_GRAY} is trying to\n"
 	.string "awaken an awesome POKéMON at their\l"
-	.string "HIDEOUT.\p"
-	.string "But where might their HIDEOUT be?$"
+	.string "{COLOR GREEN}HIDEOUT{COLOR DARK_GRAY}.\p"
+	.string "But where might their {COLOR GREEN}HIDEOUT{COLOR DARK_GRAY} be?$"
 
 AquaHideout_1F_Text_BossWentToJackASubmarine:
 	.string "What? What? What do you want with \n"
 	.string "TEAM AQUA?\p"
 	.string "Our BOSS isn't here!\n"
-	.string "He's gone off to jack a submarine!\p"
+	.string "He's gone off to jack a {COLOR GREEN}submarine{COLOR DARK_GRAY}!\p"
 	.string "… …\n"
 	.string "Where did he go?\p"
 	.string "Wahaha! Do you really think I'd tell\n"
@@ -82,7 +82,7 @@ AquaHideout_1F_Text_BossIsOnRoute122:
 	.string "What? What? What do you want with \n"
 	.string "TEAM AQUA?\p"
 	.string "Our BOSS isn't here! He's on his way to\n"
-	.string "MT. PYRE on ROUTE 122!\p"
+	.string "{COLOR GREEN}MT. PYRE on ROUTE 122{COLOR DARK_GRAY}!\p"
 	.string "… …\n"
 	.string "Why did he go?\p"
 	.string "Wahaha! Do you really think I'd tell\n"
@@ -91,15 +91,15 @@ AquaHideout_1F_Text_BossIsOnRoute122:
 AquaHideout_1F_Text_TeamMagmaAtMtChimney:
 	.string "What? What?\n"
 	.string "Are you a TEAM MAGMA grunt?\p"
-	.string "I hear that TEAM MAGMA is after\n"
-	.string "an awesome POKéMON at MT. CHIMNEY.\p"
+	.string "I hear that {COLOR GREEN}TEAM MAGMA{COLOR DARK_GRAY} is after\n"
+	.string "an awesome POKéMON at {COLOR GREEN}MT. CHIMNEY{COLOR DARK_GRAY}.\p"
 	.string "But what is that POKéMON like?$"
 
 AquaHideout_1F_Text_BossIsInSlateportCity:
 	.string "What? What? What do you want with\n"
 	.string "TEAM AQUA?\p"
 	.string "Our BOSS isn't here!\n"
-	.string "He's on his way to SLATEPORT CITY!\p"
+	.string "He's on his way to {COLOR GREEN}SLATEPORT CITY{COLOR DARK_GRAY}!\p"
 	.string "… …\n"
 	.string "Why did he go?\p"
 	.string "Wahaha! Do you really think I'd tell\n"

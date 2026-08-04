@@ -494,23 +494,23 @@ static const struct MatchCallStructTrainer sTateLizaMatchCallHeader =
     .textData = sTateLizaTextScripts
 };
 
-static const match_call_text_data_t sJuanTextScripts[] = {
-    { MatchCall_Text_Juan_Preparing,         REMATCH_CALL_START,  NO_FLAG_TO_SET },
-    { MatchCall_Text_Juan_PreparingPostGame, ALWAYS_AVAILABLE,    NO_FLAG_TO_SET },
-    { MatchCall_Text_Juan_RematchReady,      ALWAYS_AVAILABLE,    NO_FLAG_TO_SET },
-    { MatchCall_Text_Juan_PostRematch,       FLAG_SYS_GAME_CLEAR, NO_FLAG_TO_SET },
+static const match_call_text_data_t sWallaceGymTextScripts[] = {
+    { MatchCall_Text_WallaceGym_Preparing,         REMATCH_CALL_START,  NO_FLAG_TO_SET },
+    { MatchCall_Text_WallaceGym_PreparingPostGame, ALWAYS_AVAILABLE,    NO_FLAG_TO_SET },
+    { MatchCall_Text_WallaceGym_RematchReady,      ALWAYS_AVAILABLE,    NO_FLAG_TO_SET },
+    { MatchCall_Text_WallaceGym_PostRematch,       FLAG_SYS_GAME_CLEAR, NO_FLAG_TO_SET },
     MATCH_CALL_TEXT_END
 };
 
-static const struct MatchCallStructTrainer sJuanMatchCallHeader =
+static const struct MatchCallStructTrainer sWallaceGymMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_SOOTOPOLIS_CITY,
-    .flag = FLAG_ENABLE_JUAN_MATCH_CALL,
-    .rematchTableIdx = REMATCH_JUAN,
-    .desc = gText_JuanMatchCallDesc,
+    .flag = FLAG_ENABLE_WALLACE_GYM_MATCH_CALL,
+    .rematchTableIdx = REMATCH_WALLACE_GYM,
+    .desc = gText_WallaceGymMatchCallDesc,
     .name = NULL,
-    .textData = sJuanTextScripts
+    .textData = sWallaceGymTextScripts
 };
 
 static const match_call_text_data_t sSidneyTextScripts[] = {
@@ -577,22 +577,6 @@ static const struct MatchCallStructTrainer sDrakeMatchCallHeader =
     .textData = sDrakeTextScripts
 };
 
-static const match_call_text_data_t sWallaceTextScripts[] = {
-    { MatchCall_Text_Wallace, ALWAYS_AVAILABLE, NO_FLAG_TO_SET },
-    MATCH_CALL_TEXT_END
-};
-
-static const struct MatchCallStructTrainer sWallaceMatchCallHeader =
-{
-    .type = MC_TYPE_LEADER,
-    .mapSec = MAPSEC_EVER_GRANDE_CITY,
-    .flag = FLAG_REGISTERED_WALLACE,
-    .rematchTableIdx = REMATCH_WALLACE,
-    .desc = gText_ChampionMatchCallDesc,
-    .name = NULL,
-    .textData = sWallaceTextScripts
-};
-
 static const match_call_t sMatchCallHeaders[] = {
     [MC_HEADER_MR_STONE]   = {.npc    = &sMrStoneMatchCallHeader},
     [MC_HEADER_PROF_BIRCH] = {.birch  = &sProfBirchMatchCallHeader},
@@ -609,12 +593,11 @@ static const match_call_t sMatchCallHeaders[] = {
     [MC_HEADER_FLANNERY]   = {.leader = &sFlanneryMatchCallHeader},
     [MC_HEADER_WINONA]     = {.leader = &sWinonaMatchCallHeader},
     [MC_HEADER_TATE_LIZA]  = {.leader = &sTateLizaMatchCallHeader},
-    [MC_HEADER_JUAN]       = {.leader = &sJuanMatchCallHeader},
+    [MC_HEADER_WALLACE_GYM] = {.leader = &sWallaceGymMatchCallHeader},
     [MC_HEADER_SIDNEY]     = {.leader = &sSidneyMatchCallHeader},
     [MC_HEADER_PHOEBE]     = {.leader = &sPhoebeMatchCallHeader},
     [MC_HEADER_GLACIA]     = {.leader = &sGlaciaMatchCallHeader},
-    [MC_HEADER_DRAKE]      = {.leader = &sDrakeMatchCallHeader},
-    [MC_HEADER_WALLACE]    = {.leader = &sWallaceMatchCallHeader}
+    [MC_HEADER_DRAKE]      = {.leader = &sDrakeMatchCallHeader}
 };
 
 static bool32 (*const sMatchCallGetEnabledFuncs[])(match_call_t) = {

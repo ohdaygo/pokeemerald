@@ -380,8 +380,8 @@
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route104_EventScript_ItemPokeBall",
-      "flag": "FLAG_ITEM_ROUTE_104_POKE_BALL"
+      "script": "Route104_EventScript_ItemNestBall",
+      "flag": "FLAG_ITEM_ROUTE_104_NEST_BALL"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
@@ -599,8 +599,8 @@
       "x": 3,
       "y": 9,
       "elevation": 3,
-      "item": "ITEM_POKE_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL"
+      "item": "ITEM_NEST_BALL",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_104_NEST_BALL"
     },
     {
       "type": "hidden_item",

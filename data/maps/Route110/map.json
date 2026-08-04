@@ -764,8 +764,8 @@
       "x": 4,
       "y": 35,
       "elevation": 3,
-      "item": "ITEM_POKE_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_POKE_BALL"
+      "item": "ITEM_GREAT_BALL",
+      "flag": "FLAG_HIDDEN_ITEM_ROUTE_110_GREAT_BALL_2"
     },
     {
       "type": "hidden_item",

@@ -52,6 +52,10 @@ FortreeCity_EventScript_GymSign::
 	msgbox FortreeCity_Text_GymSign, MSGBOX_SIGN
 	end
 
+FortreeCity_EventScript_SecretBaseGuildSign::
+	msgbox FortreeCity_Text_SecretBaseGuild, MSGBOX_SIGN
+	end
+
 FortreeCity_EventScript_Kecleon::
 	lock
 	faceplayer
@@ -154,3 +158,5 @@ FortreeCity_Text_GymSign:
 	.string "“The bird user taking flight into\n"
 	.string "the world.”$"
 
+FortreeCity_Text_SecretBaseGuild:
+	.string "“SECRET BASE GUILD”$"

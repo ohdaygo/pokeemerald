@@ -21,8 +21,12 @@ MtPyre_1F_EventScript_PokefanF::
 	msgbox MtPyre_1F_Text_ComeToPayRespects, MSGBOX_NPC
 	end
 
-MtPyre_1F_EventScript_Man::
-	msgbox MtPyre_1F_Text_RestingPlaceOfZigzagoon, MSGBOX_NPC
+MtPyre_1F_EventScript_Mom::
+	msgbox MtPyre_1F_Text_RestingPlaceOfShieldon, MSGBOX_NPC
+	end
+
+MtPyre_1F_EventScript_Shieldon::
+	msgbox MtPyre_1F_Text_Shieldon, MSGBOX_SIGN
 	end
 
 MtPyre_1F_Text_TakeThisForYourOwnGood:
@@ -41,7 +45,11 @@ MtPyre_1F_Text_ComeToPayRespects:
 	.string "to the spirits of departed POKéMON?\p"
 	.string "You must care for your POKéMON a lot.$"
 
-MtPyre_1F_Text_RestingPlaceOfZigzagoon:
+MtPyre_1F_Text_RestingPlaceOfShieldon:
 	.string "This is the final resting place of my\n"
-	.string "ZIGZAGOON. I cherished it…$"
+	.string "SHIELDON. I cherished him…$"
 
+MtPyre_1F_Text_Shieldon:
+	.string "                    In loving memory\p"
+	.string "                          BOOBA\p"
+	.string "                    6/21/05 - 8/5/25$"

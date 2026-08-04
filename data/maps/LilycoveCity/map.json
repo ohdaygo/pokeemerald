@@ -517,8 +517,8 @@
       "x": 64,
       "y": 31,
       "elevation": 0,
-      "item": "ITEM_POKE_BALL",
-      "flag": "FLAG_HIDDEN_ITEM_LILYCOVE_CITY_POKE_BALL"
+      "item": "ITEM_NET_BALL",
+      "flag": "FLAG_HIDDEN_ITEM_LILYCOVE_CITY_NET_BALL"
     }
   ]
 }

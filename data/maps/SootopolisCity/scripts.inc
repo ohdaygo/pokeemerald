@@ -117,8 +117,6 @@ SootopolisCity_EventScript_SetOutsideGymObjPos::
 	setobjectxyperm LOCALID_SOOTOPOLIS_MAXIE, 33, 35
 	setobjectxyperm LOCALID_SOOTOPOLIS_ARCHIE, 34, 35
 	call_if_eq VAR_SOOTOPOLIS_WALLACE_STATE, 0, SootopolisCity_EventScript_SetWallaceMiddle
-	call_if_eq VAR_SOOTOPOLIS_WALLACE_STATE, 1, SootopolisCity_EventScript_SetWallaceRight
-	call_if_eq VAR_SOOTOPOLIS_WALLACE_STATE, 2, SootopolisCity_EventScript_SetWallaceLeft
 	return
 
 SootopolisCity_EventScript_SetWallaceMiddle::
@@ -1288,24 +1286,35 @@ SootopolisCity_EventScript_GiveWaterfall::
 	setflag FLAG_RECEIVED_HM_WATERFALL
 	msgbox SootopolisCity_Text_ExplainWaterfallGoToGym, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_FACING, DIR_NORTH, SootopolisCity_EventScript_WallaceMoveFromGym
-	call_if_eq VAR_FACING, DIR_EAST, SootopolisCity_EventScript_WallaceMoveFromGym
-	call_if_eq VAR_FACING, DIR_WEST, SootopolisCity_EventScript_WallaceMoveFromGymWest
+	call_if_eq VAR_FACING, DIR_NORTH, SootopolisCity_EventScript_WallaceMoveIntoGym
+	call_if_eq VAR_FACING, DIR_EAST, SootopolisCity_EventScript_WallaceMoveIntoGym
+	call_if_eq VAR_FACING, DIR_WEST, SootopolisCity_EventScript_WallaceMoveIntoGymWest
 	release
 	end
 
-SootopolisCity_EventScript_WallaceMoveFromGym::
-	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceMoveFromGym
+SootopolisCity_EventScript_WallaceMoveIntoGym::
+	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceFaceUp
+	opendoor 31, 32
+	waitdooranim
+	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceIntoGym
 	waitmovement 0
-	copyobjectxytoperm LOCALID_SOOTOPOLIS_WALLACE
-	setvar VAR_SOOTOPOLIS_WALLACE_STATE, 1
+	hideobjectat LOCALID_SOOTOPOLIS_WALLACE, MAP_SOOTOPOLIS_CITY
+	setflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
+	closedoor 31, 32
+	waitdooranim
+	delay 10
 	return
 
-SootopolisCity_EventScript_WallaceMoveFromGymWest::
-	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceMoveFromGymWest
+SootopolisCity_EventScript_WallaceMoveIntoGymWest::
+	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceFaceUp
+	opendoor 31, 32
+	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceIntoGym
 	waitmovement 0
-	copyobjectxytoperm LOCALID_SOOTOPOLIS_WALLACE
-	setvar VAR_SOOTOPOLIS_WALLACE_STATE, 2
+	hideobjectat LOCALID_SOOTOPOLIS_WALLACE, MAP_SOOTOPOLIS_CITY
+	setflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
+	closedoor 31, 32
+	waitdooranim
+	delay 10
 	return
 
 SootopolisCity_EventScript_GoToSkyPillar::
@@ -1318,14 +1327,12 @@ SootopolisCity_EventScript_GoToGym::
 	release
 	end
 
-SootopolisCity_Movement_WallaceMoveFromGym:
-	walk_right
-	walk_in_place_faster_down
+SootopolisCity_Movement_WallaceFaceUp:
+	face_up
 	step_end
 
-SootopolisCity_Movement_WallaceMoveFromGymWest:
-	walk_left
-	walk_in_place_faster_down
+SootopolisCity_Movement_WallaceIntoGym:
+	walk_up
 	step_end
 
 SootopolisCity_EventScript_Maxie::
@@ -1382,7 +1389,7 @@ SootopolisCity_Movement_DestroyTask::
 
 SootopolisCity_Text_GymSign:
 	.string "SOOTOPOLIS CITY POKéMON GYM\n"
-	.string "LEADER: JUAN\p"
+	.string "LEADER: WALLACE\p"
 	.string "“The GYM LEADER with the beauty\n"
 	.string "of pure water!”$"
 
@@ -1503,14 +1510,14 @@ SootopolisCity_Text_CityRegainedCalm:
 	.string "The city has regained its calm…$"
 
 SootopolisCity_Text_CaveOfOriginPleaseLeave:
-	.string "Who might you be?\p"
+	.string "JUAN: Who might you be?\p"
 	.string "This is the CAVE OF ORIGIN.\p"
 	.string "The spirits of POKéMON, becalmed at\n"
 	.string "MT. PYRE, are said to be revived here.\p"
 	.string "Please leave.$"
 
 SootopolisCity_Text_LeadSuperiorTrainerToCave:
-	.string "A person with a strong will and\n"
+	.string "JUAN: A person with a strong will and\n"
 	.string "superior talent…\p"
 	.string "A TRAINER who has knowledge and\n"
 	.string "experience of many kinds of POKéMON…\p"
@@ -1525,7 +1532,7 @@ SootopolisCity_Text_AwakenedPokemonClash:
 	.string "of a third POKéMON…$"
 
 SootopolisCity_Text_CaveOfOriginSleepsToo:
-	.string "This is the CAVE OF ORIGIN…\p"
+	.string "JUAN: This is the CAVE OF ORIGIN…\p"
 	.string "With the passing of the crisis,\n"
 	.string "the cave, too, shall sleep…$"
 
@@ -1691,12 +1698,10 @@ SootopolisCity_Text_ExplainWaterfallGoToGym:
 	.string "force its way up waterfalls.\p"
 	.string "And where does one get the RAIN BADGE?\n"
 	.string "You know, don't you?\p"
-	.string "That's right! You have to beat\n"
-	.string "the SOOTOPOLIS GYM LEADER.\p"
-	.string "When you're all set to go, step through\n"
-	.string "that door.$"
+	.string "When you're all set to go, I'll be\n"
+	.string "waiting for you inside.$"
 
 SootopolisCity_Text_DazzledByMentor:
 	.string "WALLACE: I'm sure that you will be\n"
-	.string "dazzled by my mentor's breathtakingly\l"
-	.string "elegant battle style.$"
+	.string "dazzled by my breathtakingly elegant\l"
+	.string "battle style.$"

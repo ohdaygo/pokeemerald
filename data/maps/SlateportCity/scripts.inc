@@ -1337,8 +1337,8 @@ SlateportCity_Text_OhPlayerWeMadeDiscovery:
 	.string "You're looking great!\p"
 	.string "We made a huge discovery on our last\n"
 	.string "seafloor exploration.\p"
-	.string "We found an underwater cavern on\n"
-	.string "ROUTE 128.\p"
+	.string "We found an {COLOR GREEN}underwater cavern{COLOR DARK_GRAY} on\n"
+	.string "{COLOR GREEN}ROUTE 128{COLOR DARK_GRAY}.\p"
 	.string "We think it's the habitat of a POKéMON\n"
 	.string "that's said to have been long extinct.$"
 
