@@ -12,6 +12,10 @@ For contacts and other pret projects, see [pret.github.io](https://pret.github.i
 
 # Pocket Emerald
 
+Changelog:
+
+Simple Modifications Directory:
+
 - Gen 6 Style Exp. Share (added as a separate key item, old EXP Share still exists but does nothing)
 https://github.com/pret/pokeemerald/wiki/Gen-6-style-Exp.-Share---Alternative-Option
 https://www.youtube.com/watch?v=_DtMQ8BOAeE
@@ -78,5 +82,56 @@ https://github.com/BuffelSaft/pokeemerald/commit/e83c8a58d605ea81ba757d62a3b69d1
 
 - Breeding Changes
 https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-16#post-10416415 (TMs both Parents)
-https://github.com/LOuroboros/pokeemerald/commit/a4dfbebd8163e0beefa1ed456420838ec555f233 (Modern Everstone, Changes to Incense Breeding, Egg Moves both Parents, Destiny Knot (Macho Brace) Implementation)
+https://github.com/LOuroboros/pokeemerald/commit/a4dfbebd8163e0beefa1ed456420838ec555f233 (Modern Everstone, Changes to Incense Breeding, Egg Moves both Parents, Destiny Knot Implementation)
 
+- Eggs Releaseable
+https://www.pokecommunity.com/threads/pokeemerald-allow-release-egg.536952/
+
+- Increase item bag capacity
+https://github.com/pret/pokeemerald/wiki/Increase-item-bag-capacity
+
+- Increase Text Speed Beyond Fast
+https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-15#post-10400198
+
+- Traded Pokémon do not disobey, or gain extra EXP
+https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Pokemon-Disobeying-You
+
+- FRLG White-Out money calculation (NOT DONE)
+https://github.com/pret/pokeemerald/wiki/Better-White-Out-Money-Calculation
+
+- Check Party for Mon Macro (NOT DONE)
+https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-9#post-10213715
+
+- Remove the need to water berries on rainy Routes (NOT DONE)
+https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-13#post-10349397
+
+- IV Checker NPC (NOT DONE)
+https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-4#post-10160888
+
+- Uncommented BUGFIX in config.h
+
+Misc:
+
+- Learnsets modified: added TM, tutor moves, and adjusted levels to feel better, e.g. (All changes made with legality in mind)
+
+- Small cosmetic newgame changes
+
+- Misc. small cosmetic changes to towns and routes, along with misc. new events, vendor changes/additions
+
+- Tutorials removed/shortened
+
+- Pokedex Completable (All legal thanks to Met Location Overrides)
+
+- Due to Gen 6 EXP. Share, bosses and trainers are adjusted accordingly (Slightly more challenging/higher levels)
+
+- Gym Leader rematches now happen after 10 Wild Pokémon and 3 Trainers, down from 60 Pokémon and 20 Trainers
+
+- Removed Vitamin Cap
+
+- Various Ball effects changed
+
+- "Check Tag" and "Use" are swapped when selecting Berries in the bag
+
+- Breeding while holding Macho Brace will pass down 5IVs randomly (Destiny Knot effect)
+
+- Event tix. available in-game
