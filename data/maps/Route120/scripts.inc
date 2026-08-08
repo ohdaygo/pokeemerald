@@ -154,10 +154,19 @@ Route120_EventScript_BerryNotLove::
 Route120_EventScript_Steven::
 	lock
 	faceplayer
+	goto_if_unset FLAG_BADGE06_GET, Route120_EventScript_StevenFightWinona
 	goto_if_set FLAG_NOT_READY_FOR_BATTLE_ROUTE_120, Route120_EventScript_StevenAskReadyForBattle
 	msgbox Route120_Text_StevenGreeting, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Route120_EventScript_StevenNotReady
 	goto Route120_EventScript_StevenBattleKecleon
+	end
+
+Route120_EventScript_StevenFightWinona::
+	msgbox Route120_Text_StevenFightWinona, MSGBOX_DEFAULT
+	closemessage
+	applymovement LOCALID_ROUTE120_STEVEN, Common_Movement_FaceOriginalDirection
+	waitmovement 0
+	release
 	end
 
 Route120_EventScript_StevenNotReady::
@@ -248,6 +257,15 @@ Route120_EventScript_PlayerApproachKecleonWest::
 Route120_Movement_ApproachKecleonWest:
 	walk_down
 	walk_left
+	step_end
+
+Route120_EventScript_PlayerWalkAwayFromSteven::
+	applymovement LOCALID_PLAYER, Route120_Movement_PlayerWalkAwayFromSteven
+	waitmovement 0
+	return
+
+Route120_Movement_PlayerWalkAwayFromSteven:
+	walk_right
 	step_end
 
 Route120_EventScript_BridgeKecleon::
@@ -371,6 +389,15 @@ Route120_Text_StevenGreeting:
 	.string "That would be more fun.\p"
 	.string "{PLAYER}{KUN}, are your POKéMON ready for\n"
 	.string "battle?$"
+
+Route120_Text_StevenFightWinona:
+	.string "STEVEN: Hm? {PLAYER}{KUN}, hi.\n"
+	.string "It's been a while.\p"
+	.string "There's something here that you can't\n"
+	.string "see, right?\p"
+	.string "{PLAYER}{KUN}, {COLOR GREEN}I want you to challenge\n"
+	.string "FORTREE CITY'S GYM{COLOR DARK_GRAY}, and come back to me\l"
+	.string "at your strongest.$" 
 
 Route120_Text_StevenIllWaitHere:
 	.string "STEVEN: No?\p"

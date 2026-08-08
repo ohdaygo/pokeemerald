@@ -84,7 +84,6 @@ SootopolisCity_Gym_1F_EventScript_Wallace::
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, SootopolisCity_Gym_1F_EventScript_WallaceRematch
 	goto_if_unset FLAG_RECEIVED_TM_WATER_PULSE, SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2
-	goto_if_unset FLAG_BADGE06_GET, SootopolisCity_Gym_1F_EventScript_GoGetFortreeBadge
 	msgbox SootopolisCity_Gym_1F_Text_WallacePostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -131,11 +130,6 @@ SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2::
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
 	setflag FLAG_RECEIVED_TM_WATER_PULSE
-	release
-	end
-
-SootopolisCity_Gym_1F_EventScript_GoGetFortreeBadge::
-	msgbox SootopolisCity_Gym_1F_Text_GoGetFortreeBadge, MSGBOX_DEFAULT
 	release
 	end
 
@@ -238,12 +232,9 @@ SootopolisCity_Gym_1F_Text_ReceivedRainBadge:
 	.string "from WALLACE.$"
 
 SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis:
-	.string "Having the RAIN BADGE shall assure you\n"
-	.string "the full obedience of all your POKéMON\l"
-	.string "to your every command.\p"
-	.string "The RAIN BADGE also allows the use\n"
-	.string "of the HM move WATERFALL to scale\l"
-	.string "walls of cascading water.\p"
+	.string "Having the RAIN BADGE allows the use of\n"
+	.string "the HM move WATERFALL to scale walls of\l"
+	.string "of cascading water.\p"
 	.string "And, so that you never forget the\n"
 	.string "battle we shared, take this…$"
 
@@ -263,17 +254,10 @@ SootopolisCity_Gym_1F_Text_WallacePostBattle:
 	.string "the GYM BADGES of HOENN should make\l"
 	.string "way to the ultimate destination.\p"
 	.string "The POKéMON LEAGUE.\p"
-	.string "Travel to the easternmost reaches\n"
-	.string "of HOENN, to the island EVER GRANDE.\p"
-	.string "There, you shall find the POKéMON\n"
-	.string "LEAGUE.$"
-
-SootopolisCity_Gym_1F_Text_GoGetFortreeBadge:
-	.string "There remains but one BADGE to\n"
-	.string "obtain in HOENN.\p"
-	.string "If you wish to challenge the POKéMON\n"
-	.string "LEAGUE, you must obtain the last\l"
-	.string "BADGE from the GYM in FORTREE.$"
+	.string "Travel to the {COLOR GREEN}easternmost reaches\n"
+	.string "of HOENN, to the island EVER GRANDE{COLOR DARK_GRAY}.\p"
+	.string "{COLOR GREEN}There, you shall find the POKéMON\n"
+	.string "LEAGUE{COLOR DARK_GRAY}.$"
 
 SootopolisCity_Gym_1F_Text_GymStatue:
 	.string "SOOTOPOLIS CITY POKéMON GYM$"

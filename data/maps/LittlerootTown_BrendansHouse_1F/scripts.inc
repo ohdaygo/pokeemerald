@@ -382,8 +382,8 @@ PlayersHouse_1F_Text_RunningShoesManual:
 	.string "RUNNING SHOES.\p"
 	.string "“Press and hold the B Button to run\n"
 	.string "while wearing your RUNNING SHOES.”\p"
-	.string "“Alternatively, press the R Button to\n"
-	.string "toggle them off and on.”\p"
+	.string "“{COLOR GREEN}Alternatively, press the R Button to\n"
+	.string "toggle them off and on{COLOR DARK_GRAY}.”\p"
 	.string "“Lace up your RUNNING SHOES and hit\n"
 	.string "the road running!”$"
 
@@ -400,8 +400,8 @@ PlayersHouse_1F_Text_TicketFromBrineyCameForYou:
 
 PlayersHouse_1F_Text_PortsInSlateportLilycove:
 	.string "DAD: Hm, a TICKET for a ferry?\p"
-	.string "If I recall, there are ferry ports in\n"
-	.string "SLATEPORT and LILYCOVE.$"
+	.string "{COLOR GREEN}If I recall, there are ferry ports in\n"
+	.string "SLATEPORT and LILYCOVE{COLOR DARK_GRAY}.$"
 
 PlayersHouse_1F_Text_BetterGetBackToGym:
 	.string "I'd better get back to PETALBURG GYM.\p"
@@ -420,9 +420,9 @@ PlayersHouse_1F_Text_IsThatABreakingStory:
 PlayersHouse_1F_Text_LatiEmergencyNewsFlash:
 	.string "We bring you this emergency\n"
 	.string "news flash!\p"
-	.string "In various HOENN locales, there have\n"
+	.string "{COLOR GREEN}In various HOENN locales, there have\n"
 	.string "been reports of a BZZT…colored\l"
-	.string "POKéMON in flight.\p"
+	.string "POKéMON in flight{COLOR DARK_GRAY}.\p"
 	.string "The identity of this POKéMON is\n"
 	.string "currently unknown.\p"
 	.string "We now return you to the regular\n"
@@ -430,8 +430,8 @@ PlayersHouse_1F_Text_LatiEmergencyNewsFlash:
 
 PlayersHouse_1F_Text_WhatColorDidTheySay:
 	.string "MOM: {PLAYER}, did you catch that?\p"
-	.string "What color did the announcer say\n"
-	.string "that POKéMON was?$"
+	.string "{COLOR GREEN}What color did the announcer say\n"
+	.string "that POKéMON was{COLOR DARK_GRAY}?$"
 
 PlayersHouse_1F_Text_StillUnknownPokemon:
 	.string "MOM: Well, isn't that something!\n"

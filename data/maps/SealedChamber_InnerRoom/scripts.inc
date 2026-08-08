@@ -24,9 +24,9 @@ SealedChamber_InnerRoom_EventScript_BrailleBackWall::
 	closemessage
 	fadeinbgm 0
 	setflag FLAG_REGI_DOORS_OPENED
-	setcaughtmon SPECIES_REGIROCK
-	setcaughtmon SPECIES_REGICE
-	setcaughtmon SPECIES_REGISTEEL	
+	setseenmon SPECIES_REGIROCK
+	setseenmon SPECIES_REGICE
+	setseenmon SPECIES_REGISTEEL	
 	releaseall
 	end
 

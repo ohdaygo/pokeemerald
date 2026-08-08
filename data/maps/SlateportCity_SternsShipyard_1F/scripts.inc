@@ -82,15 +82,15 @@ SlateportCity_SternsShipyard_1F_Text_MeetDockDeliverToStern:
 	.string "This won't do…\p"
 	.string "CAPT. STERN went off somewhere.\n"
 	.string "He said he had some work to do.\p"
-	.string "Could I get you to go find CAPT.\n"
-	.string "STERN and deliver that to him?\p"
+	.string "{COLOR GREEN}Could I get you to go find CAPT.\n"
+	.string "STERN and deliver that to him{COLOR DARK_GRAY}?\p"
 	.string "You can have this as an incentive!$"
 
 SlateportCity_SternsShipyard_1F_Text_CouldYouFindStern:
 	.string "DOCK: Where could CAPT. STERN have\n"
 	.string "gone off to?\p"
-	.string "Could you go find CAPT. STERN and\n"
-	.string "deliver that parcel to him?$"
+	.string "{COLOR GREEN}Could you go find CAPT. STERN and\n"
+	.string "deliver that parcel to him{COLOR DARK_GRAY}?$"
 
 SlateportCity_SternsShipyard_1F_Text_CouldUseAdviceFromVeteran:
 	.string "DOCK: Shipbuilding is an art.\p"

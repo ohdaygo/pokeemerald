@@ -473,8 +473,8 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 	copyvar VAR_ROAMER_POKEMON, VAR_RESULT
 	msgbox PlayersHouse_1F_Text_StillUnknownPokemon, MSGBOX_DEFAULT
 	closemessage
-	setcaughtmon SPECIES_LATIAS
-	setcaughtmon SPECIES_LATIOS
+	setseenmon SPECIES_LATIAS
+	setseenmon SPECIES_LATIOS
 	setvar VAR_LITTLEROOT_HOUSES_STATE_MAY, 4
 	setvar VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4
 	releaseall

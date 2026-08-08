@@ -102,8 +102,8 @@ PetalburgCity_WallysHouse_Text_PleaseExcuseUs:
 	.string "I'd really like you to have this.$"
 
 PetalburgCity_WallysHouse_Text_SurfGoAllSortsOfPlaces:
-	.string "If your POKéMON can {COLOR GREEN}SURF{COLOR DARK_GRAY}, you'll be\n"
-	.string "able to handle what lies {COLOR GREEN}beyond the sea\l"
+	.string "{COLOR GREEN}If your POKéMON can SURF, you'll be\n"
+	.string "able to handle what lies beyond the sea\l"
 	.string "on ROUTE 118{COLOR DARK_GRAY}.$"
 
 PetalburgCity_WallysHouse_Text_WallyIsComingHomeSoon:

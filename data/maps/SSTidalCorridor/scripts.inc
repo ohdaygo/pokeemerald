@@ -258,7 +258,7 @@ SSTidalCorridor_Text_ScottBattleFrontierInvite:
 	.string "There's a place I'd like to invite\n"
 	.string "someone like you.\p"
 	.string "It's the…\n"
-	.string "BATTLE FRONTIER!\p"
+	.string "{COLOR GREEN}BATTLE FRONTIER{COLOR DARK_GRAY}!\p"
 	.string "What's the place like?\n"
 	.string "You'll understand when you see it!\p"
 	.string "I've spoken with the ship's CAPTAIN\n"
@@ -266,8 +266,8 @@ SSTidalCorridor_Text_ScottBattleFrontierInvite:
 	.string "The next time you take a ferry,\n"
 	.string "you should be able to sail to\l"
 	.string "the BATTLE FRONTIER.\p"
-	.string "Okay, {PLAYER}{KUN}, I'll be waiting for you\n"
-	.string "at the BATTLE FRONTIER!$"
+	.string "{COLOR GREEN}Okay, {PLAYER}{KUN}, I'll be waiting for you\n"
+	.string "at the BATTLE FRONTIER{COLOR DARK_GRAY}!$"
 
 SSTidal_Text_FastCurrentsHopeYouEnjoyVoyage:
 	.string "This ferry is built to plow through\n"

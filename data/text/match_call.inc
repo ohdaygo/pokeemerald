@@ -2812,8 +2812,11 @@ MatchCall_Text_Steven7::
 	.string "for entering the HALL OF FAME.\p"
 	.string "… … … … … …\n"
 	.string "… … … … … …\p"
-	.string "When it comes down to it, you turned\n"
-	.string "out to be the strongest!$"
+	.string "And where will you go from here?\p"
+	.string "… … … … … …\n"
+	.string "… … … … … …\p"
+	.string "Fufufu, even I couldn't tell you\n"
+	.string "that.$"
 
 MatchCall_Text_BirchRegisterCall:
 	.string "PROF. BIRCH: Oh, {PLAYER}{KUN}!\n"

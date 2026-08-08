@@ -479,14 +479,14 @@ Route109_EventScript_Elijah::
 DewfordTown_Text_BrineyLandedInSlateportDeliverGoods:
 	.string "MR. BRINEY: Ahoy!\n"
 	.string "We've made land in SLATEPORT!\p"
-	.string "I suppose you're going to visit CAPT.\n"
-	.string "STERN and deliver the DEVON GOODS?\p"
+	.string "{COLOR GREEN}I suppose you're going to visit CAPT.\n"
+	.string "STERN and deliver the DEVON GOODS{COLOR DARK_GRAY}?\p"
 	.string "Give my old friend DRAKE a visit while\n"
 	.string "you're here too!$"
 
 Route109_Text_BrineySailToDewfordQuestion:
-	.string "MR. BRINEY: I thought you're supposed\n"
-	.string "to deliver the DEVON GOODS.\p"
+	.string "MR. BRINEY: {COLOR GREEN}I thought you're supposed\n"
+	.string "to deliver the DEVON GOODS{COLOR DARK_GRAY}.\p"
 	.string "Would you like to sail back to\n"
 	.string "DEWFORD, then?$"
 
@@ -496,8 +496,8 @@ Route109_Text_BrineyDewfordItIs:
 	.string "PEEKO, we're setting sail, my darling!$"
 
 Route109_Text_BrineyDeliverDevonGoods:
-	.string "MR. BRINEY: Then you go on and deliver\n"
-	.string "the DEVON GOODS. I'll be waiting.\p"
+	.string "MR. BRINEY: {COLOR GREEN}Then you go on and deliver\n"
+	.string "the DEVON GOODS{COLOR DARK_GRAY}. I'll be waiting.\p"
 	.string "Give my old friend DRAKE a visit while\n"
 	.string "you're here too!$"
 

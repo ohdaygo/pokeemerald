@@ -273,7 +273,7 @@ Route119_WeatherInstitute_2F_Text_TeamMagmaJustPassedBy:
 Route119_WeatherInstitute_2F_Text_WeHaveToHurryToMtPyre:
 	.string "What?!\p"
 	.string "We can't waste any more time here!\n"
-	.string "We have to hurry to MT. PYRE, too!\p"
+	.string "{COLOR GREEN}We have to hurry to MT. PYRE, too{COLOR DARK_GRAY}!\p"
 	.string "Ahahahaha!\n"
 	.string "TEAM MAGMA, just you wait!$"
 

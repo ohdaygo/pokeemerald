@@ -79,7 +79,6 @@ enum {
     REMATCH_PHOEBE,
     REMATCH_GLACIA,
     REMATCH_DRAKE,
-    REMATCH_STEVEN_CHAMP, // Was Wallace
     REMATCH_TABLE_ENTRIES // The total number of rematch entries. Must be last in enum
 };
 

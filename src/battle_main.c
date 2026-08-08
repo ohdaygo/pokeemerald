@@ -142,6 +142,7 @@ EWRAM_DATA u8 gBattleTextBuff3[TEXT_BUFF_ARRAY_COUNT] = {0};
 // for gDisplayedStringBattle and overflows into this array. If it
 // is removed (and none of the buffers above are increased in size)
 // it will instead overflow into useful data.
+// Edit: Unsure if anything works differently due to me changing names/what things are called
 EWRAM_DATA static u32 sFlickerArray[25] = {0};
 EWRAM_DATA u32 gBattleTypeFlags = 0;
 EWRAM_DATA u8 gBattleEnvironment = 0;

@@ -298,5 +298,5 @@ Route128_Text_StevenImGoingToSootopolis:
 	.string "I don't know what you intend to do,\l"
 	.string "but don't do anything reckless.\p"
 	.string "Okay.\n"
-	.string "I'm going to {COLOR GREEN}SOOTOPOLIS{COLOR DARK_GRAY}.$"
+	.string "{COLOR GREEN}I'm going to SOOTOPOLIS{COLOR DARK_GRAY}.$"
 

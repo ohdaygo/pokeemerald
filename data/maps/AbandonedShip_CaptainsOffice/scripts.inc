@@ -25,13 +25,13 @@ AbandonedShip_CaptainsOffice_EventScript_ThisIsSSCactus::
 AbandonedShip_CaptainsOffice_Text_NoSuccessFindingScanner:
 	.string "I'm investigating this ship on behalf\n"
 	.string "of CAPT. STERN.\p"
-	.string "He also asked me to find a SCANNER,\n"
-	.string "but I haven't had any success…$"
+	.string "{COLOR GREEN}He also asked me to find a SCANNER,\n"
+	.string "but I haven't had any success{COLOR DARK_GRAY}…$"
 
 AbandonedShip_CaptainsOffice_Text_OhCanYouDeliverScanner:
 	.string "Oh! That's a SCANNER!\p"
-	.string "Listen, can I get you to deliver that\n"
-	.string "to CAPT. STERN?\p"
+	.string "{COLOR GREEN}Listen, can I get you to deliver that\n"
+	.string "to CAPT. STERN{COLOR DARK_GRAY}?\p"
 	.string "I want to investigate this ship a\n"
 	.string "little more.$"
 

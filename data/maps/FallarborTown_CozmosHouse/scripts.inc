@@ -78,11 +78,11 @@ FallarborTown_CozmosHouse_Text_IsThatMeteoriteMayIHaveIt:
 	.string "Hah?\p"
 	.string "That item…\p"
 	.string "Could it be?\p"
-	.string "Is it the {COLOR GREEN}METEORITE{COLOR DARK_GRAY} that TEAM MAGMA\n"
+	.string "Is it the METEORITE that TEAM MAGMA\n"
 	.string "took from METEOR FALLS?\p"
 	.string "Please, may I have it?\p"
 	.string "I'm not asking for it for free.\n"
-	.string "How about in exchange for this {COLOR GREEN}TICKET{COLOR DARK_GRAY}?$"
+	.string "{COLOR GREEN}How about in exchange for this TICKET{COLOR DARK_GRAY}?$"
 
 FallarborTown_CozmosHouse_Text_PleaseUseThisTM:
 	.string "PROF. COZMO: This TICKET, it will take\n"
@@ -102,11 +102,11 @@ FallarborTown_CozmosHouse_Text_MayIHaveMeteorite:
 	.string "PROF. COZMO: Please, may I have that\n"
 	.string "{COLOR GREEN}METEORITE{COLOR DARK_GRAY}?\p"
 	.string "I'm not asking for it for free.\n"
-	.string "How about in exchange for this {COLOR GREEN}TICKET{COLOR DARK_GRAY}?$"
+	.string "{COLOR GREEN}How about in exchange for this TICKET{COLOR DARK_GRAY}?$"
 
 FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls:
-	.string "PROF. COZMO went off to METEOR FALLS\n"
-	.string "on {COLOR GREEN}ROUTE 114{COLOR DARK_GRAY} with some people from\l"
+	.string "PROF. COZMO went off to {COLOR GREEN}METEOR FALLS\n"
+	.string "on ROUTE 114{COLOR DARK_GRAY} with some people from\l"
 	.string "TEAM MAGMA.$"
 
 FallarborTown_CozmosHouse_Text_FeelSorryForCozmo:

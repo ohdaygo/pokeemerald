@@ -203,12 +203,12 @@ RustboroCity_DevonCorp_3F_Text_MrStoneIHaveFavor:
 	.string "but twice!\p"
 	.string "I have a favor to ask of an amazing\n"
 	.string "person like you.\p"
-	.string "I understand that you're delivering\n"
-	.string "a package to SLATEPORT's SHIPYARD.\p"
+	.string "{COLOR GREEN}I understand that you're delivering\n"
+	.string "a package to SLATEPORT's SHIPYARD{COLOR DARK_GRAY}.\p"
 	.string "Well, on the way, could you stop off in\n"
 	.string "DEWFORD TOWN?\p"
-	.string "I was hoping that you'd deliver a\n"
-	.string "LETTER to STEVEN in DEWFORD.$"
+	.string "{COLOR GREEN}I was hoping that you'd deliver a\n"
+	.string "LETTER to STEVEN in DEWFORD{COLOR DARK_GRAY}.$"
 
 RustboroCity_DevonCorp_3F_Text_MrStoneWantYouToHaveThis:
 	.string "MR. STONE: Now, you should know that\n"
@@ -272,8 +272,8 @@ RustboroCity_DevonCorp_3F_Text_ThisIs3rdFloorWaitHere:
 	.string "grateful for what you've done.\p"
 	.string "Um… By the way, that parcel\n"
 	.string "you got back for us…\p"
-	.string "Could I get you to deliver that to\n"
-	.string "the SHIPYARD in SLATEPORT?\p"
+	.string "{COLOR GREEN}Could I get you to deliver that to\n"
+	.string "the SHIPYARD in SLATEPORT{COLOR DARK_GRAY}?\p"
 	.string "It would be awful if those robbers\n"
 	.string "tried to take it again.\p"
 	.string "Uh… Hehehe, so, uh, could I count\n"
@@ -290,8 +290,8 @@ RustboroCity_DevonCorp_3F_Text_PleaseGoAhead:
 	.string "Please, go ahead.$"
 
 RustboroCity_DevonCorp_3F_Text_VisitCaptSternShipyard:
-	.string "If you visit the SHIPYARD in SLATEPORT,\n"
-	.string "you should go see CAPT. STERN.$"
+	.string "{COLOR GREEN}If you visit the SHIPYARD in SLATEPORT,\n"
+	.string "you should go see CAPT. STERN{COLOR DARK_GRAY}.$"
 
 RustboroCity_DevonCorp_3F_Text_RepeatAndTimerHugelyPopular:
 	.string "DEVON's new products, the REPEAT BALL\n"

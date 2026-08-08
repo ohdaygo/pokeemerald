@@ -765,15 +765,15 @@ LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
 	.string "make an extremely good TRAINER.\p"
 	.string "My kid, {RIVAL}, is also studying\n"
 	.string "POKéMON while helping me out.\p"
-	.string "{PLAYER}{KUN}, {RIVAL} is doing some\n"
-	.string "fieldwork on {COLOR GREEN}ROUTE 103{COLOR DARK_GRAY} and would be\l"
+	.string "{COLOR GREEN}{PLAYER}{KUN}, {RIVAL} is doing some\n"
+	.string "fieldwork on ROUTE 103 and would be\l"
 	.string "happy teach you what it means to be a\l"
-	.string "trainer.$"
+	.string "trainer{COLOR DARK_GRAY}.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome:
 	.string "PROF. BIRCH: {RIVAL}?\p"
-	.string "My kid should be scrabbling around\n"
-	.string "in tall grass on {COLOR GREEN}ROUTE 103{COLOR DARK_GRAY}.\p"
+	.string "{COLOR GREEN}My kid should be scrabbling around\n"
+	.string "in tall grass on ROUTE 103{COLOR DARK_GRAY}.\p"
 	.string "If you or your POKéMON get tired,\n"
 	.string "you should get some rest at home.$"
 
@@ -877,9 +877,9 @@ LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational:
 	.string "It goes to show how rich and varied\n"
 	.string "the natural environments of HOENN\l"
 	.string "happen to be.\p"
-	.string "That's why I think it's necessary for\n"
+	.string "{COLOR GREEN}That's why I think it's necessary for\n"
 	.string "me to upgrade your POKéDEX to\l"
-	.string "the NATIONAL Mode.\p"
+	.string "the NATIONAL Mode{COLOR DARK_GRAY}.\p"
 	.string "Here, let me see your POKéDEX units.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool:

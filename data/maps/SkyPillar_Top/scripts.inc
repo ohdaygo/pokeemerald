@@ -126,7 +126,7 @@ SkyPillar_Top_EventScript_AwakenRayquaza::
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 5
 	setvar VAR_SKY_PILLAR_STATE, 1
 	setvar VAR_SKY_PILLAR_RAYQUAZA_CRY_DONE, 1
-	setcaughtmon SPECIES_RAYQUAZA
+	setseenmon SPECIES_RAYQUAZA
 	releaseall
 	end
 

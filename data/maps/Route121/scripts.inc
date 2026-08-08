@@ -170,7 +170,7 @@ Route121_EventScript_RematchCristin::
 
 Route121_Text_OkayMoveOutToMtPyre:
 	.string "Okay!\n"
-	.string "We're to move out to MT. PYRE!$"
+	.string "{COLOR GREEN}We're to move out to MT. PYRE{COLOR DARK_GRAY}!$"
 
 Route121_Text_AheadLoomsMtPyre:
 	.string "Ahead looms MT. PYRE…\p"

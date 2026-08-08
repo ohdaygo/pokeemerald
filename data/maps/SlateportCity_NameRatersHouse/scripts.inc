@@ -46,13 +46,13 @@ SlateportCity_NameRatersHouse_EventScript_DrakeSawBagon::
 	end
 
 SlateportCity_NameRatersHouse_Text_Drake:
-	.string "Ahoy TRAINER.\p"
+	.string "Ahoy, TRAINER.\p"
 	.string "… … … … … … … … …\n"
 	.string "… … … … … … … … …\p"
 	.string "Ah, ol' BRINEY brought you to find\n"
 	.string "STERN!\p"
-	.string "You'll find him by his SHIPYARD or the\n"
-	.string "MUSEUM.\p"
+	.string "{COLOR GREEN}You'll find him by his SHIPYARD or the\n"
+	.string "MUSEUM{COLOR DARK_GRAY}.\p"
 	.string "After your errand, TRAINER, visit me\n"
 	.string "again.\p"
 	.string "Sally forth!$"

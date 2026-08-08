@@ -801,9 +801,9 @@ Route110_Text_MayTakeThis:
 	.string "This is from me!$"
 
 Route110_Text_MayExplainGoGoggles:
-	.string "MAY: With those GO-GOGGLES, you'll\n"
+	.string "MAY: {COLOR GREEN}With those GO-GOGGLES, you'll\n"
 	.string "have no trouble getting through the\l"
-	.string "desert up ahead by ROUTE 111.\p"
+	.string "desert up ahead by ROUTE 111{COLOR DARK_GRAY}.\p"
 	.string "Okay, {PLAYER}{KUN}, let's meet again!\p"
 	.string "I know it's a little silly coming from\n"
 	.string "me, but I think you should train a lot\l"
@@ -827,10 +827,10 @@ Route110_Text_BrendanTakeThis:
 	.string "Here, take this.$"
 
 Route110_Text_BrendanExplainGoGoggles:
-	.string "BRENDAN: Those are the GO-GOGGLES.\p"
+	.string "BRENDAN: {COLOR GREEN}Those are the GO-GOGGLES.\p"
 	.string "Keep those with you if you're\n"
 	.string "planning on going into that desert up\l"
-	.string "ahead by ROUTE 111.\p"
+	.string "ahead by ROUTE 111{COLOR DARK_GRAY}.\p"
 	.string "There should be some POKéMON that\n"
 	.string "are exclusively desert-dwellers.\p"
 	.string "Anyway, I'm off to look for new\n"

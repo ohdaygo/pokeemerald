@@ -319,17 +319,17 @@ MeteorFalls_1F_1R_Text_MeetProfCozmo:
 	.string "After that…\n"
 	.string "I don't understand any of it.\p"
 	.string "But that TEAM MAGMA…\p"
-	.string "What are they going to do with that\n"
-	.string "{COLOR GREEN}METEORITE{COLOR DARK_GRAY} at {COLOR GREEN}MT. CHIMNEY{COLOR DARK_GRAY}?\p"
+	.string "{COLOR GREEN}What are they going to do with that\n"
+	.string "METEORITE at MT. CHIMNEY{COLOR DARK_GRAY}?\p"
 	.string "If you're willing to help, I can take\n"
 	.string "you back to {COLOR GREEN}FIREY PATH{COLOR DARK_GRAY} at least!\p"
-	.string "From there, {COLOR GREEN}follow the cave and up the\n"
+	.string "{COLOR GREEN}From there, follow the cave and up the\n"
 	.string "CABLE CAR{COLOR DARK_GRAY}.$"
 
 MeteorFalls_1F_1R_Text_WhatsTeamMagmaDoingAtMtChimney:
 	.string "PROF. COZMO: I worry TEAM MAGMA\n"
 	.string "Could be doing something terrible with\l"
-	.string "the {COLOR GREEN}METEORITE{COLOR DARK_GRAY} at {COLOR GREEN}MT. CHIMNEY{COLOR DARK_GRAY}…$"
+	.string "the {COLOR GREEN}METEORITE at MT. CHIMNEY{COLOR DARK_GRAY}…$"
 
 MeteorFalls_1F_1R_Text_TabithaDefeat:
 	.string "H-how?$"

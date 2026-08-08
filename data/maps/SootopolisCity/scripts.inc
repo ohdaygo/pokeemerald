@@ -101,18 +101,18 @@ SootopolisCity_EventScript_CheckSetEnterCaveOfOriginObjPos::
 	return
 
 SootopolisCity_EventScript_SetEnterCaveOfOriginObjPos::
-	setobjectxyperm LOCALID_SOOTOPOLIS_EXPERT, 30, 18
+	setobjectxyperm LOCALID_SOOTOPOLIS_JUAN, 30, 18
 	setobjectxyperm LOCALID_SOOTOPOLIS_STEVEN, 32, 18
 	return
 
 SootopolisCity_EventScript_SetExitCaveOfOriginObjPos::
-	setobjectxyperm LOCALID_SOOTOPOLIS_EXPERT, 30, 18
+	setobjectxyperm LOCALID_SOOTOPOLIS_JUAN, 30, 18
 	setobjectxyperm LOCALID_SOOTOPOLIS_WALLACE, 31, 18
 	setobjectxyperm LOCALID_SOOTOPOLIS_STEVEN, 32, 18
 	end
 
 SootopolisCity_EventScript_SetOutsideGymObjPos::
-	setobjectxyperm LOCALID_SOOTOPOLIS_EXPERT, 31, 18
+	setobjectxyperm LOCALID_SOOTOPOLIS_JUAN, 31, 18
 	setobjectxyperm LOCALID_SOOTOPOLIS_STEVEN, 29, 33
 	setobjectxyperm LOCALID_SOOTOPOLIS_MAXIE, 33, 35
 	setobjectxyperm LOCALID_SOOTOPOLIS_ARCHIE, 34, 35
@@ -135,7 +135,7 @@ SootopolisCity_EventScript_SetWallaceLeft::
 	return
 
 SootopolisCity_EventScript_SetExpertBlockCaveEntrance::
-	setobjectxyperm LOCALID_SOOTOPOLIS_EXPERT, 31, 18
+	setobjectxyperm LOCALID_SOOTOPOLIS_JUAN, 31, 18
 	return
 
 SootopolisCity_OnWarp:
@@ -906,7 +906,7 @@ SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin::
 	applymovement LOCALID_PLAYER, SootopolisCity_Movement_PlayerWalkToCaveOfOrigin
 	waitmovement 0
 	delay 120
-	applymovement LOCALID_SOOTOPOLIS_EXPERT, SootopolisCity_Movement_ExpertMoveAside
+	applymovement LOCALID_SOOTOPOLIS_JUAN, SootopolisCity_Movement_ExpertMoveAside
 	waitmovement 0
 	applymovement LOCALID_SOOTOPOLIS_STEVEN, SootopolisCity_Movement_StevenArriveCaveEntrance
 	applymovement LOCALID_PLAYER, SootopolisCity_Movement_PlayerArriveCaveEntrance
@@ -1526,7 +1526,7 @@ SootopolisCity_Text_LeadSuperiorTrainerToCave:
 	.string "TRAINER to this CAVE.$"
 
 SootopolisCity_Text_AwakenedPokemonClash:
-	.string "Oh, my…\p"
+	.string "JUAN: Oh, my…\p"
 	.string "The clash between the two awakened\n"
 	.string "POKéMON was quelled by the awakening\l"
 	.string "of a third POKéMON…$"

@@ -739,14 +739,14 @@ RustboroCity_Text_HelpMeIWasRobbed:
 	.string "Oh, it's you!\p"
 	.string "You're that fantastic TRAINER who\n"
 	.string "helped me in PETALBURG WOODS!\p"
-	.string "Help me! I was robbed by TEAM AQUA!\n"
-	.string "I have to get the DEVON GOODS back!\p"
+	.string "Help me! {COLOR DARK_GRAY}I was robbed by TEAM AQUA!\n"
+	.string "I have to get the DEVON GOODS back{COLOR DARK_GRAY}!\p"
 	.string "If I don't…\n"
 	.string "I'm going to be in serious trouble.$"
 
 RustboroCity_Text_ShadyCharacterTookOffTowardsTunnel:
-	.string "That shady character, I think he took\n"
-	.string "off towards the tunnel over there.$"
+	.string "That shady character, {COLOR GREEN}I think he took\n"
+	.string "off towards the tunnel over there{COLOR DARK_GRAY}.$"
 
 RustboroCity_Text_YouGotItThankYou:
 	.string "Oh! How did it go?\n"

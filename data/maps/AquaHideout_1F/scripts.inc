@@ -66,7 +66,7 @@ AquaHideout_1F_Text_WhereMightMagmaHideoutBe:
 	.string "I hear that {COLOR GREEN}TEAM MAGMA{COLOR DARK_GRAY} is trying to\n"
 	.string "awaken an awesome POKéMON at their\l"
 	.string "{COLOR GREEN}HIDEOUT{COLOR DARK_GRAY}.\p"
-	.string "But where might their {COLOR GREEN}HIDEOUT{COLOR DARK_GRAY} be?$"
+	.string "{COLOR GREEN}But where might their HIDEOUT be{COLOR DARK_GRAY}?$"
 
 AquaHideout_1F_Text_BossWentToJackASubmarine:
 	.string "What? What? What do you want with \n"
