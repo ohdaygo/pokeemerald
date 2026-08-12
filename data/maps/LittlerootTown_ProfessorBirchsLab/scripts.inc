@@ -728,7 +728,7 @@ LittlerootTown_ProfessorBirchsLab_Text_BirchIsntOneForDeskWork:
 LittlerootTown_ProfessorBirchsLab_Text_BirchEnjoysRivalsHelpToo:
 	.string "PROF. BIRCH has a reward planned for\n"
 	.string "anyone who completes their POKéDEX.\p"
-	.string "Come back to me when you receive it!$"
+	.string "{COLOR GREEN}Come back to me when you receive it{COLOR DARK_GRAY}!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_Starters:
 	.string "Congratulations on your achievement!\p"
@@ -765,10 +765,10 @@ LittlerootTown_ProfessorBirchsLab_Text_MightBeGoodIdeaToGoSeeRival:
 	.string "make an extremely good TRAINER.\p"
 	.string "My kid, {RIVAL}, is also studying\n"
 	.string "POKéMON while helping me out.\p"
-	.string "{COLOR GREEN}{PLAYER}{KUN}, {RIVAL} is doing some\n"
-	.string "fieldwork on ROUTE 103 and would be\l"
+	.string "{PLAYER}{KUN}, {COLOR GREEN}{RIVAL} is doing some\n"
+	.string "fieldwork on ROUTE 103{COLOR DARK_GRAY} and would be\l"
 	.string "happy teach you what it means to be a\l"
-	.string "trainer{COLOR DARK_GRAY}.$"
+	.string "trainer.$"
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchRivalGoneHome:
 	.string "PROF. BIRCH: {RIVAL}?\p"

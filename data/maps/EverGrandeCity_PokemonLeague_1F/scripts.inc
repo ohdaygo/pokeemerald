@@ -97,6 +97,26 @@ EverGrandeCity_PokemonLeague_1F_EventScript_GoForth::
 	releaseall
 	end
 
+EverGrandeCity_PokemonLeague_1F_EventScript_RayquazaCheck::
+	lockall
+	goto_if_set FLAG_IS_CHAMPION, EverGrandeCity_PokemonLeague_1F_EventScript_E4Beaten
+	setvar 0x8005, SPECIES_RAYQUAZA
+	special CheckSpecies
+	goto_if_eq VAR_RESULT, TRUE, EverGrandeCity_PokemonLeague_1F_EventScript_SorryTrainer
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_E4Beaten::
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_SorryTrainer::
+	msgbox EverGrandeCity_PokemonLeague_1F_Text_SorryTrainer, MSGBOX_SIGN
+	applymovement LOCALID_PLAYER, EverGrandeCity_PokemonLeague_1F_Movement_SorryTrainer
+	waitmovement 0
+	release
+	end
+
 EverGrandeCity_PokemonLeague_1F_Movement_MoveToFrontFromRight:
 	walk_down
 	walk_left
@@ -119,6 +139,10 @@ EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay:
 	walk_in_place_faster_down
 	step_end
 
+EverGrandeCity_PokemonLeague_1F_Movement_SorryTrainer:
+	walk_down
+	step_end
+
 EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges:
 	.string "Beyond this point, only those TRAINERS\n"
 	.string "who have collected all the GYM BADGES\l"
@@ -134,4 +158,9 @@ EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges:
 EverGrandeCity_PokemonLeague_1F_Text_GoForth:
 	.string "TRAINER! Believe in yourself and your\n"
 	.string "POKéMON, and go forth!$"
+
+EverGrandeCity_PokemonLeague_1F_Text_SorryTrainer:
+	.string "TRAINER, we can't allow you to\n"
+	.string "challenge the POKEMON LEAGUE with\l"
+	.string "RAYQUAZA.$"
 
