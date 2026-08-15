@@ -1,5 +1,14 @@
 MeteorFalls_StevensCave_MapScripts::
+	map_script MAP_SCRIPT_ON_TRANSITION, MeteorFalls_StevensCave_OnTransition
 	.byte 0
+
+MeteorFalls_StevensCave_OnTransition::
+	call_if_set FLAG_DEFEATED_METEOR_FALLS_LEAF, MeteorFalls_StevensCave_EventScript_HideLeaf
+	end
+
+MeteorFalls_StevensCave_EventScript_HideLeaf::
+	removeobject LOCALID_METEOR_FALLS_LEAF
+	end
 
 MeteorFalls_StevensCave_EventScript_Leaf::
 	lock
@@ -18,6 +27,9 @@ MeteorFalls_StevensCave_EventScript_Leaf::
 	setflag FLAG_DEFEATED_METEOR_FALLS_LEAF
 	giveitem ITEM_OLD_SEA_MAP
 	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
+	fadescreen FADE_TO_BLACK
+	removeobject LOCALID_METEOR_FALLS_LEAF
+	fadescreen FADE_FROM_BLACK
 	release
 	end
 
@@ -29,11 +41,12 @@ MeteorFalls_StevensCave_EventScript_Defeated::
 	end
 
 MeteorFalls_StevensCave_Text_DialogueStart:
-	.string "…$"
+	.string "………………\n"
+	.string "………………$"
 
 MeteorFalls_StevensCave_Text_LeafDefeat:
-	.string "…$"
+	.string "…!$"
 
 MeteorFalls_StevensCave_Text_DialogueEnd:
-	.string "…$"
-
+	.string "………………\n"
+	.string "………………$"

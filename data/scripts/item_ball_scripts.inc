@@ -102,8 +102,8 @@ Route114_EventScript_ItemEnergyPowder::
 	finditem ITEM_ENERGY_POWDER
 	end
 
-Route115_EventScript_ItemSuperPotion::
-	finditem ITEM_SUPER_POTION
+Route115_EventScript_ItemRareCandy::
+	finditem ITEM_RARE_CANDY
 	end
 
 Route115_EventScript_ItemTMFocusPunch::

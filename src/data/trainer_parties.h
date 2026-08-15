@@ -12201,7 +12201,7 @@ static const struct TrainerMonItemCustomMoves sParty_LeafSuperBoss[] = {
     },    
     {
     .iv = 255,
-    .lvl = 76,
+    .lvl = 75,
     .species = SPECIES_ARTICUNO,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_ICE_BEAM, MOVE_REST, MOVE_HEAL_BELL, MOVE_SLEEP_TALK}
@@ -12215,7 +12215,7 @@ static const struct TrainerMonItemCustomMoves sParty_LeafSuperBoss[] = {
     },
     {
     .iv = 255,
-    .lvl = 77,
+    .lvl = 75,
     .species = SPECIES_MOLTRES,
     .heldItem = ITEM_NONE,
     .moves = {MOVE_FIRE_BLAST, MOVE_EXTRASENSORY, MOVE_WILL_O_WISP, MOVE_ROAR}

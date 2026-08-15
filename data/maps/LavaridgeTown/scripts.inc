@@ -249,7 +249,9 @@ LavaridgeTown_EventScript_EggWoman::
 	playfanfare MUS_OBTAIN_ITEM
 	message LavaridgeTown_Text_ReceivedTheEgg
 	waitfanfare
+	setflag FLAG_SHINY_CREATION
 	giveegg SPECIES_WYNAUT
+	clearflag FLAG_SHINY_CREATION
 	release
 	end
 

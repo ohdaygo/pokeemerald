@@ -60,7 +60,7 @@ PacifidlogTown_House3_Text_WillingToTradeIt:
 PacifidlogTown_House3_Text_ItsSubtlyDifferentThankYou:
 	.string "Oh, so this is a {STR_VAR_1}?\p"
 	.string "It's sort of like a {STR_VAR_2},\n"
-	.string "and yet it's subtly different.\p"
+	.string "how it evolves into a DRAGON-type.\p"
 	.string "Thank you!$"
 
 PacifidlogTown_House3_Text_WontAcceptAnyLessThanRealMon:
@@ -76,7 +76,7 @@ PacifidlogTown_House3_Text_NotDesperateOrAnything:
 PacifidlogTown_House3_Text_ReallyWantedToGetBagon:
 	.string "I know I could go looking for one\n"
 	.string "on my own, but…\p"
-	.string "But I really wanted to get a BAGON\n"
+	.string "But I really wanted to get a SWABLU\n"
 	.string "that another TRAINER caught…$"
 
 PacifidlogTown_House3_Text_IsThatAPokedex:
