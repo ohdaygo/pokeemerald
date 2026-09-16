@@ -4,60 +4,37 @@ Route104_PrettyPetalFlowerShop_MapScripts::
 
 Route104_PrettyPetalFlowerShop_OnTransition:
 	setflag FLAG_LANDMARK_FLOWER_SHOP
-	goto_if_unset FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_PrettyPetalFlowerShop_EventScript_MoveShopOwner
-	goto_if_unset FLAG_BADGE01_GET, Route104_PrettyPetalFlowerShop_EventScript_MoveShopOwner
-	setflag FLAG_TEMP_1
-	end
-
-Route104_PrettyPetalFlowerShop_EventScript_MoveShopOwner::
-	setobjectxyperm LOCALID_FLOWER_SHOP_OWNER, 4, 6
 	end
 
 Route104_PrettyPetalFlowerShop_EventScript_ShopOwner::
 	lock
 	faceplayer
-	goto_if_set FLAG_TEMP_1, Route104_PrettyPetalFlowerShop_EventScript_SellDecorations
+	goto_if_set FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_PrettyPetalFlowerShop_EventScript_SellBerries
 	msgbox Route104_PrettyPetalFlowerShop_Text_ThisIsPrettyPetalFlowerShop, MSGBOX_DEFAULT
-	goto_if_set FLAG_MET_PRETTY_PETAL_SHOP_OWNER, Route104_PrettyPetalFlowerShop_EventScript_AlreadyMet
 	setflag FLAG_MET_PRETTY_PETAL_SHOP_OWNER
-	msgbox Route104_PrettyPetalFlowerShop_Text_IntroLearnAboutBerries, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, YES, Route104_PrettyPetalFlowerShop_EventScript_ExplainBerries
-	call_if_eq VAR_RESULT, NO, Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries
+	goto_if_set FLAG_BADGE05_GET, Route104_PrettyPetalFlowerShop_EventScript_SellBerriesPostNorman
+	pokemart Route104_PrettyPetalFlowerShop_Pokemart
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
-Route104_PrettyPetalFlowerShop_EventScript_AlreadyMet::
-	msgbox Route104_PrettyPetalFlowerShop_Text_LearnAboutBerries, MSGBOX_YESNO
-	call_if_eq VAR_RESULT, YES, Route104_PrettyPetalFlowerShop_EventScript_ExplainBerries
-	call_if_eq VAR_RESULT, NO, Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries
-	release
-	end
-
-Route104_PrettyPetalFlowerShop_EventScript_ExplainBerries::
-	msgbox Route104_PrettyPetalFlowerShop_Text_BerriesExplanation, MSGBOX_DEFAULT
-	return
-
-Route104_PrettyPetalFlowerShop_EventScript_DontExplainBerries::
-	msgbox Route104_PrettyPetalFlowerShop_Text_FlowersBringHappiness, MSGBOX_DEFAULT
-	return
-
-Route104_PrettyPetalFlowerShop_EventScript_SellDecorations::
+Route104_PrettyPetalFlowerShop_EventScript_SellBerries::
 	message gText_PlayerWhatCanIDoForYou
 	waitmessage
-	goto_if_set FLAG_DEFEATED_PETALBURG_GYM, Route104_PrettyPetalFlowerShop_EventScript_SellBerriesPostNorman
-	pokemart Route104_PrettyPetalFlowerShop_Pokemart1
+	goto_if_set FLAG_BADGE05_GET, Route104_PrettyPetalFlowerShop_EventScript_SellBerriesPostNorman
+	pokemart Route104_PrettyPetalFlowerShop_Pokemart
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 Route104_PrettyPetalFlowerShop_EventScript_SellBerriesPostNorman::
-	pokemart Route104_PrettyPetalFlowerShop_Pokemart2
+	pokemart Route104_PrettyPetalFlowerShop_PokemartPostNorman
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
-Route104_PrettyPetalFlowerShop_Pokemart1:
+Route104_PrettyPetalFlowerShop_Pokemart:
 	.2byte ITEM_ORAN_BERRY
 	.2byte ITEM_CHERI_BERRY
 	.2byte ITEM_CHESTO_BERRY	
@@ -69,7 +46,7 @@ Route104_PrettyPetalFlowerShop_Pokemart1:
 	pokemartlistend
 
 	.align 2
-Route104_PrettyPetalFlowerShop_Pokemart2:
+Route104_PrettyPetalFlowerShop_PokemartPostNorman:
 	.2byte ITEM_ORAN_BERRY
 	.2byte ITEM_CHERI_BERRY
 	.2byte ITEM_CHESTO_BERRY	

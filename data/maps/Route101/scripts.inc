@@ -206,7 +206,7 @@ Route101_Movement_Unused2:
 Route101_EventScript_GiftStarter::
 	lock
 	faceplayer
-	goto_if_set FLAG_STARTERS_CLAIMED, Route101_EventScript_GiftStarterNoMore
+	goto_if_set FLAG_3RD_STARTER_RECEIVED, Route101_EventScript_GiftStarterNoMore
 	msgbox Route101_Text_GiftStarter, MSGBOX_DEFAULT
 	specialvar VAR_RESULT, GetLeadMonFriendshipScore
 	switch VAR_RESULT
@@ -238,8 +238,8 @@ Route101_EventScript_GiftStarterNoMore::
 	end
 
 Route101_EventScript_StartedWMudkip::
-	goto_if_set FLAG_ONE_CLAIMED, Route101_EventScript_Starter4	
-	setflag FLAG_ONE_CLAIMED
+	goto_if_set FLAG_2ND_STARTER_RECEIVED, Route101_EventScript_Starter4	
+	setflag FLAG_2ND_STARTER_RECEIVED
 	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TORCHIC
 	givemon SPECIES_TORCHIC, 5
@@ -249,8 +249,8 @@ Route101_EventScript_StartedWMudkip::
 	end
 
 Route101_EventScript_StartedWTreecko::
-	goto_if_set FLAG_ONE_CLAIMED, Route101_EventScript_Starter5	
-	setflag FLAG_ONE_CLAIMED
+	goto_if_set FLAG_2ND_STARTER_RECEIVED, Route101_EventScript_Starter5	
+	setflag FLAG_2ND_STARTER_RECEIVED
 	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MUDKIP
 	givemon SPECIES_MUDKIP, 5
@@ -260,8 +260,8 @@ Route101_EventScript_StartedWTreecko::
 	end
 
 Route101_EventScript_StartedWTorchic::	
-	goto_if_set FLAG_ONE_CLAIMED, Route101_EventScript_Starter6	
-	setflag FLAG_ONE_CLAIMED
+	goto_if_set FLAG_2ND_STARTER_RECEIVED, Route101_EventScript_Starter6	
+	setflag FLAG_2ND_STARTER_RECEIVED
 	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TREECKO
 	givemon SPECIES_TREECKO, 5
@@ -271,8 +271,8 @@ Route101_EventScript_StartedWTorchic::
 	end
 
 Route101_EventScript_Starter4::
-	goto_if_unset FLAG_DEFEATED_PETALBURG_GYM, Route101_EventScript_GiftStarterCBL
-	setflag FLAG_STARTERS_CLAIMED
+	goto_if_unset FLAG_BADGE05_GET, Route101_EventScript_GiftStarterCBL
+	setflag FLAG_3RD_STARTER_RECEIVED
 	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TREECKO
 	givemon SPECIES_TREECKO, 5
@@ -282,8 +282,8 @@ Route101_EventScript_Starter4::
 	end
 
 Route101_EventScript_Starter5::
-	goto_if_unset FLAG_DEFEATED_PETALBURG_GYM, Route101_EventScript_GiftStarterCBL
-	setflag FLAG_STARTERS_CLAIMED
+	goto_if_unset FLAG_BADGE05_GET, Route101_EventScript_GiftStarterCBL
+	setflag FLAG_3RD_STARTER_RECEIVED
 	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TORCHIC
 	givemon SPECIES_TORCHIC, 5
@@ -293,8 +293,8 @@ Route101_EventScript_Starter5::
 	end
 
 Route101_EventScript_Starter6::
-	goto_if_unset FLAG_DEFEATED_PETALBURG_GYM, Route101_EventScript_GiftStarterCBL
-	setflag FLAG_STARTERS_CLAIMED
+	goto_if_unset FLAG_BADGE05_GET, Route101_EventScript_GiftStarterCBL
+	setflag FLAG_3RD_STARTER_RECEIVED
 	msgbox Route101_Text_GiftStarterYes, MSGBOX_DEFAULT		
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_MUDKIP
 	givemon SPECIES_MUDKIP, 5
@@ -329,7 +329,7 @@ Route101_EventScript_SendStarterToPC::
 	end
 
 Route101_EventScript_GiftStarterCBL::
-	call_if_set FLAG_STARTERS_CLAIMED, Route101_Text_GiftStarterNoMore
+	call_if_set FLAG_3RD_STARTER_RECEIVED, Route101_Text_GiftStarterNoMore
 	msgbox Route101_Text_GiftStarterCBL, MSGBOX_DEFAULT
 	release
 	end

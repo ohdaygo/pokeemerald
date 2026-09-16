@@ -137,20 +137,11 @@ Route123_BerryMastersHouse_Text_Ah:
 Route104_PrettyPetalFlowerShop_Text_ThisIsPrettyPetalFlowerShop:
 	.string "Hello!\p"
 	.string "This is the PRETTY PETAL flower shop.\n"
-	.string "Spreading flowers all over the world!$"
-
-Route104_PrettyPetalFlowerShop_Text_LearnAboutBerries:
-	.string "{PLAYER}{KUN}, would you like to learn about\n"
-	.string "BERRIES?$"
-
-Route104_PrettyPetalFlowerShop_Text_IntroLearnAboutBerries:
 	.string "Your name is?\p"
 	.string "{PLAYER}{KUN}.\n"
 	.string "That's a nice name.\p"
 	.string "{PLAYER}{KUN}, would you like to learn about\n"
-	.string "BERRIES?$"
-
-Route104_PrettyPetalFlowerShop_Text_BerriesExplanation:
+	.string "BERRIES?\p"
 	.string "BERRIES grow on trees that thrive\n"
 	.string "only in soft, loamy soil.\p"
 	.string "If you take some BERRIES, be sure to\n"
@@ -163,10 +154,6 @@ Route104_PrettyPetalFlowerShop_Text_BerriesExplanation:
 	.string "That's my dream.\p"
 	.string "Please help me, {PLAYER}{KUN}. Plant BERRIES\n"
 	.string "and bring more flowers into the world.$"
-
-Route104_PrettyPetalFlowerShop_Text_FlowersBringHappiness:
-	.string "Flowers bring so much happiness to\n"
-	.string "people, don't they?$"
 
 Route104_PrettyPetalFlowerShop_Text_YouCanHaveThis:
 	.string "Hello!\p"

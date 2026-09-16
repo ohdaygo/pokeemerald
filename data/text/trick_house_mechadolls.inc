@@ -61,11 +61,11 @@ gTrickHouse_Mechadoll_HarborMail::
 gTrickHouse_Mechadoll_SamePrice::
 	.string "Same price$"
 
-gTrickHouse_Mechadoll_60Yen::
-	.string "¥60$"
+gTrickHouse_Mechadoll_300Yen::
+	.string "¥300$"
 
-gTrickHouse_Mechadoll_55Yen::
-	.string "¥55$"
+gTrickHouse_Mechadoll_CantAfford::
+	.string "Can't afford POTION.$"
 
 gTrickHouse_Mechadoll_Nothing::
 	.string "Nothing$"

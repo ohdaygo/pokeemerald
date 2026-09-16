@@ -9287,7 +9287,8 @@ static const struct TrainerMonNoItemDefaultMoves sParty_BrendanLilycoveTorchic[]
     .species = SPECIES_SWELLOW,
     },
     {
-    .iv = 37,
+    .iv = 150,
+    .lvl = 37,
     .species = SPECIES_BLAZIKEN,
     },
     {

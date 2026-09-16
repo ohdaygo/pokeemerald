@@ -98,7 +98,14 @@ MtChimney_EventScript_LavaCookieLady::
 	faceplayer
 	message MtChimney_Text_LavaCookiesJust200
 	waitmessage
+	goto_if_set FLAG_BADGE05_GET, MtChimney_EventScript_LavaCookieLadyPostNorman
 	pokemart MtChimney_LavaCookie_Pokemart
+	msgbox MtChimney_Text_ThankYouDear, MSGBOX_DEFAULT
+	release
+	end
+
+MtChimney_EventScript_LavaCookieLadyPostNorman::
+	pokemart MtChimney_LavaCookiePostNorman_Pokemart
 	msgbox MtChimney_Text_ThankYouDear, MSGBOX_DEFAULT
 	release
 	end
@@ -106,6 +113,13 @@ MtChimney_EventScript_LavaCookieLady::
 	.align 2
 MtChimney_LavaCookie_Pokemart:
 	.2byte ITEM_LAVA_COOKIE
+	pokemartlistend
+
+	.align 2
+MtChimney_LavaCookiePostNorman_Pokemart:
+	.2byte ITEM_LAVA_COOKIE
+	.2byte ITEM_MOOMOO_MILK
+	.2byte ITEM_BERRY_JUICE
 	pokemartlistend
 
 MtChimney_Movement_ArchieApproachPlayerEast:

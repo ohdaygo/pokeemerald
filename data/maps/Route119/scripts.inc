@@ -417,8 +417,8 @@ Route119_EventScript_Hideo::
 Route119_EventScript_Feebas::
 	lock
 	faceplayer
-	goto_if_set FLAG_GOT_FEEBAS, Route119_EventScript_FeebasBought
-	goto_if_unset FLAG_GOT_FEEBAS, Route119_EventScript_FeebasHaventBought
+	goto_if_set FLAG_BOUGHT_FEEBAS, Route119_EventScript_FeebasBought
+	goto_if_unset FLAG_BOUGHT_FEEBAS, Route119_EventScript_FeebasHaventBought
 	end
 
 Route119_EventScript_FeebasHaventBought::
@@ -437,12 +437,12 @@ Route119_EventScript_FeebasYes::
 	playse SE_SHOP
 	removemoney 500
 	updatemoneybox
-	setflag FLAG_GOT_FEEBAS
+	setflag FLAG_BOUGHT_FEEBAS
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_FEEBAS
 	givemon SPECIES_FEEBAS, 25, ITEM_NONE
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, Route119_EventScript_ReceiveMon
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, Route119_EventScript_ReceiveMonPC
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_LEVEL_UP
 	waitfanfare
 	msgbox Route119_Text_Name, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Route119_EventScript_FeebasNo
@@ -462,7 +462,7 @@ Route119_EventScript_FeebasBought::
 	end
 
 Route119_EventScript_ReceiveMon::
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_LEVEL_UP
 	waitfanfare
 	msgbox Route119_Text_Name, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Route119_EventScript_FeebasNo
@@ -472,7 +472,7 @@ Route119_EventScript_ReceiveMon::
 	end
 
 Route119_EventScript_ReceiveMonPC::
-	playfanfare MUS_OBTAIN_ITEM
+	playfanfare MUS_LEVEL_UP
 	waitfanfare
 	msgbox Route119_Text_Name, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Route119_EventScript_SendMonToPC

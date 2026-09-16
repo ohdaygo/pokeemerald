@@ -412,6 +412,46 @@ RusturfTunnel_Movement_PeekoExit:
 	walk_left
 	step_end
 
+RusturfTunnel_EventScript_Dunsparce::
+	lock
+	faceplayer
+	dotimebasedevents
+	goto_if_set FLAG_CAUGHT_DUNSPARCE, RusturfTunnel_EventScript_DunsparceTommorow
+	msgbox RusturfTunnel_Text_DoYouHaveDunsparce, MSGBOX_DEFAULT
+	special ChoosePartyMon
+	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, RusturfTunnel_EventScript_DontHaveDunsparce
+	specialvar VAR_RESULT, ScriptGetPartyMonSpecies
+	goto_if_eq VAR_RESULT, SPECIES_DUNSPARCE, RusturfTunnel_EventScript_DunsparceCaught
+	msgbox RusturfTunnel_Text_YouDontHaveDunsparce, MSGBOX_DEFAULT
+	release
+	end
+
+RusturfTunnel_EventScript_DunsparceCaught::
+	waitse
+	playse SE_PIN
+	applymovement LOCALID_RUSTURF_NUGGET_MAN, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_RUSTURF_NUGGET_MAN, Common_Movement_Delay48
+	waitmovement 0
+	delay 10
+	msgbox RusturfTunnel_Text_YouHaveDunsparce, MSGBOX_DEFAULT
+	giveitem ITEM_NUGGET, 1
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_CAUGHT_DUNSPARCE
+	msgbox RusturfTunnel_Text_ShowMeDunsparceTomorrow, MSGBOX_DEFAULT
+	release
+	end
+
+RusturfTunnel_EventScript_DontHaveDunsparce::
+	msgbox RusturfTunnel_Text_YouDontHaveDunsparce, MSGBOX_DEFAULT
+	release
+	end
+
+RusturfTunnel_EventScript_DunsparceTommorow::
+	msgbox RusturfTunnel_Text_ShowMeDunsparceTomorrow, MSGBOX_DEFAULT
+	release
+	end
+
 RusturfTunnel_Text_ComeAndGetSome:
 	.string "What, are you coming?\n"
 	.string "Come and get some, then!$"
@@ -503,3 +543,26 @@ RusturfTunnel_Text_BoyfriendOnOtherSideOfRock:
 	.string "to come see me.\p"
 	.string "He works his hands raw and rough\n"
 	.string "for the benefit of everyone.$"
+
+RusturfTunnel_Text_DoYouHaveDunsparce:
+    .string "Hey, there!\n"
+    .string "How's it going?\p"
+    .string "What am I doing here, you ask?\n"
+	.string "Why, I'm prospecting for gold!\p"
+	.string "Say, I'll happily share if you can show\n"
+	.string "me a POKéMON with a drill for a tail!$"
+
+RusturfTunnel_Text_YouHaveDunsparce:
+	.string "I did some prospecting in the SEVII\n"
+	.string "ISLANDS and a DUNSPARCE sighting\l"
+	.string "always reminded me of my younger\l"
+	.string "brother!$"
+
+RusturfTunnel_Text_YouDontHaveDunsparce:
+	.string "Whoops, it doesn't look like you have\n"
+	.string "the POKéMON im looking for!$"
+
+RusturfTunnel_Text_ShowMeDunsparceTomorrow:
+    .string "I can't give you any nuggets of\n"
+	.string "wisdom, so that'll have to do!\p"
+	.string "Hey, come on back tomorrow!$"

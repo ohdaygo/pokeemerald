@@ -276,7 +276,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_AideReceivedStarter::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_JohtoStarters::
-	goto_if_set FLAG_RECEIVED_JOHTO_STARTERS, LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
+	goto_if_set FLAG_BONUS_JOHTO_STARTERS_RECEIVED, LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
 	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CHIKORITA, LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Chikorita
 	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_CYNDAQUIL, LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Cyndaquil
 	goto_if_set FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_POKEBALL_TOTODILE, LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Totodile
@@ -300,7 +300,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Cyndaquil::
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
 	call Common_EventScript_TransferredToPC
-	setflag FLAG_RECEIVED_JOHTO_STARTERS
+	setflag FLAG_BONUS_JOHTO_STARTERS_RECEIVED
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
 	end
 
@@ -316,7 +316,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Totodile::
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
 	call Common_EventScript_TransferredToPC
-	setflag FLAG_RECEIVED_JOHTO_STARTERS
+	setflag FLAG_BONUS_JOHTO_STARTERS_RECEIVED
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
 	end
 
@@ -332,7 +332,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Johto_Chikorita::
 	playfanfare MUS_OBTAIN_ITEM
 	waitfanfare
 	call Common_EventScript_TransferredToPC
-	setflag FLAG_RECEIVED_JOHTO_STARTERS
+	setflag FLAG_BONUS_JOHTO_STARTERS_RECEIVED
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_JohtoReceived
 	end
 

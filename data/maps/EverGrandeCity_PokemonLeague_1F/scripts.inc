@@ -43,7 +43,7 @@ EverGrandeCity_PokemonLeague_1F_Pokemart:
 	.2byte ITEM_MAX_REPEL
 	pokemartlistend
 
-@ The door guards only check for FLAG_BADGE06_GET because Winonas badge is the only one that can be skipped
+@ The door guards only check for FLAG_BADGE06_GET because Winonas badge is the only one that can be skipped @ No longer checks for this
 @ Its assumed the player has the remaining badges
 EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 	lockall
@@ -54,7 +54,6 @@ EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 	message EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges
 	waitmessage
 	delay 120
-	goto_if_unset FLAG_BADGE06_GET, EverGrandeCity_PokemonLeague_1F_EventScript_NotAllBadges
 	closemessage
 	applymovement LOCALID_LEAGUE_GUARD_1, EverGrandeCity_PokemonLeague_1F_Movement_LeftGuardOutOfWay
 	applymovement LOCALID_LEAGUE_GUARD_2, EverGrandeCity_PokemonLeague_1F_Movement_RightGuardOutOfWay
@@ -80,12 +79,6 @@ EverGrandeCity_PokemonLeague_1F_EventScript_PlayerMoveToFrontFromLeft::
 	applymovement LOCALID_PLAYER, EverGrandeCity_PokemonLeague_1F_Movement_MoveToFrontFromLeft
 	waitmovement 0
 	return
-
-EverGrandeCity_PokemonLeague_1F_EventScript_NotAllBadges::
-	playse SE_FAILURE
-	msgbox EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges, MSGBOX_DEFAULT
-	releaseall
-	end
 
 EverGrandeCity_PokemonLeague_1F_EventScript_GoForth::
 	applymovement VAR_LAST_TALKED, Common_Movement_FacePlayer
@@ -149,11 +142,6 @@ EverGrandeCity_PokemonLeague_1F_Text_MustHaveAllGymBadges:
 	.string "are permitted to enter.\p"
 	.string "TRAINER, let us confirm that you have\n"
 	.string "all the GYM BADGES.$"
-
-EverGrandeCity_PokemonLeague_1F_Text_HaventObtainedAllBadges:
-	.string "You haven't obtained all the BADGES.\p"
-	.string "If you're bound for the POKéMON\n"
-	.string "LEAGUE, you must return with them.$"
 
 EverGrandeCity_PokemonLeague_1F_Text_GoForth:
 	.string "TRAINER! Believe in yourself and your\n"

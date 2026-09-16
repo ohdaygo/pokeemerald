@@ -19,7 +19,7 @@ SlateportCity_NameRatersHouse_EventScript_Drake::
 	end
 
 SlateportCity_NameRatersHouse_EventScript_DrakeMetStern::
-	goto_if_set FLAG_DRAGON_FANG, SlateportCity_NameRatersHouse_EventScript_DrakeSawBagon
+	goto_if_set FLAG_RECEIVED_DRAGON_FANG, SlateportCity_NameRatersHouse_EventScript_DrakeSawBagon
 	msgbox SlateportCity_NameRatersHouse_Text_DrakeMetStern, MSGBOX_DEFAULT	
 	closemessage
 	applymovement LOCALID_SLATEPORT_DRAKE, Common_Movement_WalkInPlaceFasterRight
@@ -28,16 +28,17 @@ SlateportCity_NameRatersHouse_EventScript_DrakeMetStern::
 	applymovement LOCALID_SLATEPORT_DRAKE, Common_Movement_FacePlayer
 	waitmovement 0
 	delay 15
+	setseenmon SPECIES_BAGON
 	showmonpic SPECIES_BAGON, 10, 3
 	waitse
 	playmoncry SPECIES_BAGON, CRY_MODE_NORMAL
 	waitmoncry
 	waitbuttonpress
 	hidemonpic
-	setseenmon SPECIES_BAGON
 	msgbox SlateportCity_NameRatersHouse_Text_DrakeGiveFang, MSGBOX_DEFAULT
 	giveitem ITEM_DRAGON_FANG
-	setflag FLAG_DRAGON_FANG
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_DRAGON_FANG
 	goto SlateportCity_NameRatersHouse_EventScript_DrakeSawBagon
 
 SlateportCity_NameRatersHouse_EventScript_DrakeSawBagon::

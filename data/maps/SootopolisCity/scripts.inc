@@ -1286,36 +1286,18 @@ SootopolisCity_EventScript_GiveWaterfall::
 	setflag FLAG_RECEIVED_HM_WATERFALL
 	msgbox SootopolisCity_Text_ExplainWaterfallGoToGym, MSGBOX_DEFAULT
 	closemessage
-	call_if_eq VAR_FACING, DIR_NORTH, SootopolisCity_EventScript_WallaceMoveIntoGym
-	call_if_eq VAR_FACING, DIR_EAST, SootopolisCity_EventScript_WallaceMoveIntoGym
-	call_if_eq VAR_FACING, DIR_WEST, SootopolisCity_EventScript_WallaceMoveIntoGymWest
+	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceFaceUp
+	opendoor 31, 32
+	waitdooranim
+	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceIntoGym
+	waitmovement 0
+	hideobjectat LOCALID_SOOTOPOLIS_WALLACE, MAP_SOOTOPOLIS_CITY
+	setflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
+	closedoor 31, 32
+	waitdooranim
+	delay 10
 	release
 	end
-
-SootopolisCity_EventScript_WallaceMoveIntoGym::
-	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceFaceUp
-	opendoor 31, 32
-	waitdooranim
-	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceIntoGym
-	waitmovement 0
-	hideobjectat LOCALID_SOOTOPOLIS_WALLACE, MAP_SOOTOPOLIS_CITY
-	setflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
-	closedoor 31, 32
-	waitdooranim
-	delay 10
-	return
-
-SootopolisCity_EventScript_WallaceMoveIntoGymWest::
-	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceFaceUp
-	opendoor 31, 32
-	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceIntoGym
-	waitmovement 0
-	hideobjectat LOCALID_SOOTOPOLIS_WALLACE, MAP_SOOTOPOLIS_CITY
-	setflag FLAG_HIDE_SOOTOPOLIS_CITY_WALLACE
-	closedoor 31, 32
-	waitdooranim
-	delay 10
-	return
 
 SootopolisCity_EventScript_GoToSkyPillar::
 	msgbox SootopolisCity_Text_HaventYouScaledSkyPillar, MSGBOX_DEFAULT
@@ -1386,6 +1368,12 @@ SootopolisCity_Movement_Levitate::
 SootopolisCity_Movement_DestroyTask::
 	destroy_extra_task
 	step_end
+
+@ WIP
+SootopolisCity_EventScript_StevenCallAfterGym::
+	msgbox SootopolisCity_Text_StevenCall MSGBOX_POKENAV
+	release
+	end
 
 SootopolisCity_Text_GymSign:
 	.string "SOOTOPOLIS CITY POKéMON GYM\n"
@@ -1664,7 +1652,18 @@ SootopolisCity_Text_MaxieArchieLeft:
 	.string "STEVEN: It looks like both MAXIE and\n"
 	.string "ARCHIE have gone away somewhere.\p"
 	.string "Perhaps they've gone to MT. PYRE to\n"
-	.string "return those ORBS…$"
+	.string "return those ORBS…\p"
+	.string "{PLAYER}{KUN}, we owe it all to you.\p"
+	.string "The sky above SOOTOPOLIS has returned\n"
+	.string "to normal.\p"
+	.string "But for the present, you may first wish\n"
+	.string "to challenge this city's POKéMON GYM.\p"
+	.string "There, you'll find the very same WALLACE\n"
+	.string "who helped us so much waiting for you.\p"
+	.string "He's strong.\n"
+	.string "But the way you are now, you should be\l"
+	.string "on equal footing with him.\p"
+	.string "Give it your best shot.$"
 
 SootopolisCity_Text_HaventYouScaledSkyPillar:
 	.string "WALLACE: Oh?\n"
@@ -1701,7 +1700,12 @@ SootopolisCity_Text_ExplainWaterfallGoToGym:
 	.string "When you're all set to go, I'll be\n"
 	.string "waiting for you inside.$"
 
+@ Pretty sure I can get rid of this
 SootopolisCity_Text_DazzledByMentor:
 	.string "WALLACE: I'm sure that you will be\n"
 	.string "dazzled by my breathtakingly elegant\l"
 	.string "battle style.$"
+
+@ WIP
+SootopolisCity_Text_StevenCall:
+	.string "Test.$"

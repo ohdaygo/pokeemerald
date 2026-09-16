@@ -51,5 +51,5 @@ MtPyre_1F_Text_RestingPlaceOfShieldon:
 
 MtPyre_1F_Text_Shieldon:
 	.string "                    In loving memory\p"
-	.string "                          BOOBA\p"
+	.string "                         BUDDHA\p"
 	.string "                    6/21/05 - 8/5/25$"

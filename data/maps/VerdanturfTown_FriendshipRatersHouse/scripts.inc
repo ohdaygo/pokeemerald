@@ -87,6 +87,7 @@ VerdanturfTown_FriendshipRatersHouse_EventScript_PikachuReassured::
 	playmoncry SPECIES_PIKACHU, CRY_MODE_NORMAL
 	msgbox VerdanturfTown_FriendshipRatersHouse_Text_PikachuReassured, MSGBOX_DEFAULT
 	giveitem ITEM_LIGHT_BALL, 1
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	setflag FLAG_LIGHT_BALL
 	waitmoncry
 	release

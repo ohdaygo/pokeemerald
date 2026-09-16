@@ -652,6 +652,12 @@ RustboroCity_EventScript_Boy1::
 	msgbox RustboroCity_Text_YouCanHave2On2Battle, MSGBOX_NPC
 	end
 
+@ WIP
+RustboroCity_EventScript_PrettyPetalShopOpen::
+	pokenavcall RustboroCity_Text_PrettyPetalShopOpenCall
+	release
+	end
+
 RustboroCity_Text_WeShortenItToDevon:
 	.string "The DEVON CORPORATION…\n"
 	.string "We all just shorten it to DEVON.\p"
@@ -919,3 +925,11 @@ RustboroCity_Text_YouCanHave2On2Battle:
 	.string "they'll both challenge you.\p"
 	.string "Don't you think it'd be cool if you\n"
 	.string "could beat two TRAINERS by yourself?$"
+
+@ WIP
+RustboroCity_Text_PrettyPetalShopOpenCall:
+	.string "MR. STONE: Hello, {PLAYER}{KUN}! I just\n"
+	.string "received word the PRETTY PETTAL SHOP\l"
+	.string "just south of town is open for\n"
+	.string "business!\p"
+	.string "Why don't you pay them a visit?$"

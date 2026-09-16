@@ -16,7 +16,7 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_TATE",
-      "x": 23,
+      "x": 22,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -120,7 +120,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LIZA",
-      "x": 24,
+      "x": 23,
       "y": 7,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -649,7 +649,7 @@
     },
     {
       "type": "trigger",
-      "x": 21,
+      "x": 25,
       "y": 6,
       "elevation": 0,
       "var": "VAR_TEMP_1",

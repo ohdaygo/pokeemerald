@@ -123,16 +123,17 @@
       "flag": "FLAG_HIDE_RUSTURF_TUNNEL_ROCK_2"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 33,
+      "local_id": "LOCALID_RUSTURF_NUGGET_MAN",
+      "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
+      "x": 31,
       "y": 12,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
-      "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "EventScript_TestSignpostMsg",
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "RusturfTunnel_EventScript_Dunsparce",
       "flag": "0"
     },
     {

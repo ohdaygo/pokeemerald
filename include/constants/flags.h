@@ -1145,13 +1145,13 @@
 #define FLAG_ITEM_ROUTE_124_RED_SHARD                               0x444
 #define FLAG_ITEM_ROUTE_124_BLUE_SHARD                              0x445
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_WEST_TM_SOLAR_BEAM              0x446
-#define FLAG_ITEM_ABANDONED_SHIP_ROOMS_1F_HARBOR_MAIL               0x447
+#define FLAG_ITEM_ABANDONED_SHIP_ROOMS_1F_WATER_STONE               0x447
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_B1F_ESCAPE_ROPE              0x448
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_B1F_DIVE_BALL              0x449
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_B1F_TM_ICE_BEAM              0x44A
 #define FLAG_ITEM_ABANDONED_SHIP_ROOMS_2_1F_REVIVE                  0x44B
 #define FLAG_ITEM_ABANDONED_SHIP_CAPTAINS_OFFICE_STORAGE_KEY        0x44C
-#define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_3_WATER_STONE    0x44D
+#define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_3_NUGGET         0x44D
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_1_TM_RAIN_DANCE  0x44E
 #define FLAG_ITEM_ROUTE_121_CARBOS                                  0x44F
 #define FLAG_ITEM_ROUTE_123_ULTRA_BALL                              0x450
@@ -1223,17 +1223,17 @@
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
 #define FLAG_RECEIVED_EON_TICKET                                    0x493 // Was Unused Flag
-#define FLAG_GOT_FEEBAS                                             0x494 // Was Unused Flag
+#define FLAG_BOUGHT_FEEBAS                                          0x494 // Was Unused Flag
 #define FLAG_HIDE_DRAKE                                             0x495 // Was Unused Flag
-#define FLAG_DRAGON_FANG                                            0x496 // Was Unused Flag
+#define FLAG_RECEIVED_DRAGON_FANG                                            0x496 // Was Unused Flag
 #define FLAG_DEFEATED_DAYGO                                         0x497 // Was Unused Flag
 #define FLAG_LIGHT_BALL                                             0x498 // Was Unused Flag
-#define FLAG_ONE_CLAIMED                                            0x499 // Was Unused Flag
-#define FLAG_STARTERS_CLAIMED                                       0x49A // Was Unused Flag
-#define FLAG_RECEIVED_JOHTO_STARTERS                                0x49B // Was Unused Flag
+#define FLAG_2ND_STARTER_RECEIVED                                   0x499 // Was Unused Flag
+#define FLAG_3RD_STARTER_RECEIVED                                   0x49A // Was Unused Flag
+#define FLAG_BONUS_JOHTO_STARTERS_RECEIVED                          0x49B // Was Unused Flag
 #define FLAG_SHINY_CREATION                                         0x49C // Was Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
+#define FLAG_DEFEATED_RIVAL_LILYCOVE                                0x49D // Was Unused Flag
+#define FLAG_RECEIVED_DEEP_SEA_SCALE                                0x49E // Was Unused Flag
 #define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
 #define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
 #define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
@@ -1593,7 +1593,7 @@
 #define FLAG_DAILY_APPRENTICE_LEAVES                (DAILY_FLAGS_START + 0x14)
 
 #define FLAG_HECTOR_POTION                          (DAILY_FLAGS_START + 0x15) // Was Unused Flag
-#define FLAG_UNUSED_0x936                           (DAILY_FLAGS_START + 0x16) // Unused Flag
+#define FLAG_CAUGHT_DUNSPARCE                       (DAILY_FLAGS_START + 0x16) // Was Unused Flag
 #define FLAG_UNUSED_0x937                           (DAILY_FLAGS_START + 0x17) // Unused Flag
 #define FLAG_UNUSED_0x938                           (DAILY_FLAGS_START + 0x18) // Unused Flag
 #define FLAG_UNUSED_0x939                           (DAILY_FLAGS_START + 0x19) // Unused Flag

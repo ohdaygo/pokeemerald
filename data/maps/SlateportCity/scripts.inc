@@ -259,8 +259,9 @@ SlateportCity_EventScript_HectorCaught::
 	waitbuttonpress
 	hidemonpic
 	msgbox SlateportCity_Text_Hector2, MSGBOX_DEFAULT
-	setflag FLAG_HECTOR_POTION 
 	giveitem ITEM_CARBOS, 1
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_HECTOR_POTION
 	msgbox SlateportCity_Text_HectorTomorrow, MSGBOX_DEFAULT
 	release
 	end
@@ -414,7 +415,6 @@ SlateportCity_EventScript_NameRater::
 SlateportCity_EventScript_ChooseMonToRate::
 	msgbox SlateportCity_Text_CritiqueWhichMonNickname, MSGBOX_DEFAULT
 	special ChoosePartyMon
-	waitstate
 	goto_if_ne VAR_0x8004, PARTY_NOTHING_CHOSEN, SlateportCity_EventScript_RateMonNickname
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, SlateportCity_EventScript_DeclineNameRate
 	end
@@ -1137,16 +1137,16 @@ SlateportCity_Text_HowTownIsBornAndGrows:
 
 SlateportCity_Text_Hector:
 	.string "Hi there!\p"
-	.string "If you've caught a HECTOR, could you\n"
+	.string "If you've caught a “HECTOR”, could you\n"
 	.string "show me your POKéDEX? That's my\l"
 	.string "favorite POKéMON!$"
 
 SlateportCity_Text_Hector1:
-	.string "Aww, you've never even caught a HECTOR…$"
+	.string "Aww, you've never even caught a “HECTOR”…$"
 
 SlateportCity_Text_Hector2:
 	.string "You caught one!\p"
-	.string "Here, have a HECTOR POTION!$"
+	.string "Here, have a “HECTOR POTION”!$"
 
 SlateportCity_Text_HectorTomorrow:
 	.string "Come back tomorrow!$"

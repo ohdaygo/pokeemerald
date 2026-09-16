@@ -327,13 +327,29 @@ SlateportCity_Harbor_EventScript_FerryFinished::
 	end
 
 SlateportCity_Harbor_EventScript_AskToTradeScanner::
+	goto_if_set FLAG_RECEIVED_DEEP_SEA_SCALE, SlateportCity_Harbor_EventScript_RecievedDeepSeaScale
 	msgbox SlateportCity_Harbor_Text_WouldYouTradeScanner, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_DeclineTrade
 	giveitem ITEM_DEEP_SEA_SCALE
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setflag FLAG_RECEIVED_DEEP_SEA_SCALE
 	giveitem ITEM_DEEP_SEA_TOOTH
+	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	giveitem ITEM_MYSTIC_TICKET
 	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+	removeitem ITEM_SCANNER
+	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
+	setflag FLAG_EXCHANGED_SCANNER
+	goto SlateportCity_Harbor_EventScript_TradedScanner
+	end
+
+SlateportCity_Harbor_EventScript_RecievedDeepSeaScale::
+	msgbox SlateportCity_Harbor_Text_RecievedDeepSeaScale, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_DeclineTrade
+	giveitem ITEM_DEEP_SEA_TOOTH
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	giveitem ITEM_MYSTIC_TICKET
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
 	removeitem ITEM_SCANNER
 	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
 	setflag FLAG_EXCHANGED_SCANNER
@@ -444,20 +460,20 @@ SlateportCity_Harbor_Text_TeamAquaLeftNeedDive:
 	.string "You're not responsible for this.\p"
 	.string "Trying to catch a submarine…\n"
 	.string "It's impossible for most people.\p"
-	.string "You would need a POKéMON that knows\n"
-	.string "how to DIVE…\p"
-	.string "Perhaps if you went out to\n"
-	.string "MOSSDEEP CITY…\p"
+	.string "{COLOR GREEN}You would need a POKéMON that knows\n"
+	.string "how to DIVE{COLOR DARK_GRAY}…\p"
+	.string "{COLOR GREEN}Perhaps if you went out to\n"
+	.string "MOSSDEEP CITY{COLOR DARK_GRAY}…\p"
 	.string "A lot of divers live out there, so\n"
 	.string "someone might teach you…$"
 
 SlateportCity_Harbor_Text_NeedDiveToCatchSub:
 	.string "CAPT. STERN: Trying to catch a\n"
 	.string "submarine… It's impossible.\p"
-	.string "You would need a POKéMON that knows\n"
-	.string "how to DIVE…\p"
-	.string "Perhaps if you went out to\n"
-	.string "MOSSDEEP CITY…\p"
+	.string "{COLOR GREEN}You would need a POKéMON that knows\n"
+	.string "how to DIVE{COLOR DARK_GRAY}…\p"
+	.string "{COLOR GREEN}Perhaps if you went out to\n"
+	.string "MOSSDEEP CITY{COLOR DARK_GRAY}…\p"
 	.string "A lot of divers live out there, so\n"
 	.string "someone might teach you…$"
 
@@ -484,6 +500,13 @@ SlateportCity_Harbor_Text_WouldYouTradeScanner:
 	.string "SCANNER{COLOR DARK_GRAY} for something?\p"
 	.string "Like, say, a {COLOR GREEN}DEEPSEATOOTH and\n"
 	.string "a DEEPSEASCALE{COLOR DARK_GRAY} that I have?\p"
+	.string "{PLAYER}{KUN}, you should take {COLOR GREEN}this\n"
+	.string "ticket too{COLOR DARK_GRAY}!$"
+
+SlateportCity_Harbor_Text_RecievedDeepSeaScale:
+	.string "CAPT. STERN: {PLAYER}{KUN}, would you\n"
+	.string "{COLOR GREEN}trade your SCANNER{COLOR DARK_GRAY} for the\l"
+	.string "{COLOR GREEN}DEEPSEASCALE{COLOR DARK_GRAY} that I have?\p"
 	.string "{PLAYER}{KUN}, you should take {COLOR GREEN}this\n"
 	.string "ticket too{COLOR DARK_GRAY}!$"
 

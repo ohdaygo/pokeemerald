@@ -229,9 +229,16 @@ LilycoveCity_EventScript_AquaGrunt4::
 LilycoveCity_EventScript_Rival::
 	lock
 	faceplayer
+	goto_if_set FLAG_DEFEATED_RIVAL_LILYCOVE, LilycoveCity_EventScript_DefeatedRival
 	checkplayergender
 	goto_if_eq VAR_RESULT, MALE, LilycoveCity_EventScript_May
 	goto_if_eq VAR_RESULT, FEMALE, LilycoveCity_EventScript_Brendan
+	end
+
+LilycoveCity_EventScript_DefeatedRival::
+	checkplayergender
+	goto_if_eq VAR_RESULT, MALE, LilycoveCity_EventScript_DefeatedMay
+	goto_if_eq VAR_RESULT, FEMALE, LilycoveCity_EventScript_DefeatedBrendan
 	end
 
 LilycoveCity_EventScript_May::
@@ -292,37 +299,44 @@ LilycoveCity_EventScript_DeclineBrendanBattle::
 
 LilycoveCity_EventScript_BattleMayTreecko::
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TREECKO, LilycoveCity_Text_MayDefeat
+	setflag FLAG_DEFEATED_RIVAL_LILYCOVE
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
 LilycoveCity_EventScript_BattleMayTorchic::
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_TORCHIC, LilycoveCity_Text_MayDefeat
+	setflag FLAG_DEFEATED_RIVAL_LILYCOVE
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
 LilycoveCity_EventScript_BattleMayMudkip::
 	trainerbattle_no_intro TRAINER_MAY_LILYCOVE_MUDKIP, LilycoveCity_Text_MayDefeat
+	setflag FLAG_DEFEATED_RIVAL_LILYCOVE
 	goto LilycoveCity_EventScript_DefeatedMay
 	end
 
 LilycoveCity_EventScript_BattleBrendanTreecko::
 	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_TREECKO, LilycoveCity_Text_BrendanDefeat
+	setflag FLAG_DEFEATED_RIVAL_LILYCOVE
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 
 LilycoveCity_EventScript_BattleBrendanTorchic::
 	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_TORCHIC, LilycoveCity_Text_BrendanDefeat
+	setflag FLAG_DEFEATED_RIVAL_LILYCOVE
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 
 LilycoveCity_EventScript_BattleBrendanMudkip::
 	trainerbattle_no_intro TRAINER_BRENDAN_LILYCOVE_MUDKIP, LilycoveCity_Text_BrendanDefeat
+	setflag FLAG_DEFEATED_RIVAL_LILYCOVE
 	goto LilycoveCity_EventScript_DefeatedBrendan
 	end
 
 LilycoveCity_EventScript_DefeatedMay::
 	msgbox LilycoveCity_Text_MayGoingBackToLittleroot, MSGBOX_DEFAULT
 	giveitem ITEM_CHOICE_BAND, 1
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_EventScript_DefeatedRivalBagFull
 	setvar VAR_RESULT, FALSE
 	call_if_set FLAG_BADGE06_GET, LilycoveCity_EventScript_CheckFinalBadge
 	call_if_eq VAR_RESULT, FALSE, LilycoveCity_EventScript_MayCollectBadges
@@ -354,8 +368,10 @@ LilycoveCity_EventScript_MayBattleFrontier::
 	return
 
 LilycoveCity_EventScript_DefeatedBrendan::
+	setflag FLAG_DEFEATED_RIVAL_LILYCOVE
 	msgbox LilycoveCity_Text_BrendanGoingBackToLittleroot, MSGBOX_DEFAULT
 	giveitem ITEM_CHOICE_BAND, 1
+	goto_if_eq VAR_RESULT, FALSE, LilycoveCity_EventScript_DefeatedRivalBagFull
 	setvar VAR_RESULT, FALSE
 	call_if_set FLAG_BADGE06_GET, LilycoveCity_EventScript_CheckFinalBadge
 	call_if_eq VAR_RESULT, FALSE, LilycoveCity_EventScript_BrendanCollectBadges
@@ -391,6 +407,13 @@ LilycoveCity_EventScript_RivalFlyAway::
 	savebgm MUS_DUMMY
 	fadedefaultbgm
 	setflag FLAG_MET_RIVAL_LILYCOVE
+	release
+	end
+
+LilycoveCity_EventScript_DefeatedRivalBagFull::
+	msgbox LilycoveCity_Text_BagFull, MSGBOX_DEFAULT
+	savebgm MUS_DUMMY
+	fadedefaultbgm
 	release
 	end
 
@@ -545,6 +568,11 @@ LilycoveCity_Text_BrendanYouGoingToBattleFrontier:
 	.string "Maybe I should go to the BATTLE\n"
 	.string "FRONTIER.\p"
 	.string "Well, anyway, hang in there!$"
+
+LilycoveCity_Text_BagFull:
+	.string "… … … … … … … … …\p"
+	.string "Actually {PLAYER}{KUN}, come back\n"
+	.string "when you have room in your BAG.$"
 
 LilycoveCity_Text_MovedLootIntoHideoutToday:
 	.string "Fufufu…\p"

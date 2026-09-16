@@ -289,7 +289,8 @@ PlayersHouse_2F_Text_Notebook:
 	.string "A vanilla hack made to streamline and\n"
 	.string "freshen up the experience.\p"
 	.string "Big thanks to the pret team!\p"
-	.string "- daygo\p"
+	.string "If any oddities or bugs occur please\n"
+	.string "contact xdaygo on discord.\p"
 	.string "The remaining pages are blank…$"
 
 Common_Text_LookCloserAtMap:

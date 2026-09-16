@@ -418,8 +418,8 @@ NewMauville_Inside_EventScript_ItemParalyzeHeal::
 	finditem ITEM_PARALYZE_HEAL
 	end
 
-AbandonedShip_Rooms_1F_EventScript_ItemHarborMail::
-	finditem ITEM_HARBOR_MAIL
+AbandonedShip_Rooms_1F_EventScript_ItemWaterStone::
+	finditem ITEM_WATER_STONE
 	end
 
 AbandonedShip_Rooms_B1F_EventScript_ItemEscapeRope::
@@ -450,8 +450,8 @@ AbandonedShip_HiddenFloorRooms_EventScript_ItemScanner::
 	finditem ITEM_SCANNER
 	end
 
-AbandonedShip_HiddenFloorRooms_EventScript_ItemWaterStone::
-	finditem ITEM_WATER_STONE
+AbandonedShip_HiddenFloorRooms_EventScript_ItemNugget::
+	finditem ITEM_NUGGET
 	end
 
 AbandonedShip_HiddenFloorRooms_EventScript_ItemTMRainDance::

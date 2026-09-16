@@ -13,9 +13,6 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_Vendor::
 
 	.align 2
 LilycoveCity_DepartmentStoreRooftop_Pokemart_Vendor:
-	.2byte ITEM_POKE_BALL
-	.2byte ITEM_GREAT_BALL
-	.2byte ITEM_ULTRA_BALL
 	.2byte ITEM_NEST_BALL
 	.2byte ITEM_DIVE_BALL
 	.2byte ITEM_TIMER_BALL		
