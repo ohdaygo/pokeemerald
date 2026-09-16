@@ -15,16 +15,12 @@ MeteorFalls_StevensCave_EventScript_Leaf::
 	goto_if_set FLAG_DEFEATED_METEOR_FALLS_LEAF, MeteorFalls_StevensCave_EventScript_Defeated
 	waitse
 	playse SE_PIN
-	applymovement LOCALID_METEOR_FALLS_LEAF, Common_Movement_ExclamationMark
-	waitmovement 0
-	applymovement LOCALID_METEOR_FALLS_LEAF, Common_Movement_Delay48
-	waitmovement 0
-	applymovement LOCALID_METEOR_FALLS_LEAF, Common_Movement_FacePlayer
-	waitmovement 0
-	msgbox MeteorFalls_StevensCave_Text_DialogueStart, MSGBOX_DEFAULT
-	trainerbattle_no_intro TRAINER_LEAF_SUPERBOSS, MeteorFalls_StevensCave_Text_LeafDefeat
-	msgbox MeteorFalls_StevensCave_Text_DialogueEnd, MSGBOX_DEFAULT
-	setflag FLAG_DEFEATED_METEOR_FALLS_LEAF
+	applywaitmovement LOCALID_METEOR_FALLS_LEAF, Common_Movement_ExclamationMark
+	applywaitmovement LOCALID_METEOR_FALLS_LEAF, Common_Movement_Delay48
+	applywaitmovement LOCALID_METEOR_FALLS_LEAF, Common_Movement_FacePlayer
+	msgbox MeteorFalls_StevensCave_Text_ShouldKnowHowGoodIAmExpectWorst, MSGBOX_DEFAULT
+	trainerbattle_no_intro TRAINER_STEVEN, MeteorFalls_StevensCave_Text_StevenDefeat
+	msgbox MeteorFalls_StevensCave_Text_MyPredictionCameTrue, MSGBOX_DEFAULT
 	giveitem ITEM_OLD_SEA_MAP
 	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
 	fadescreen FADE_TO_BLACK
@@ -34,8 +30,7 @@ MeteorFalls_StevensCave_EventScript_Leaf::
 	end
 
 MeteorFalls_StevensCave_EventScript_Defeated::
-	applymovement LOCALID_METEOR_FALLS_LEAF, Common_Movement_FacePlayer
-	waitmovement 0
+	applywaitmovement LOCALID_METEOR_FALLS_LEAF, Common_Movement_FacePlayer
 	msgbox MeteorFalls_StevensCave_Text_DialogueEnd, MSGBOX_DEFAULT
 	release
 	end
