@@ -50,10 +50,6 @@ MauvilleCity_EventScript_GameCornerSign::
 	msgbox MauvilleCity_Text_GameCornerSign, MSGBOX_SIGN
 	end
 
-MauvilleCity_EventScript_RockSmashSign::
-	msgbox MauvilleCity_Text_RockSmashSign, MSGBOX_SIGN
-	end
-
 MauvilleCity_EventScript_SchoolKidM::
 	lock
 	faceplayer
@@ -120,6 +116,8 @@ MauvilleCity_EventScript_WallyAndUncleExitNorth::
 	applymovement LOCALID_MAUVILLE_WALLYS_UNCLE, MauvilleCity_Movement_WallysUncleApproachPlayerNorth
 	waitmovement 0
 	msgbox MauvilleCity_Text_UncleVisitUsSometime, MSGBOX_DEFAULT
+	giveitem ITEM_HM_ROCK_SMASH
+	setflag FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY
 	closemessage
 	applymovement LOCALID_PLAYER, MauvilleCity_Movement_PlayerWatchWallyExitNorth2
 	applymovement LOCALID_MAUVILLE_WALLYS_UNCLE, MauvilleCity_Movement_WallysUncleExitNorth2
@@ -137,7 +135,8 @@ MauvilleCity_EventScript_WallyAndUncleExitEast::
 	delay 30
 	applywaitmovement LOCALID_MAUVILLE_WALLYS_UNCLE, MauvilleCity_Movement_WallysUncleApproachPlayerEast
 	msgbox MauvilleCity_Text_UncleVisitUsSometime, MSGBOX_DEFAULT
-	closemessage
+	giveitem ITEM_HM_ROCK_SMASH
+	setflag FLAG_HIDE_ROUTE_111_ROCK_SMASH_TIP_GUY
 	applymovement LOCALID_PLAYER, MauvilleCity_Movement_PlayerWatchWallyExitEast2
 	applymovement LOCALID_MAUVILLE_WALLYS_UNCLE, MauvilleCity_Movement_WallysUncleExitEast2
 	applymovement LOCALID_MAUVILLE_WALLY, MauvilleCity_Movement_WallyExitEast2
@@ -527,6 +526,9 @@ MauvilleCity_Text_UncleVisitUsSometime:
 	.string "that you must be the TRAINER who kept\l"
 	.string "an eye out for WALLY when he caught\l"
 	.string "his POKéMON.\p"
+	.string "…Ah, here! Take this.\p"
+	.string "I want you to have it, as a bit of a\n"
+	.string "thank you.\p"
 	.string "Why don't you visit us in VERDANTURF\n"
 	.string "sometime?\l"
 	.string "I'm sure WALLY would enjoy it.$"
@@ -630,9 +632,6 @@ MauvilleCity_Text_BikeShopSign:
 	.string "“Ride in gravel and shake up your\n"
 	.string "soul!”\l"
 	.string "RYDEL'S CYCLES$"
-
-MauvilleCity_Text_RockSmashSign:
-	.string "ROCK SMASH GUY'S HOUSE$"
 
 MauvilleCity_Text_GameCornerSign:
 	.string "“The play spot for all!”\n"

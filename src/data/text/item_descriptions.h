@@ -59,8 +59,8 @@ static const u8 sLuxuryBallDesc[] = _(
 
 static const u8 sPremierBallDesc[] = _(
     "A promo BALL\n"
-    "distributed by\n"
-    "POKéMON MARTS.");
+    "distributed only\n"
+    "by vendors.");
 
 // Medicine
 static const u8 sPotionDesc[] = _(
@@ -826,7 +826,7 @@ static const u8 sDragonScaleDesc[] = _(
 
 static const u8 sLightBallDesc[] = _(
     "A hold item that\n"
-    "raises the SP. ATK\n"
+    "doubles the SP. ATK\n"
     "of PIKACHU.");
 
 static const u8 sSoftSandDesc[] = _(
@@ -935,7 +935,7 @@ static const u8 sMetalPowderDesc[] = _(
 
 static const u8 sThickClubDesc[] = _(
     "A hold item that \n"
-    "raises CUBONE or\n"
+    "doubles CUBONE or\n"
     "MAROWAK's ATTACK.");
 
 static const u8 sStickDesc[] = _(
@@ -1024,8 +1024,8 @@ static const u8 sSootSackDesc[] = _(
     "volcanic ash.");
 
 static const u8 sBasementKeyDesc[] = _(
-    "The key for NEW\n"
-    "MAUVILLE beneath\n"
+    "Opens NEW MAUVILLE\n"
+    "southeast from\n"
     "MAUVILLE CITY.");
 
 static const u8 sAcroBikeDesc[] = _(

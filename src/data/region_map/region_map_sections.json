@@ -885,7 +885,11 @@
     },
     {
       "id": "MAPSEC_KANTO_SAFARI_ZONE",
-      "name": "SAFARI ZONE"
+      "name": "SAFARI ZONE",
+      "x": 16,
+      "y": 2,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_POKEMON_LEAGUE",
@@ -909,7 +913,11 @@
     },
     {
       "id": "MAPSEC_POWER_PLANT",
-      "name": "POWER PLANT"
+      "name": "POWER PLANT",
+      "x": 8,
+      "y": 7,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_ONE_ISLAND",
@@ -1017,7 +1025,11 @@
     },
     {
       "id": "MAPSEC_SEVAULT_CANYON",
-      "name": "SEVAULT CANYON"
+      "name": "GRANITE CAVE",
+      "x": 1,
+      "y": 13,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_TANOBY_RUINS",
@@ -1041,7 +1053,11 @@
     },
     {
       "id": "MAPSEC_MT_EMBER",
-      "name": "MT. EMBER"
+      "name": "SCORCHED SLAB",
+      "x": 13,
+      "y": 0,
+      "width": 1,
+      "height": 1
     },
     {
       "id": "MAPSEC_BERRY_FOREST",

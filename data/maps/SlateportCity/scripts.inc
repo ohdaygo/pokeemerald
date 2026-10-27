@@ -229,20 +229,20 @@ SlateportCity_EventScript_Girl::
 	faceplayer
 	call_if_eq VAR_SLATEPORT_CITY_STATE, 1, SlateportCity_EventScript_GirlSternInterview
 	dotimebasedevents
-	goto_if_set FLAG_HECTOR_POTION, SlateportCity_EventScript_HectorTommorow
-	msgbox SlateportCity_Text_Hector, MSGBOX_DEFAULT
-	goto_if_mon_caught SPECIES_ZUBAT, SlateportCity_EventScript_HectorCaught
+	goto_if_set FLAG_ZUBAT_CARBOS, SlateportCity_EventScript_ZubatTommorow
+	msgbox SlateportCity_Text_Zubat, MSGBOX_DEFAULT
+	goto_if_mon_caught SPECIES_ZUBAT, SlateportCity_EventScript_ZubatCaught
 	playse SE_PC_LOGIN
 	waitse
 	playse SE_DEX_SEARCH
 	waitse
 	playse SE_FAILURE
 	waitse
-	msgbox SlateportCity_Text_Hector1, MSGBOX_DEFAULT
+	msgbox SlateportCity_Text_Zubat1, MSGBOX_DEFAULT
 	release
 	end
 
-SlateportCity_EventScript_HectorCaught::
+SlateportCity_EventScript_ZubatCaught::
 	playse SE_PC_LOGIN
 	waitse
 	playse SE_DEX_SEARCH
@@ -255,16 +255,16 @@ SlateportCity_EventScript_HectorCaught::
 	waitmoncry
 	waitbuttonpress
 	hidemonpic
-	msgbox SlateportCity_Text_Hector2, MSGBOX_DEFAULT
+	msgbox SlateportCity_Text_Zubat2, MSGBOX_DEFAULT
 	giveitem ITEM_CARBOS, 1
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_HECTOR_POTION
-	msgbox SlateportCity_Text_HectorTomorrow, MSGBOX_DEFAULT
+	setflag FLAG_ZUBAT_CARBOS
+	msgbox SlateportCity_Text_ZubatTomorrow, MSGBOX_DEFAULT
 	release
 	end
 
-SlateportCity_EventScript_HectorTommorow::
-	msgbox SlateportCity_Text_HectorTomorrow, MSGBOX_DEFAULT
+SlateportCity_EventScript_ZubatTommorow::
+	msgbox SlateportCity_Text_ZubatTomorrow, MSGBOX_DEFAULT
 	release
 	end
 
@@ -607,11 +607,7 @@ SlateportCity_EventScript_RC::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
-	goto_if_unset FLAG_SYS_GAME_CLEAR, SlateportCity_Mart_EventScript_PokemartBasic
 	goto_if_set FLAG_SYS_GAME_CLEAR, SlateportCity_Mart_EventScript_PokemartExpanded
-	end
-
-SlateportCity_Mart_EventScript_PokemartBasic::
 	pokemart SlateportCity_PokemartRC
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -1105,20 +1101,21 @@ SlateportCity_Text_HowTownIsBornAndGrows:
 	.string "soon starts.\p"
 	.string "That is how a town is born and grows.$"
 
-SlateportCity_Text_Hector:
+SlateportCity_Text_Zubat:
 	.string "Hi there!\p"
-	.string "If you've caught a “HECTOR”, could you\n"
+	.string "If you've caught a ZUBAT, could you\n"
 	.string "show me your POKéDEX? That's my\l"
 	.string "favorite POKéMON!$"
 
-SlateportCity_Text_Hector1:
-	.string "Aww, you've never even caught a “HECTOR”…$"
+SlateportCity_Text_Zubat1:
+	.string "Aww, you've never even caught a ZUBAT…$"
 
-SlateportCity_Text_Hector2:
+SlateportCity_Text_Zubat2:
 	.string "You caught one!\p"
-	.string "Here, have a “HECTOR POTION”!$"
+	.string "Here, this will make your POKéMON fast\n"
+	.string "just like it!$"
 
-SlateportCity_Text_HectorTomorrow:
+SlateportCity_Text_ZubatTomorrow:
 	.string "Come back tomorrow!$"
 
 SlateportCity_Text_GoingToCompeteInBattleTent:
@@ -1390,19 +1387,16 @@ SlateportCity_Text_HarborSign:
 	.string "the ferry S.S. TIDAL.”$"
 
 SlateportCity_Text_NameRatersHouseSign:
-	.string "NAME RATER'S HOUSE\n"
+	.string "NAME RATER\n"
 	.string "“POKéMON nicknames rated.”$"
 
 SlateportCity_Text_ExplainBerries:
 	.string "If a wild POKéMON gets hurt, it heals\n"
 	.string "itself by chewing on BERRIES.\p"
-	.string "Did you know that?\p"
 	.string "Somebody saw that and got the idea\n"
 	.string "of making medicine from BERRIES.\p"
-	.string "Did you know that?\p"
 	.string "To turn BERRIES into medicine,\n"
 	.string "they must be crushed into powder.\p"
-	.string "Did you know that?\p"
 	.string "You seem to have an interest\n"
 	.string "in BERRIES!\p"
 	.string "I've got something good for someone\n"
@@ -1413,7 +1407,6 @@ SlateportCity_Text_ExplainBerryPowder:
 	.string "POKéMON CENTERS for crushing BERRIES.\p"
 	.string "The BERRY CRUSH machines are at\n"
 	.string "the DIRECT CORNER upstairs.\p"
-	.string "Did you know?\p"
 	.string "Could you make BERRY POWDER for\n"
 	.string "me using those machines?\p"
 	.string "I can make you all sorts of medicine\n"
@@ -1448,8 +1441,7 @@ SlateportCity_Text_WhenYouGetMoreBringItToMe:
 SlateportCity_Text_ComeBackToTradeBerryPowder:
 	.string "Come back if you'd like to trade your\n"
 	.string "BERRY POWDER for some medicine.\p"
-	.string "I'm always running a bazaar here.\p"
-	.string "Did you know?$"
+	.string "I'm always running a bazaar here.$"
 
 SlateportCity_Text_YouDroveTeamAquaAway:
 	.string "SCOTT: Huh?\n"

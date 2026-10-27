@@ -628,42 +628,18 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase::
 MauvilleCity_GameCorner_EventScript_EXPShare::
 	lock
 	faceplayer
-	showmoneybox 0, 0
-	msgbox MauvilleCity_GameCorner_Text_EXPShare, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, MauvilleCity_GameCorner_EventScript_EXPShareDecline
-	checkmoney 1997
-	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_Text_EXPShareCantAfford
+	message MauvilleCity_GameCorner_Text_EXPShare
+	waitmessage
+	pokemart MauvilleCity_GameCorner_PokemartSpamton
 	msgbox MauvilleCity_GameCorner_Text_EXPShareBought, MSGBOX_DEFAULT
-	checkitemspace ITEM_EXP_SHARE
-	call_if_eq VAR_RESULT, TRUE, MauvilleCity_GameCorner_EventScript_RemoveMoney
-	giveitem ITEM_EXP_SHARE
-	goto_if_eq VAR_RESULT, FALSE, MauvilleCity_GameCorner_EventScript_BagIsFull
-	hidemoneybox
 	release
 	end
 
-MauvilleCity_GameCorner_EventScript_BagIsFull::
-	msgbox gText_TooBadBagIsFull, MSGBOX_DEFAULT
-	hidemoneybox
-	release
-	end
-
-MauvilleCity_GameCorner_EventScript_RemoveMoney::
-	removemoney 1997
-	updatemoneybox
-	return
-
-MauvilleCity_GameCorner_EventScript_EXPShareDecline::
-	msgbox MauvilleCity_GameCorner_Text_EXPShareDecline MSGBOX_DEFAULT
-	hidemoneybox
-	release
-	end
-
-MauvilleCity_GameCorner_EventScript_EXPShareCantAfford::
-	msgbox MauvilleCity_GameCorner_Text_EXPShareCantAfford MSGBOX_DEFAULT
-	hidemoneybox
-	release
-	end
+	.align 2
+MauvilleCity_GameCorner_PokemartSpamton:
+	.2byte ITEM_EXP_SHARE
+	.2byte ITEM_UP_GRADE
+	pokemartlistend
 
 MauvilleCity_GameCorner_Text_ThisIsMauvilleGameCorner:
 	.string "This is MAUVILLE GAME CORNER.$"
@@ -824,11 +800,4 @@ MauvilleCity_GameCorner_Text_EXPShare:
 	.string "After all, you wanna be a big shot!$"
 
 MauvilleCity_GameCorner_Text_EXPShareBought:
-	.string "Then a deal's a deal! Pleasure doing\n"
-	.string "business with you kid!$"	
-
-MauvilleCity_GameCorner_Text_EXPShareDecline:
-	.string "What? You were so close!$"
-
-MauvilleCity_GameCorner_Text_EXPShareCantAfford:
-	.string "What? You don't have enough cash!$"
+	.string "Pleasure doing business with you kid!$"

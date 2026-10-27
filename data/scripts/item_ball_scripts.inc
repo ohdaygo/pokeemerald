@@ -318,12 +318,12 @@ RustboroCity_EventScript_ItemXDefend::
 	finditem ITEM_X_DEFEND
 	end
 
-LilycoveCity_EventScript_ItemMaxRepel::
-	finditem ITEM_MAX_REPEL
+LilycoveCity_EventScript_ItemBigPearl::
+	finditem ITEM_BIG_PEARL
 	end
 
-MossdeepCity_EventScript_ItemSharpBeak::
-	finditem ITEM_SHARP_BEAK
+MossdeepCity_EventScript_ItemTwistedSpoon::
+	finditem ITEM_TWISTED_SPOON
 	end
 
 PetalburgWoods_EventScript_ItemXAttack::
@@ -358,8 +358,8 @@ GraniteCave_B1F_EventScript_ItemDiveBall::
 	finditem ITEM_DIVE_BALL
 	end
 
-GraniteCave_B2F_EventScript_ItemRepel::
-	finditem ITEM_REPEL
+GraniteCave_B2F_EventScript_ItemTMWaterPulse::
+	finditem ITEM_TM_WATER_PULSE
 	end
 
 GraniteCave_B2F_EventScript_ItemRareCandy::
@@ -566,12 +566,12 @@ SeafloorCavern_Room9_EventScript_ItemTMEarthquake::
 	finditem ITEM_TM_EARTHQUAKE
 	end
 
-Route110_TrickHousePuzzle1_EventScript_ItemOrangeMail::
-	finditem ITEM_ORANGE_MAIL
+Route110_TrickHousePuzzle1_EventScript_ItemHarborMail::
+	finditem ITEM_HARBOR_MAIL
 	end
 
-Route110_TrickHousePuzzle2_EventScript_ItemHarborMail::
-	finditem ITEM_HARBOR_MAIL
+Route110_TrickHousePuzzle2_EventScript_ItemOrangeMail::
+	finditem ITEM_ORANGE_MAIL
 	end
 
 Route110_TrickHousePuzzle2_EventScript_ItemWaveMail::

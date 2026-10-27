@@ -279,6 +279,7 @@ PlayersHouse_2F_Text_Notebook:
 	.string "Big thanks to the pret team!\p"
 	.string "If any oddities or bugs occur please\n"
 	.string "contact xdaygo on discord.\p"
+	.string "{COLOR RED}No AI{COLOR DARK_GRAY} was used in this project.\p"
 	.string "The remaining pages are blank…$"
 
 Common_Text_LookCloserAtMap:

@@ -73,18 +73,14 @@ FallarborTown_MoveRelearnersHouse_Pokemart_BerryShop:
 	pokemartlistend
 
 FallarborTown_MoveRelearnersHouse_Text_ImTheMoveTutor:
-	.string "I'm the MOVE TUTOR.\p"
+	.string "I'm the MOVE RELEARNER.\p"
 	.string "I know all the moves that POKéMON\n"
-	.string "learn--every one of them--and I can\l"
-	.string "teach POKéMON those moves.\p"
-	.string "I can teach a move to a POKéMON\n"
-	.string "of yours if you'd like.\p"
-	.string "I'll do it for a HEART SCALE.\n"
-	.string "I'm collecting those now.$"
+	.string "learn while leveling-up and I can teach\l"
+	.string "POKéMON those moves.\p"
+	.string "I'll do it for a HEART SCALE.$"
 
 FallarborTown_MoveRelearnersHouse_Text_ThatsAHeartScaleWantMeToTeachMove:
-	.string "Oh! That's it! That's an honest to\n"
-	.string "goodness HEART SCALE!\p"
+	.string "Oh! That's a HEART SCALE!\p"
 	.string "Let me guess, you want me to teach\n"
 	.string "a move?$"
 

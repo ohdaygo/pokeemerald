@@ -164,13 +164,14 @@ Route120_EventScript_Steven::
 Route120_EventScript_StevenFightWinona::
 	msgbox Route120_Text_StevenFightWinona, MSGBOX_DEFAULT
 	closemessage
-	applymovement LOCALID_ROUTE120_STEVEN, Common_Movement_FaceOriginalDirection
-	waitmovement 0
+	applywaitmovement LOCALID_ROUTE120_STEVEN, Common_Movement_FaceOriginalDirection
 	release
 	end
 
 Route120_EventScript_StevenNotReady::
 	msgbox Route120_Text_StevenIllWaitHere, MSGBOX_DEFAULT
+	closemessage
+	applywaitmovement LOCALID_ROUTE120_STEVEN, Common_Movement_FaceOriginalDirection
 	setflag FLAG_NOT_READY_FOR_BATTLE_ROUTE_120
 	release
 	end

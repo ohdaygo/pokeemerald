@@ -655,10 +655,21 @@ static void BuildEggMoveset(struct Pokemon *egg, struct BoxPokemon *father, stru
     }
 //Inherit egg moves:
     numEggMoves = GetEggMoves(egg, sHatchedEggEggMoves);
-    
     for (i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (sHatchedEggMotherMoves[i] != MOVE_NONE)
+        if (sHatchedEggFatherMoves[i] != MOVE_NONE)
+        {
+            for (j = 0; j < numEggMoves; j++)
+            {
+                if (sHatchedEggFatherMoves[i] == sHatchedEggEggMoves[j])
+                {
+                    if (GiveMoveToMon(egg, sHatchedEggFatherMoves[i]) == MON_HAS_MAX_MOVES)
+                        DeleteFirstMoveAndGiveMoveToMon(egg, sHatchedEggFatherMoves[i]);
+                    break;
+                }
+            }
+        }
+		if (sHatchedEggMotherMoves[i] != MOVE_NONE)
         {
             for (j = 0; j < numEggMoves; j++)
             {

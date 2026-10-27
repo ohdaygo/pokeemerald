@@ -82,7 +82,7 @@ SootopolisCity_Gym_1F_EventScript_Wallace::
 	trainerbattle_single TRAINER_WALLACE_1, SootopolisCity_Gym_1F_Text_WallaceIntro, SootopolisCity_Gym_1F_Text_WallaceDefeat, SootopolisCity_Gym_1F_EventScript_WallaceDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, SootopolisCity_Gym_1F_EventScript_WallaceRematch
-	goto_if_unset FLAG_RECEIVED_TM_WATER_PULSE, SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2
+	goto_if_unset FLAG_RECEIVED_HM_WATERFALL, SootopolisCity_Gym_1F_EventScript_GiveWaterfall2
 	msgbox SootopolisCity_Gym_1F_Text_WallacePostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -91,7 +91,7 @@ SootopolisCity_Gym_1F_EventScript_WallaceDefeated::
 	message SootopolisCity_Gym_1F_Text_ReceivedRainBadge
 	waitmessage
 	call Common_EventScript_PlayGymBadgeFanfare
-	msgbox SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis, MSGBOX_DEFAULT
+	msgbox SootopolisCity_Gym_1F_Text_TakeThis, MSGBOX_DEFAULT
 	setflag FLAG_DEFEATED_SOOTOPOLIS_GYM
 	setflag FLAG_BADGE08_GET
 	setflag FLAG_HIDE_SOOTOPOLIS_CITY_RESIDENTS
@@ -101,7 +101,7 @@ SootopolisCity_Gym_1F_EventScript_WallaceDefeated::
 	clearflag FLAG_HIDE_SOOTOPOLIS_CITY_MAN_1
 	setvar VAR_0x8008, 8
 	call Common_EventScript_SetGymTrainers
-	call SootopolisCity_Gym_1F_EventScript_GiveWaterPulse
+	call SootopolisCity_Gym_1F_EventScript_GiveWaterfall
 	closemessage
 	delay 30
 	playfanfare MUS_REGISTER_MATCH_CALL
@@ -117,18 +117,18 @@ SootopolisCity_Gym_1F_EventScript_WallaceDefeated::
 	release
 	end
 
-SootopolisCity_Gym_1F_EventScript_GiveWaterPulse::
-	giveitem ITEM_TM_WATER_PULSE
+SootopolisCity_Gym_1F_EventScript_GiveWaterfall::
+	giveitem ITEM_HM_WATERFALL
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_WATER_PULSE
+	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterfall, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_HM_WATERFALL
 	return
 
-SootopolisCity_Gym_1F_EventScript_GiveWaterPulse2::
-	giveitem ITEM_TM_WATER_PULSE
+SootopolisCity_Gym_1F_EventScript_GiveWaterfall2::
+	giveitem ITEM_HM_WATERFALL
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterPulse, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_WATER_PULSE
+	msgbox SootopolisCity_Gym_1F_Text_ExplainWaterfall, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_HM_WATERFALL
 	release
 	end
 
@@ -230,18 +230,16 @@ SootopolisCity_Gym_1F_Text_ReceivedRainBadge:
 	.string "{PLAYER} received the RAIN BADGE\n"
 	.string "from WALLACE.$"
 
-SootopolisCity_Gym_1F_Text_ExplainRainBadgeTakeThis:
-	.string "Having the RAIN BADGE allows the use of\n"
-	.string "the HM move WATERFALL to scale walls of\l"
-	.string "of cascading water.\p"
+SootopolisCity_Gym_1F_Text_TakeThis:
 	.string "And, so that you never forget the\n"
 	.string "battle we shared, take this…$"
 
-SootopolisCity_Gym_1F_Text_ExplainWaterPulse:
-	.string "The TECHNICAL MACHINE I handed you\n"
-	.string "contains WATER PULSE.\p"
-	.string "In use, it will occasionally confuse\n"
-	.string "the target with ultrasonic waves.\p"
+SootopolisCity_Gym_1F_Text_ExplainWaterfall:
+	.string "The HM I have given you contains\n"
+	.string "WATERFALL.\p"
+	.string "Now, with the power of the RAIN BADGE,\n"
+	.string "you will become able to scale walls of\l"
+	.string "cascading water.\p"
 	.string "… … … … … …$"
 
 SootopolisCity_Gym_1F_Text_RegisteredWallace:

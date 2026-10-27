@@ -53,7 +53,15 @@ MossdeepCity_EventScript_Woman::
 	end
 
 MossdeepCity_EventScript_WhiteRock::
+	goto_if_set FLAG_SYS_GAME_CLEAR, MossdeepCity_EventScript_Jirachi
 	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
+	end
+
+MossdeepCity_EventScript_Jirachi::
+	waitse
+	playmoncry SPECIES_JIRACHI, CRY_MODE_NORMAL
+	msgbox MossdeepCity_Text_ItsAWhiteRock, MSGBOX_SIGN
+	waitmoncry
 	end
 
 MossdeepCity_EventScript_GymSign::
