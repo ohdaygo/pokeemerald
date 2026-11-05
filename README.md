@@ -96,37 +96,39 @@ https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page
 - Traded Pokémon do not disobey, or gain extra EXP
 https://github.com/pret/pokeemerald/wiki/Get-Rid-of-Pokemon-Disobeying-You
 
-- FRLG White-Out money calculation (NOT DONE)
+- FRLG White-Out money calculation
 https://github.com/pret/pokeemerald/wiki/Better-White-Out-Money-Calculation
 
-- Check Party for Mon Macro (NOT DONE)
+- Check Party for Mon Macro (Lunos' Custom Special)
 https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-9#post-10213715
 
-- Remove the need to water berries on rainy Routes (NOT DONE)
-https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-13#post-10349397
+- Shiny Creation With A Flag
+https://github.com/pret/pokeemerald/wiki/Shiny-Creation-With-a-Flag
 
-- IV Checker NPC (NOT DONE)
-https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-4#post-10160888
+- Swap party screen slots using Select
+https://www.pokecommunity.com/threads/simple-modifications-directory.416647/page-16#post-10420662
 
 - Uncommented BUGFIX in config.h
 
-Misc:
+Custom:
 
-- Learnsets modified: added TM, tutor moves, and adjusted levels to feel better, e.g. (All changes made with legality in mind)
+- Learnsets modified: added TM, tutor moves, Pokémon now learn their entire learnset as early/low as possible (All changes made with legality in mind)
 
-- Small cosmetic newgame changes
+- Hoenndex completable (All legal as well)
 
-- Misc. small cosmetic changes to towns and routes, along with misc. new events, vendor changes/additions
+- Small dialogue changes
+
+- Misc. small cosmetic changes to towns and routes, along with misc. new events
+
+- Various new vendors, some with updated inventories after story progression
 
 - Tutorials removed/shortened
 
-- Pokedex Completable (All legal thanks to Met Location Overrides)
-
-- Due to Gen 6 EXP. Share, bosses and trainers are adjusted accordingly (Slightly more challenging/higher levels)
+- Due to Gen 6 style EXP. Share, bosses and trainers are adjusted accordingly (Slightly more challenging/higher levels)
 
 - Gym Leader rematches now happen after 10 Wild Pokémon and 3 Trainers, down from 60 Pokémon and 20 Trainers
 
-- Removed Vitamin Cap
+- Removed Vitamin Cap (Not really, its just 252 now)
 
 - Various Ball effects changed
 
