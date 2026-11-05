@@ -191,7 +191,7 @@
 #define FLAG_RECEIVED_TM_FACADE              0xA9
 #define FLAG_RECEIVED_TM_AERIAL_ACE          0xAA
 #define FLAG_RECEIVED_TM_CALM_MIND           0xAB
-#define FLAG_RECEIVED_HM_WATERFALL           0xAC // FLAG_RECEIVED_TM_WATER_PULSE
+#define FLAG_RECEIVED_HM_WATERFALL           0xAC // Was FLAG_RECEIVED_TM_WATER_PULSE
 #define FLAG_HIDE_SECRET_BASE_TRAINER        0xAD
 #define FLAG_DECORATION_1                    0xAE
 #define FLAG_DECORATION_2                    0xAF
@@ -335,7 +335,7 @@
 #define FLAG_MET_MAXIE_SOOTOPOLIS            0x135
 #define FLAG_MET_SCOTT_RUSTBORO              0x136
 #define FLAG_WALLACE_GOES_TO_SKY_PILLAR      0x137 // Set after speaking to Wallace within the Cave of Origin.
-#define FLAG_WALLACE_BEFORE_ENTERING_GYM     0x138 // Was FLAG_RECEIVED_HM_WATERFALL
+#define FLAG_FLAG_UNUSED_0x138               0x138 // Was FLAG_RECEIVED_HM_WATERFALL
 #define FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS    0x139
 #define FLAG_RECEIVED_AURORA_TICKET          0x13A
 #define FLAG_RECEIVED_MYSTIC_TICKET          0x13B

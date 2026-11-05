@@ -1247,7 +1247,6 @@ SootopolisCity_EventScript_Wallace::
 	lock
 	faceplayer
 	goto_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_GoToSkyPillar
-	goto_if_set FLAG_WALLACE_BEFORE_ENTERING_GYM, SootopolisCity_EventScript_GoToGym
 	goto_if_set FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE, SootopolisCity_EventScript_ThankYouForHelp
 	msgbox SootopolisCity_Text_AquaMagmaDidntMeanHarm, MSGBOX_DEFAULT
 	release
@@ -1255,7 +1254,6 @@ SootopolisCity_EventScript_Wallace::
 
 SootopolisCity_EventScript_ThankYouForHelp::
 	msgbox SootopolisCity_Text_ThankYouForHelpGoToGym, MSGBOX_DEFAULT
-	setflag FLAG_WALLACE_BEFORE_ENTERING_GYM
 	closemessage
 	applymovement LOCALID_SOOTOPOLIS_WALLACE, SootopolisCity_Movement_WallaceFaceUp
 	opendoor 31, 32
@@ -1271,11 +1269,6 @@ SootopolisCity_EventScript_ThankYouForHelp::
 
 SootopolisCity_EventScript_GoToSkyPillar::
 	msgbox SootopolisCity_Text_HaventYouScaledSkyPillar, MSGBOX_DEFAULT
-	release
-	end
-
-SootopolisCity_EventScript_GoToGym::
-	msgbox SootopolisCity_Text_DazzledByMentor, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1658,12 +1651,6 @@ SootopolisCity_Text_ThankYouForHelpGoToGym:
 	.string "On behalf of the people, I thank you.\p"
 	.string "{PLAYER}{KUN}, I look forward to what\n"
 	.string "comes next!$"
-
-@ Pretty sure I can get rid of this
-SootopolisCity_Text_DazzledByMentor:
-	.string "WALLACE: I'm sure that you will be\n"
-	.string "dazzled by my breathtakingly elegant\l"
-	.string "battle style.$"
 
 @ WIP
 SootopolisCity_Text_StevenCall:
