@@ -327,30 +327,6 @@ Route110_TrickHouseEntrance_EventScript_GiveReward::
 	end
 
 Route110_TrickHouseEntrance_EventScript_GivePuzzle1Reward::
-	giveitem ITEM_RARE_CANDY
-	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
-	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Route110_TrickHouseEntrance_EventScript_GivePuzzle2Reward::
-	giveitem ITEM_TIMER_BALL
-	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
-	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Route110_TrickHouseEntrance_EventScript_GivePuzzle3Reward::
-	giveitem ITEM_HARD_STONE
-	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
-	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
-	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
-	releaseall
-	end
-
-Route110_TrickHouseEntrance_EventScript_GivePuzzle4Reward::
 	giveitem ITEM_SMOKE_BALL
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
@@ -358,7 +334,7 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle4Reward::
 	releaseall
 	end
 
-Route110_TrickHouseEntrance_EventScript_GivePuzzle5Reward::
+Route110_TrickHouseEntrance_EventScript_GivePuzzle2Reward::
 	giveitem ITEM_TM_TAUNT
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
@@ -366,8 +342,32 @@ Route110_TrickHouseEntrance_EventScript_GivePuzzle5Reward::
 	releaseall
 	end
 
-Route110_TrickHouseEntrance_EventScript_GivePuzzle6Reward::
+Route110_TrickHouseEntrance_EventScript_GivePuzzle3Reward::
+	giveitem ITEM_BLACK_BELT
+	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
+	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Route110_TrickHouseEntrance_EventScript_GivePuzzle4Reward::
 	giveitem ITEM_MAGNET
+	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
+	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Route110_TrickHouseEntrance_EventScript_GivePuzzle5Reward::
+	giveitem ITEM_SILVER_POWDER
+	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
+	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
+	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT
+	releaseall
+	end
+
+Route110_TrickHouseEntrance_EventScript_GivePuzzle6Reward::
+	giveitem ITEM_SHARP_BEAK
 	goto_if_eq VAR_RESULT, TRUE, Route110_TrickHouseEntrance_EventScript_GotReward
 	call_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox Route110_TrickHouseEntrance_Text_DidYouNotComeToClaimReward, MSGBOX_DEFAULT

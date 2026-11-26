@@ -9774,28 +9774,35 @@ static const struct TrainerMonItemCustomMoves sParty_Daygo[] = {
     .lvl = 60,
     .species = SPECIES_PELIPPER,
     .heldItem = ITEM_MYSTIC_WATER,
-    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_SHOCK_WAVE, MOVE_NONE}
+    .moves = {MOVE_SURF, MOVE_ICE_BEAM, MOVE_SHOCK_WAVE, MOVE_RAIN_DANCE}
     },
     {
     .iv = 255,
     .lvl = 60,
     .species = SPECIES_MINUN,
-    .heldItem = ITEM_LEFTOVERS,
-    .moves = {MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE, MOVE_CHARM, MOVE_ENCORE}
+    .heldItem = ITEM_MAGNET,
+    .moves = {MOVE_THUNDER, MOVE_THUNDERBOLT, MOVE_THUNDER_WAVE, MOVE_RAIN_DANCE}
     },
     {
     .iv = 255,
     .lvl = 60,
     .species = SPECIES_EXPLOUD,
     .heldItem = ITEM_WHITE_HERB,
-    .moves = {MOVE_OVERHEAT, MOVE_THUNDER_PUNCH, MOVE_ICE_PUNCH, MOVE_HYPER_VOICE}
+    .moves = {MOVE_OVERHEAT, MOVE_THUNDER_PUNCH, MOVE_ICE_BEAM, MOVE_HYPER_VOICE}
     },
     {
     .iv = 255,
     .lvl = 60,
     .species = SPECIES_GRUMPIG,
-    .heldItem = ITEM_KINGS_ROCK,
-    .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_CALM_MIND, MOVE_EXTRASENSORY}
+    .heldItem = ITEM_LEFTOVERS,
+    .moves = {MOVE_REST, MOVE_SLEEP_TALK, MOVE_CALM_MIND, MOVE_PSYCHIC}
+    },
+    {
+    .iv = 255,
+    .lvl = 60,
+    .species = SPECIES_HUNTAIL,
+    .heldItem = ITEM_LEPPA_BERRY,
+    .moves = {MOVE_HYDRO_PUMP, MOVE_ICE_BEAM, MOVE_CRUNCH, MOVE_RAIN_DANCE}
     }
 };
 
